@@ -19,6 +19,7 @@ class CreateProducts extends Migration
             $table->string("product_description");
             $table->integer("product_price");
             $table->string("product_photo");
+            $table->primary('id');
             $table->integer('category_id')->unsigned();
             $table->foreign('category_id')->references('id')->on('categories');
         });
