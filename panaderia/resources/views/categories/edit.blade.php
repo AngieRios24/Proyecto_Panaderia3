@@ -23,8 +23,9 @@
 <br>
 <div class="container">
     <div class="justify-content-center">
-         <form action="/categories" method="POST" >
+        <form action="/categories/{{$category->id}}" method="POST" >
          @csrf
+         @method('PUT')
          <div class="form-group row">
                  <label for="inputName" class="col-sm-3 col text-center"><h5>Id Categoria:</h5></label>
                  <div class="col-sm-9">

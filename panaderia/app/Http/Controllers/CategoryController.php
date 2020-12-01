@@ -79,7 +79,7 @@ class CategoryController extends Controller
     public function update(Request $request, $id)
     {
         $category= new Category();
-        $category->id=$request->$id;
+        $category->id=$request->get('id');
         $category->name=$request->get('categoria');;
 
         DB::select("SELECT UpdateCategories('$category->id','$category->name')");
@@ -94,7 +94,8 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        DB::select("select deletecustomers('$id')");
+        DB::select("select DeleteCategories('$id')");
         return back();
     }
 }
+

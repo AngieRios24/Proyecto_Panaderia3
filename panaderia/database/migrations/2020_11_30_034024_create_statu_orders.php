@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateStatusOrder extends Migration
+class CreateStatuOrders extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateStatusOrder extends Migration
      */
     public function up()
     {
-        Schema::create('status_order', function (Blueprint $table) {
+        Schema::create('statu_orders', function (Blueprint $table) {
             $table->integer('order_id')->unsigned();
             $table->integer('status_id')->unsigned();
             $table->foreign('order_id')->references('id')->on('orders');
@@ -30,6 +30,9 @@ class CreateStatusOrder extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('status_order');
+        Schema::dropIfExists('statu_orders',function (Blueprint $table){
+            $table->dropColumn('order_id');
+            $table->dropColumn('status_id');
+        });
     }
 }

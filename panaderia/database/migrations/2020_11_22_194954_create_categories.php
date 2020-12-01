@@ -14,8 +14,9 @@ class CreateCategories extends Migration
     public function up()
     {
         Schema::create('categories', function (Blueprint $table) {
-            $table->id();
+            $table->integer("id");
             $table->string("name");
+            $table->primary('id');
         });
     }
 
@@ -26,6 +27,9 @@ class CreateCategories extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('categories');
+        Schema::dropIfExists('categories', function (Blueprint $table){
+            $table->dropColumn('id');
+            $table->dropColumn('name');
+        });
     }
 }

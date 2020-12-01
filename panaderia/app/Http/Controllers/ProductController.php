@@ -18,7 +18,8 @@ class ProductController extends Controller
     public function index()
     {
         return view('product.index',[
-            'product' =>DB::select("SELECT * FROM  ListarProducts()")
+            'product' =>DB::select("SELECT * FROM  ListarProducts()"),
+            'categories'=>Category::all()
         ]);
     }
 
@@ -95,7 +96,17 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $product= new Product();
+        $product->id=$request->get('id');
+        $product->product_name=$request->get('nombre');
+        $product->product_description=$request->get('descripcion');
+        $product->product_price=$request->get('precio');
+        $product->product_photo = $request->get('productImag');
+        $product->category_id=$request->get('categoria_id');
+
+        DB::select("SELECT UpdateProducts('$product->id','$product->product_name', '$product->product_description',
+        '$product->product_price', '$product->product_photo', '$product->category_id')");
+        return redirect("/products");
     }
 
     /**
@@ -106,7 +117,7 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
-        DB::select("select DeleteProdcuts('$id')");
+        DB::select("select DeleteProducts('$id')");
         return back();
     }
 }

@@ -14,8 +14,9 @@ class CreateWayToPay extends Migration
     public function up()
     {
         Schema::create('way_to_pay', function (Blueprint $table) {
-            $table->id();
-            $table->string('way_name');
+            $table->integer("id");
+            $table->string("way_name");
+            $table->primary('id');
         });
     }
 
@@ -26,6 +27,9 @@ class CreateWayToPay extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('way_to_pay');
+        Schema::dropIfExists('way_to_pay', function (Blueprint $table){
+            $table->dropColumn('id');
+            $table->dropColumn('way_name');
+        });
     }
 }

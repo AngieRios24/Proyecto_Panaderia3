@@ -14,8 +14,9 @@ class CreateStatus extends Migration
     public function up()
     {
         Schema::create('status', function (Blueprint $table) {
-            $table->id();
-            $table->string('status_name');
+            $table->integer("id");
+            $table->string("status_name");
+            $table->primary('id');
         });
     }
 
@@ -26,6 +27,9 @@ class CreateStatus extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('status');
+        Schema::dropIfExists('status', function (Blueprint $table){
+            $table->dropColumn('id');
+            $table->dropColumn('status_name');
+        });
     }
 }

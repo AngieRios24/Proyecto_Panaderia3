@@ -27,7 +27,7 @@
              <div class="form-group row">
                  <label for="inputName" class="col-sm-2 col"><h5>Id  Producto:</h5></label>
                  <div class="col-sm-4">
-                     <input type="text" class="form-control" id="id_producto" name="id_producto"
+                     <input type="text" class="form-control" id="id" name="id"
                      value="{{$product->id}}"/>
                  </div>
                  <label for="inputName" class="col-sm-2 col"><h5>Nombre Producto:</h5></label>
@@ -39,6 +39,7 @@
              <div class="row">
 
 </div>
+             <br>
              <br>
              <div class="form-group row">
                  <label for="inputName" class="col-sm-2 col"><h5>Categoria Producto:</h5></label>

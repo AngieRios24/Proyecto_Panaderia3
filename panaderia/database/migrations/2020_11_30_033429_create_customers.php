@@ -21,7 +21,7 @@ class CreateCustomers extends Migration
             $table->string("customer_mail");
             $table->integer('typedocument_id')->unsigned();
             $table->primary('customer_document');
-            $table->foreign('typedocument_id')->references('id')->on('type_document');
+            $table->foreign('typedocument_id')->references('id')->on('type_documents');
         });
     }
 
@@ -32,6 +32,13 @@ class CreateCustomers extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('customers');
+        Schema::dropIfExists('customers', function (Blueprint $table){
+            $table->dropColumn('customer_document');
+            $table->dropColumn('customer_name');
+            $table->dropColumn('customer_lastname');
+            $table->dropColumn('customer_phone');
+            $table->dropColumn('customer_mail');
+            $table->dropColumn('typedocument_id');
+        });
     }
 }

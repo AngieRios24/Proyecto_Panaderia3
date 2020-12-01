@@ -13,7 +13,7 @@
 </div>
 <div class="row">
     <div class="col-lg-12 col-md-4 col-sm-6 col-xs-12 text-center">
-        <h4>Gestionar Productos</h4>
+        <h4>Gestionar Vendedores</h4>
     </div>
 </div>
 <div class="row">
@@ -28,7 +28,7 @@
         </form>
     </div>
     <div class="col-lg-7 col-md-4 col-sm-6 col-xs-12 text-right">
-        <a href="/products/create" class="btn btn-success">Agregar Producto</a>
+        <a href="/vendors/create" class="btn btn-success">Agregar vendedor</a>
         <a href="index" class="btn btn-secondary">Regresar</a>
     </div>
 </div>
@@ -37,39 +37,41 @@
         <div class="col-lg-10 text-center">
             <table class="table table-bordered table-striped">
                 <thead>
-                    <th class="border px-4 py-2">id</th>
-                    <th class="border px-4 py-2">Nombre</th>
-                    <th class="border px-4 py-">Descripción</th>
-                    <th class="border px-4 py-">Precio</td>
-                    <th class="border px-4 py-">Foto</td>
-                    <th class="border px-4 py-2">Categoria</th>
+                <th class="border px-4 py-2">Tipo Documento</th>
+                    <th class="border px-4 py-2">Número de Documento</th>
+                    <th class="border px-4 py-">Nombre</th>
+                    <th class="border px-4 py-">Apellido</td>
+                    <th class="border px-4 py-">Telefono</td>
+                    <th class="border px-4 py-2">Correo</th>
+                    <th class="border px-4 py-2">Contraseña</th>
                     <th class="border px-4 py-">Editar</th>
                     <th class="border px-4 py-">Eliminar</th>
                 </thead>
                 <tbody>
 
-                @foreach ($product as $product)
-                @foreach ($categories as $category)
-                        <tr>
-                        <td class="border px-4 py-2">{{$category->name}}</td>
-                            <td class="border px-4 py-2">{{$product->product_name}}</td>
-                            <td class="border px-4 py-2">{{$product->product_description}}</td>
-                            <td class="border px-4 py-2">{{$product->product_price}}</td>
-                            <td class="border px-4 py-2">{{$product->product_photo}}</td>
-                            <td class="border px-4 py-2">{{$product->category_id}}</td>
+                @foreach ($vendor as $vendor)
+                    @foreach ($type_document as $typedocument)
 
+                        <tr>
+                        <td class="border px-4 py-2">{{$typedocument->name}}</td>
+                            <td class="border px-4 py-2">{{$vendor->vendor_document}}</td>
+                            <td class="border px-4 py-2">{{$vendor->vendor_name}}</td>
+                            <td class="border px-4 py-2">{{$vendor->vendor_lastname}}</td>
+                            <td class="border px-4 py-2">{{$vendor->vendor_phone}}</td>
+                            <td class="border px-4 py-2">{{$vendor->vendor_mail}}</td>
+                            <td class="border px-4 py-2">{{$vendor->vendor_password}}</td>
                             <td class="border px-4 py-2">
                                 <a class=" btn btn-warning border-green-500 hover:border-transparent rounded"
-                                 href="/products/{{$product->id}}/edit">Editar</a>
+                                 href="/vendors/{{$vendor->vendor_document}}/edit">Editar</a>
                             </td>
                              <td>
-                             <form action="{{route('products.destroy', $product->id)}}" method="POST">
+                             <form action="{{route('vendors.destroy', $vendor->vendor_document)}}" method="POST">
                                      @csrf
                                      @method('DELETE')
                                     <button
                                          type="submit"
                                         class="btn btn-danger"
-                                         onclick="return confirm('¿Realmente desea borrar este producto?')"
+                                         onclick="return confirm('¿Realmente desea borrar este vendedor?')"
                                     >Eliminar</button>
                                 </form>
                              </td>
@@ -87,4 +89,3 @@
 
 @endsection
 </body>
-

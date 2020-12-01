@@ -36,8 +36,6 @@
                  </div>
 
              </div>
-             <br>
-             <br>
              <div class="form-group row">
              <label for="inputName" class="col-sm-2 col"><h5>Descripcion Producto:</h5></label>
                  <div class="col-sm-4">
@@ -52,6 +50,9 @@
                          @endforeach
                     </select>
                 </div>
+                <br>
+                <br>
+                <br>
                  <label for="inputName" class="col-sm-2 col"><h5>Precio Producto:</h5></label>
                  <div class="col-sm-4">
                      <input type="number" class="form-control" id="precio" name="precio" />

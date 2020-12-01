@@ -55,7 +55,15 @@
                                  href="/categories/{{$category->id}}/edit">Editar</a>
                             </td>
                                 <td>
-
+                                <form action="{{route('categories.destroy', $category->id)}}" method="POST">
+                                     @csrf
+                                     @method('DELETE')
+                                    <button
+                                         type="submit"
+                                        class="btn btn-outline-danger"
+                                         onclick="return confirm('¿Realmente desea borrar la categoria?')"
+                                    >Eliminar</button>
+                                </form>
                                 </td>
 
                         </tr>
