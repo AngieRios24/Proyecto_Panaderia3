@@ -1,4 +1,4 @@
-@extends("layouts.base")
+@extends("layouts.app")
 @section("content")
 <div  class=" row p-3 mb-2 bg-secondary">
     <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">

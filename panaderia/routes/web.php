@@ -27,3 +27,7 @@ Route::resource('products', 'App\Http\Controllers\ProductController'::class);
 Route::resource('categories', 'App\Http\Controllers\CategoryController'::class);
 Route::resource('vendors', 'App\Http\Controllers\VendorsController'::class);
 Route::resource('domiciliary', 'App\Http\Controllers\DomiciliaryController'::class);
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
