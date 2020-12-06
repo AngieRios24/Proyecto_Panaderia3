@@ -166,6 +166,7 @@ class ComposerStaticInita4708ac56a3aefff2e665861af07a532
         'C' => 
         array (
             'Cron\\' => 5,
+            'CodemanCompany\\LaravelMercadoPago\\' => 34,
             'Carbon\\' => 7,
         ),
         'B' => 
@@ -483,6 +484,10 @@ class ComposerStaticInita4708ac56a3aefff2e665861af07a532
         array (
             0 => __DIR__ . '/..' . '/dragonmantank/cron-expression/src/Cron',
         ),
+        'CodemanCompany\\LaravelMercadoPago\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/codemancompany/laravel-mercadopago/src',
+        ),
         'Carbon\\' => 
         array (
             0 => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon',
@@ -515,9 +520,16 @@ class ComposerStaticInita4708ac56a3aefff2e665861af07a532
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
         'App\\Http\\Controllers\\AdminController' => __DIR__ . '/../..' . '/app/Http/Controllers/AdminController.php',
+        'App\\Http\\Controllers\\Auth\\ConfirmPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ConfirmPasswordController.php',
+        'App\\Http\\Controllers\\Auth\\ForgotPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ForgotPasswordController.php',
+        'App\\Http\\Controllers\\Auth\\LoginController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/LoginController.php',
+        'App\\Http\\Controllers\\Auth\\RegisterController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/RegisterController.php',
+        'App\\Http\\Controllers\\Auth\\ResetPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ResetPasswordController.php',
+        'App\\Http\\Controllers\\Auth\\VerificationController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/VerificationController.php',
         'App\\Http\\Controllers\\CategoryController' => __DIR__ . '/../..' . '/app/Http/Controllers/CategoryController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
         'App\\Http\\Controllers\\DomiciliaryController' => __DIR__ . '/../..' . '/app/Http/Controllers/DomiciliaryController.php',
+        'App\\Http\\Controllers\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/HomeController.php',
         'App\\Http\\Controllers\\ProductController' => __DIR__ . '/../..' . '/app/Http/Controllers/ProductController.php',
         'App\\Http\\Controllers\\VendorsController' => __DIR__ . '/../..' . '/app/Http/Controllers/VendorsController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
@@ -635,6 +647,11 @@ class ComposerStaticInita4708ac56a3aefff2e665861af07a532
         'Carbon\\Traits\\Units' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/Traits/Units.php',
         'Carbon\\Traits\\Week' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/Traits/Week.php',
         'Carbon\\Translator' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/Translator.php',
+        'CodemanCompany\\LaravelMercadoPago\\Facades\\MP' => __DIR__ . '/..' . '/codemancompany/laravel-mercadopago/src/Facades/MP.php',
+        'CodemanCompany\\LaravelMercadoPago\\MP' => __DIR__ . '/..' . '/codemancompany/laravel-mercadopago/src/MP.php',
+        'CodemanCompany\\LaravelMercadoPago\\MPRestClient' => __DIR__ . '/..' . '/codemancompany/laravel-mercadopago/src/MP.php',
+        'CodemanCompany\\LaravelMercadoPago\\MercadoPagoException' => __DIR__ . '/..' . '/codemancompany/laravel-mercadopago/src/MP.php',
+        'CodemanCompany\\LaravelMercadoPago\\Providers\\MercadoPagoServiceProvider' => __DIR__ . '/..' . '/codemancompany/laravel-mercadopago/src/Providers/MercadoPagoServiceProvider.php',
         'Cron\\AbstractField' => __DIR__ . '/..' . '/dragonmantank/cron-expression/src/Cron/AbstractField.php',
         'Cron\\CronExpression' => __DIR__ . '/..' . '/dragonmantank/cron-expression/src/Cron/CronExpression.php',
         'Cron\\DayOfMonthField' => __DIR__ . '/..' . '/dragonmantank/cron-expression/src/Cron/DayOfMonthField.php',
