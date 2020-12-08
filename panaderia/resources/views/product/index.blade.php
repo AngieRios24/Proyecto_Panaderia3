@@ -48,15 +48,15 @@
                 </thead>
                 <tbody>
 
+
                 @foreach ($product as $product)
-                @foreach ($categories as $category)
                         <tr>
-                        <td class="border px-4 py-2">{{$category->name}}</td>
+                        <td class="border px-4 py-2">{{$product->id}}</td>
                             <td class="border px-4 py-2">{{$product->product_name}}</td>
                             <td class="border px-4 py-2">{{$product->product_description}}</td>
                             <td class="border px-4 py-2">{{$product->product_price}}</td>
                             <td class="border px-4 py-2">{{$product->product_photo}}</td>
-                            <td class="border px-4 py-2">{{$product->category_id}}</td>
+                            <td class="border px-4 py-2">{{$product->category_name}}</td>
 
                             <td class="border px-4 py-2">
                                 <a class=" btn btn-warning border-green-500 hover:border-transparent rounded"
@@ -75,7 +75,7 @@
                              </td>
 
                         </tr>
-                        @endforeach
+
                     @endforeach
 
                 </tbody>

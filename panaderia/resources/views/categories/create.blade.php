@@ -17,7 +17,7 @@
 <br>
 <div class="row">
     <div class="col-lg-11 col-md-4 col-sm-6 col-xs-12 text-right">
-        <a href="/products" class="btn btn-secondary">Regresar</a>
+        <a href="/categories" class="btn btn-secondary">Regresar</a>
     </div>
 </div>
 <br>

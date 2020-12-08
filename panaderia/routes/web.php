@@ -6,6 +6,9 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\VendorsController;
 use App\Http\Controllers\DomiciliaryController;
+use App\Http\Controllers\VistaController;
+use App\Http\Controllers\CarritoController;
+use App\Http\Controllers\VendorController;
 use App\Models\Product;
 /*
 |--------------------------------------------------------------------------
@@ -27,3 +30,6 @@ Route::resource('products', 'App\Http\Controllers\ProductController'::class);
 Route::resource('categories', 'App\Http\Controllers\CategoryController'::class);
 Route::resource('vendors', 'App\Http\Controllers\VendorsController'::class);
 Route::resource('domiciliary', 'App\Http\Controllers\DomiciliaryController'::class);
+Route::resource('productos', 'App\Http\Controllers\VistaController'::class);
+Route::get('/carrito',[\App\Http\Controllers\CarritoController::class,'index'])->name('carrito');
+Route::get('/ventas',[\App\Http\Controllers\VendorController::class,'index'])->name('Vendedor');
