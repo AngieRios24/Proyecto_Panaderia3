@@ -21,9 +21,13 @@ use App\Models\Product;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/dueno',[\App\Http\Controllers\AdminController::class,'index'])->name('dueno')->middleware('auth');
+Route::get('/',[\App\Http\Controllers\AdminController::class,'index'])->name('administrador')->middleware('auth');
+Route::resource('products', 'App\Http\Controllers\ProductController'::class)->middleware('auth');
+Route::resource('categories', 'App\Http\Controllers\CategoryController'::class)->middleware('auth');
+Route::resource('vendors', 'App\Http\Controllers\VendorsController'::class)->middleware('auth');
+Route::resource('domiciliary', 'App\Http\Controllers\DomiciliaryController'::class)->middleware('auth');
 
-Route::get('/index',[\App\Http\Controllers\AdminController::class,'index'])->name('principal');
-Route::resource('products', 'App\Http\Controllers\ProductController'::class);
-Route::resource('categories', 'App\Http\Controllers\CategoryController'::class);
-Route::resource('vendors', 'App\Http\Controllers\VendorsController'::class);
-Route::resource('domiciliary', 'App\Http\Controllers\DomiciliaryController'::class);
+Auth::routes();
+
