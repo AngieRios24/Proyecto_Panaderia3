@@ -1,10 +1,10 @@
-@extends("layouts.base")
+@extends("layouts.app")
 
 @section("content")
 
 <div  class=" row p-3 mb-2 bg-secondary">
     <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-        <img src="" alt="">
+    <img src="/images/logo.png" width="120" height="120">
     </div>
     <div class="col-lg-6 col-md-4 col-sm-6 col-xs-12 text-center">
         <h2>Sistema de Gestión Panaderia la

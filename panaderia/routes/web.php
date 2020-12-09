@@ -6,8 +6,6 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\VendorsController;
 use App\Http\Controllers\DomiciliaryController;
-use App\Http\Controllers\VistaController;
-use App\Http\Controllers\CarritoController;
 use App\Http\Controllers\VendorController;
 use App\Models\Product;
 /*
@@ -24,12 +22,13 @@ use App\Models\Product;
 Route::get('/', function () {
     return view('welcome');
 });
-
-Route::get('/index',[\App\Http\Controllers\AdminController::class,'index'])->name('principal');
-Route::resource('products', 'App\Http\Controllers\ProductController'::class);
-Route::resource('categories', 'App\Http\Controllers\CategoryController'::class);
-Route::resource('vendors', 'App\Http\Controllers\VendorsController'::class);
-Route::resource('domiciliary', 'App\Http\Controllers\DomiciliaryController'::class);
-Route::resource('productos', 'App\Http\Controllers\VistaController'::class);
-Route::get('/carrito',[\App\Http\Controllers\CarritoController::class,'index'])->name('carrito');
-Route::get('/ventas',[\App\Http\Controllers\VendorController::class,'index'])->name('Vendedor');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/dueno',[\App\Http\Controllers\AdminController::class,'index'])->name('dueno')->middleware('auth');
+Route::get('/',[\App\Http\Controllers\AdminController::class,'index'])->name('administrador')->middleware('auth');
+Route::resource('products', 'App\Http\Controllers\ProductController'::class)->middleware('auth');
+Route::resource('categories', 'App\Http\Controllers\CategoryController'::class)->middleware('auth');
+Route::resource('vendors', 'App\Http\Controllers\VendorsController'::class)->middleware('auth');
+Route::resource('domiciliary', 'App\Http\Controllers\DomiciliaryController'::class)->middleware('auth');
+Route::resource('/productos', 'App\Http\Controllers\VistaController'::class)->middleware('auth');
+Route::get('vendedor',[\App\Http\Controllers\VendorController::class,'index'])->name('vendedor')->middleware('auth');
+Auth::routes();

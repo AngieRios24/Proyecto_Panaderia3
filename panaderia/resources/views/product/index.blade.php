@@ -1,10 +1,10 @@
-@extends("layouts.base")
+@extends("layouts.app")
 
 @section("content")
 
 <div  class=" row p-3 mb-2 bg-secondary">
     <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-        <img src="" alt="">
+    <img src="/images/logo.png" width="120" height="120">
     </div>
     <div class="col-lg-6 col-md-4 col-sm-6 col-xs-12 text-center">
         <h2>Sistema de Gestión Panaderia la
@@ -29,7 +29,7 @@
     </div>
     <div class="col-lg-7 col-md-4 col-sm-6 col-xs-12 text-right">
         <a href="/products/create" class="btn btn-success">Agregar Producto</a>
-        <a href="index" class="btn btn-secondary">Regresar</a>
+        <a href="/" class="btn btn-secondary">Regresar</a>
     </div>
 </div>
 <div class="flex justify-center">
@@ -47,7 +47,6 @@
                     <th class="border px-4 py-">Eliminar</th>
                 </thead>
                 <tbody>
-
 
                 @foreach ($product as $product)
                         <tr>
@@ -75,7 +74,6 @@
                              </td>
 
                         </tr>
-
                     @endforeach
 
                 </tbody>

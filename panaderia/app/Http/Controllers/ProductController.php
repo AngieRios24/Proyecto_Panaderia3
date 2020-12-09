@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Category;
-use App\Http\Controllers\CategoryController;
 use DB;
 
 
@@ -19,8 +18,7 @@ class ProductController extends Controller
     public function index()
     {
         return view('product.index',[
-
-            'product' =>DB::select("SELECT * FROM  ListarProducts()")
+            'product' =>DB::select("SELECT * FROM  ListarProducts()"),
 
         ]);
     }
