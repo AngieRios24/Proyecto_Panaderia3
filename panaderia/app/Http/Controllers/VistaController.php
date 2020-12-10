@@ -19,16 +19,12 @@ class VistaController extends Controller
         return view('productos.index',[
             'categories' =>DB::select("SELECT * FROM  ListarCategories()")
         ]);
-
     }
-
     public function show($id)
     {
-
         $category = Category:: findOrFail($id);
         return view('productos.productos',[
             'category'=> $category,
         ]);
-
     }
 }
