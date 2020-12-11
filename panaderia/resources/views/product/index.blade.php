@@ -16,6 +16,7 @@
         <h4>Gestionar Productos</h4>
     </div>
 </div>
+
 <div class="row">
 @if($buscar)
     <div class="col-lg-12 col-md-4 col-sm-6 col-xs-12 text-center alert alert-primary" role="alert">
