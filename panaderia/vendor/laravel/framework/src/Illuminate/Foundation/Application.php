@@ -33,11 +33,7 @@ class Application extends Container implements ApplicationContract, CachesConfig
      *
      * @var string
      */
-<<<<<<< HEAD
     const VERSION = '8.18.1';
-=======
-    const VERSION = '8.15.0';
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
 
     /**
      * The base path for the Laravel installation.
@@ -1186,7 +1182,6 @@ class Application extends Container implements ApplicationContract, CachesConfig
     }
 
     /**
-<<<<<<< HEAD
      * Get the current application locale.
      *
      * @return string
@@ -1197,8 +1192,6 @@ class Application extends Container implements ApplicationContract, CachesConfig
     }
 
     /**
-=======
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
      * Get the current application fallback locale.
      *
      * @return string
@@ -1318,16 +1311,11 @@ class Application extends Container implements ApplicationContract, CachesConfig
         $this->serviceProviders = [];
         $this->resolvingCallbacks = [];
         $this->terminatingCallbacks = [];
-<<<<<<< HEAD
         $this->beforeResolvingCallbacks = [];
         $this->afterResolvingCallbacks = [];
         $this->globalBeforeResolvingCallbacks = [];
         $this->globalResolvingCallbacks = [];
         $this->globalAfterResolvingCallbacks = [];
-=======
-        $this->afterResolvingCallbacks = [];
-        $this->globalResolvingCallbacks = [];
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
     }
 
     /**

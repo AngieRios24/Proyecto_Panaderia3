@@ -25,7 +25,6 @@ class OutputFormatter implements WrappableOutputFormatterInterface
     private $styles = [];
     private $styleStack;
 
-<<<<<<< HEAD
     public function __clone()
     {
         $this->styleStack = clone $this->styleStack;
@@ -34,8 +33,6 @@ class OutputFormatter implements WrappableOutputFormatterInterface
         }
     }
 
-=======
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
     /**
      * Escapes "<" special char in given text.
      *

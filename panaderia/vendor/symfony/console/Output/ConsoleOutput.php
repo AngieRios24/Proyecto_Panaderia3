@@ -41,7 +41,6 @@ class ConsoleOutput extends StreamOutput implements ConsoleOutputInterface
     {
         parent::__construct($this->openOutputStream(), $verbosity, $decorated, $formatter);
 
-<<<<<<< HEAD
         if (null === $formatter) {
             // for BC reasons, stdErr has it own Formatter only when user don't inject a specific formatter.
             $this->stderr = new StreamOutput($this->openErrorStream(), $verbosity, $decorated);
@@ -49,8 +48,6 @@ class ConsoleOutput extends StreamOutput implements ConsoleOutputInterface
             return;
         }
 
-=======
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
         $actualDecorated = $this->isDecorated();
         $this->stderr = new StreamOutput($this->openErrorStream(), $verbosity, $decorated, $this->getFormatter());
 
