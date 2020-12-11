@@ -33,7 +33,11 @@ class ListPass extends CodeCleanerPass
 
     public function __construct()
     {
+<<<<<<< HEAD
         $this->atLeastPhp71 = \version_compare(\PHP_VERSION, '7.1', '>=');
+=======
+        $this->atLeastPhp71 = \version_compare(PHP_VERSION, '7.1', '>=');
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
     }
 
     /**

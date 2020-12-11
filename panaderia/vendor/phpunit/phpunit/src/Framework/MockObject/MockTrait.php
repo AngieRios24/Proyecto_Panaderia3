@@ -22,6 +22,7 @@ final class MockTrait implements MockType
     private $classCode;
 
     /**
+<<<<<<< HEAD
      * @var class-string
      */
     private $mockName;
@@ -29,15 +30,24 @@ final class MockTrait implements MockType
     /**
      * @psalm-param class-string $mockName
      */
+=======
+     * @var string
+     */
+    private $mockName;
+
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
     public function __construct(string $classCode, string $mockName)
     {
         $this->classCode = $classCode;
         $this->mockName  = $mockName;
     }
 
+<<<<<<< HEAD
     /**
      * @psalm-return class-string
      */
+=======
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
     public function generate(): string
     {
         if (!class_exists($this->mockName, false)) {

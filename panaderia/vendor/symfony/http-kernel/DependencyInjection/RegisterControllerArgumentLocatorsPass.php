@@ -106,7 +106,11 @@ class RegisterControllerArgumentLocatorsPass implements CompilerPassInterface
                 if (!isset($methods[$action = strtolower($attributes['action'])])) {
                     throw new InvalidArgumentException(sprintf('Invalid "action" attribute on tag "%s" for service "%s": no public "%s()" method found on class "%s".', $this->controllerTag, $id, $attributes['action'], $class));
                 }
+<<<<<<< HEAD
                 [$r, $parameters] = $methods[$action];
+=======
+                list($r, $parameters) = $methods[$action];
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
                 $found = false;
 
                 foreach ($parameters as $p) {
@@ -124,7 +128,11 @@ class RegisterControllerArgumentLocatorsPass implements CompilerPassInterface
                 }
             }
 
+<<<<<<< HEAD
             foreach ($methods as [$r, $parameters]) {
+=======
+            foreach ($methods as list($r, $parameters)) {
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
                 /** @var \ReflectionMethod $r */
 
                 // create a per-method map of argument-names to service/type-references
@@ -146,7 +154,11 @@ class RegisterControllerArgumentLocatorsPass implements CompilerPassInterface
                     } elseif (isset($bindings[$bindingName = $type.' $'.$p->name]) || isset($bindings[$bindingName = '$'.$p->name]) || isset($bindings[$bindingName = $type])) {
                         $binding = $bindings[$bindingName];
 
+<<<<<<< HEAD
                         [$bindingValue, $bindingId, , $bindingType, $bindingFile] = $binding->getValues();
+=======
+                        list($bindingValue, $bindingId, , $bindingType, $bindingFile) = $binding->getValues();
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
                         $binding->setValues([$bindingValue, $bindingId, true, $bindingType, $bindingFile]);
 
                         if (!$bindingValue instanceof Reference) {

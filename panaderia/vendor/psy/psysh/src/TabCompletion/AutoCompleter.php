@@ -62,7 +62,11 @@ class AutoCompleter
             $line = $input;
         }
 
+<<<<<<< HEAD
         $tokens = \token_get_all('<?php '.$line);
+=======
+        $tokens = \token_get_all('<?php ' . $line);
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
 
         // remove whitespaces
         $tokens = \array_filter($tokens, function ($token) {

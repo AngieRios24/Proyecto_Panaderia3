@@ -12,7 +12,10 @@ namespace PHPUnit\Framework;
 use const PHP_EOL;
 use function array_diff;
 use function array_keys;
+<<<<<<< HEAD
 use function array_map;
+=======
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
 use function array_merge;
 use function array_unique;
 use function basename;
@@ -79,7 +82,11 @@ class TestSuite implements IteratorAggregate, Reorderable, SelfDescribing, Test
     /**
      * The test groups of the test suite.
      *
+<<<<<<< HEAD
      * @psalm-var array<string,list<Test>>
+=======
+     * @var array
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
      */
     protected $groups = [];
 
@@ -557,6 +564,7 @@ class TestSuite implements IteratorAggregate, Reorderable, SelfDescribing, Test
 
     /**
      * Returns the test groups of the suite.
+<<<<<<< HEAD
      *
      * @psalm-return list<string>
      */
@@ -568,6 +576,12 @@ class TestSuite implements IteratorAggregate, Reorderable, SelfDescribing, Test
             },
             array_keys($this->groups)
         );
+=======
+     */
+    public function getGroups(): array
+    {
+        return array_keys($this->groups);
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
     }
 
     public function getGroupDetails(): array
@@ -610,6 +624,7 @@ class TestSuite implements IteratorAggregate, Reorderable, SelfDescribing, Test
 
         $test = null;
 
+<<<<<<< HEAD
         if ($this->testCase && class_exists($this->name, false)) {
             try {
                 foreach ($hookMethods['beforeClass'] as $beforeClassMethod) {
@@ -660,6 +675,58 @@ class TestSuite implements IteratorAggregate, Reorderable, SelfDescribing, Test
 
                 return $result;
             }
+=======
+        try {
+            foreach ($hookMethods['beforeClass'] as $beforeClassMethod) {
+                if ($this->testCase &&
+                    class_exists($this->name, false) &&
+                    method_exists($this->name, $beforeClassMethod)) {
+                    if ($missingRequirements = TestUtil::getMissingRequirements($this->name, $beforeClassMethod)) {
+                        $this->markTestSuiteSkipped(implode(PHP_EOL, $missingRequirements));
+                    }
+
+                    call_user_func([$this->name, $beforeClassMethod]);
+                }
+            }
+        } catch (SkippedTestSuiteError $error) {
+            foreach ($this->tests() as $test) {
+                $result->startTest($test);
+                $result->addFailure($test, $error, 0);
+                $result->endTest($test, 0);
+            }
+
+            $result->endTestSuite($this);
+
+            return $result;
+        } catch (Throwable $t) {
+            $errorAdded = false;
+
+            foreach ($this->tests() as $test) {
+                if ($result->shouldStop()) {
+                    break;
+                }
+
+                $result->startTest($test);
+
+                if (!$errorAdded) {
+                    $result->addError($test, $t, 0);
+
+                    $errorAdded = true;
+                } else {
+                    $result->addFailure(
+                        $test,
+                        new SkippedTestError('Test skipped because of an error in hook method'),
+                        0
+                    );
+                }
+
+                $result->endTest($test, 0);
+            }
+
+            $result->endTestSuite($this);
+
+            return $result;
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
         }
 
         foreach ($this as $test) {
@@ -677,6 +744,7 @@ class TestSuite implements IteratorAggregate, Reorderable, SelfDescribing, Test
             $test->run($result);
         }
 
+<<<<<<< HEAD
         if ($this->testCase && class_exists($this->name, false)) {
             foreach ($hookMethods['afterClass'] as $afterClassMethod) {
                 if (method_exists($this->name, $afterClassMethod)) {
@@ -693,6 +761,24 @@ class TestSuite implements IteratorAggregate, Reorderable, SelfDescribing, Test
                         $result->addFailure($placeholderTest, $error, 0);
                         $result->endTest($placeholderTest, 0);
                     }
+=======
+        foreach ($hookMethods['afterClass'] as $afterClassMethod) {
+            if ($this->testCase &&
+                class_exists($this->name, false) &&
+                method_exists($this->name, $afterClassMethod)) {
+                try {
+                    call_user_func([$this->name, $afterClassMethod]);
+                } catch (Throwable $t) {
+                    $message = "Exception in {$this->name}::{$afterClassMethod}" . PHP_EOL . $t->getMessage();
+                    $error   = new SyntheticError($message, 0, $t->getFile(), $t->getLine(), $t->getTrace());
+
+                    $placeholderTest = clone $test;
+                    $placeholderTest->setName($afterClassMethod);
+
+                    $result->startTest($placeholderTest);
+                    $result->addFailure($placeholderTest, $error, 0);
+                    $result->endTest($placeholderTest, 0);
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
                 }
             }
         }

@@ -35,8 +35,16 @@ use function stream_resolve_include_path;
 use function strpos;
 use function trim;
 use function version_compare;
+<<<<<<< HEAD
 use PHPUnit\Framework\TestSuite;
 use PHPUnit\Runner\Extension\PharLoader;
+=======
+use PharIo\Manifest\ApplicationName;
+use PharIo\Manifest\Exception as ManifestException;
+use PharIo\Manifest\ManifestLoader;
+use PharIo\Version\Version as PharIoVersion;
+use PHPUnit\Framework\TestSuite;
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
 use PHPUnit\Runner\StandardTestSuiteLoader;
 use PHPUnit\Runner\TestSuiteLoader;
 use PHPUnit\Runner\Version;
@@ -49,6 +57,10 @@ use PHPUnit\TextUI\XmlConfiguration\Generator;
 use PHPUnit\TextUI\XmlConfiguration\Loader;
 use PHPUnit\TextUI\XmlConfiguration\Migrator;
 use PHPUnit\TextUI\XmlConfiguration\PhpHandler;
+<<<<<<< HEAD
+=======
+use PHPUnit\TextUI\XmlConfiguration\TestSuiteMapper;
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
 use PHPUnit\Util\FileLoader;
 use PHPUnit\Util\Filesystem;
 use PHPUnit\Util\Printer;
@@ -56,8 +68,15 @@ use PHPUnit\Util\TextTestListRenderer;
 use PHPUnit\Util\Xml\SchemaDetector;
 use PHPUnit\Util\XmlTestListRenderer;
 use ReflectionClass;
+<<<<<<< HEAD
 use SebastianBergmann\CodeCoverage\Filter;
 use SebastianBergmann\CodeCoverage\StaticAnalysis\CacheWarmer;
+=======
+use ReflectionException;
+use SebastianBergmann\CodeCoverage\Filter;
+use SebastianBergmann\CodeCoverage\StaticAnalysis\CacheWarmer;
+use SebastianBergmann\FileIterator\Facade as FileIteratorFacade;
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
 use SebastianBergmann\Timer\Timer;
 use Throwable;
 
@@ -94,7 +113,11 @@ class Command
         try {
             return (new static)->run($_SERVER['argv'], $exit);
         } catch (Throwable $t) {
+<<<<<<< HEAD
             throw new RuntimeException(
+=======
+            throw new Exception(
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
                 $t->getMessage(),
                 (int) $t->getCode(),
                 $t
@@ -140,8 +163,13 @@ class Command
 
         try {
             $result = $runner->run($suite, $this->arguments, $this->warnings, $exit);
+<<<<<<< HEAD
         } catch (Throwable $t) {
             print $t->getMessage() . PHP_EOL;
+=======
+        } catch (Exception $e) {
+            print $e->getMessage() . PHP_EOL;
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
         }
 
         $return = TestRunner::FAILURE_EXIT;
@@ -348,12 +376,16 @@ class Command
             }
 
             if (!isset($this->arguments['noExtensions']) && $phpunitConfiguration->hasExtensionsDirectory() && extension_loaded('phar')) {
+<<<<<<< HEAD
                 $result = (new PharLoader)->loadPharExtensionsInDirectory($phpunitConfiguration->extensionsDirectory());
 
                 $this->arguments['loadedExtensions']    = $result['loadedExtensions'];
                 $this->arguments['notLoadedExtensions'] = $result['notLoadedExtensions'];
 
                 unset($result);
+=======
+                $this->handleExtensions($phpunitConfiguration->extensionsDirectory());
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
             }
 
             if (!isset($this->arguments['columns'])) {
@@ -383,6 +415,7 @@ class Command
             }
 
             if (!isset($this->arguments['test'])) {
+<<<<<<< HEAD
                 try {
                     $this->arguments['test'] = (new TestSuiteMapper)->map(
                         $this->arguments['configurationObject']->testSuite(),
@@ -395,6 +428,12 @@ class Command
 
                     exit(TestRunner::EXCEPTION_EXIT);
                 }
+=======
+                $this->arguments['test'] = (new TestSuiteMapper)->map(
+                    $this->arguments['configurationObject']->testSuite(),
+                    $this->arguments['testsuite'] ?? ''
+                );
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
             }
         } elseif (isset($this->arguments['bootstrap'])) {
             $this->handleBootstrap($this->arguments['bootstrap']);
@@ -434,10 +473,13 @@ class Command
             $loaderFile = stream_resolve_include_path($loaderFile);
 
             if ($loaderFile) {
+<<<<<<< HEAD
                 /**
                  * @noinspection PhpIncludeInspection
                  * @psalm-suppress UnresolvableInclude
                  */
+=======
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
                 require $loaderFile;
             }
         }
@@ -446,8 +488,13 @@ class Command
             try {
                 $class = new ReflectionClass($loaderClass);
                 // @codeCoverageIgnoreStart
+<<<<<<< HEAD
             } catch (\ReflectionException $e) {
                 throw new ReflectionException(
+=======
+            } catch (ReflectionException $e) {
+                throw new Exception(
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
                     $e->getMessage(),
                     (int) $e->getCode(),
                     $e
@@ -495,10 +542,13 @@ class Command
             $printerFile = stream_resolve_include_path($printerFile);
 
             if ($printerFile) {
+<<<<<<< HEAD
                 /**
                  * @noinspection PhpIncludeInspection
                  * @psalm-suppress UnresolvableInclude
                  */
+=======
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
                 require $printerFile;
             }
         }
@@ -515,8 +565,13 @@ class Command
         try {
             $class = new ReflectionClass($printerClass);
             // @codeCoverageIgnoreStart
+<<<<<<< HEAD
         } catch (\ReflectionException $e) {
             throw new ReflectionException(
+=======
+        } catch (ReflectionException $e) {
+            throw new Exception(
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
                 $e->getMessage(),
                 (int) $e->getCode(),
                 $e
@@ -620,6 +675,46 @@ class Command
         exit(TestRunner::FAILURE_EXIT);
     }
 
+<<<<<<< HEAD
+=======
+    private function handleExtensions(string $directory): void
+    {
+        foreach ((new FileIteratorFacade)->getFilesAsArray($directory, '.phar') as $file) {
+            if (!is_file('phar://' . $file . '/manifest.xml')) {
+                $this->arguments['notLoadedExtensions'][] = $file . ' is not an extension for PHPUnit';
+
+                continue;
+            }
+
+            try {
+                $applicationName = new ApplicationName('phpunit/phpunit');
+                $version         = new PharIoVersion(Version::series());
+                $manifest        = ManifestLoader::fromFile('phar://' . $file . '/manifest.xml');
+
+                if (!$manifest->isExtensionFor($applicationName)) {
+                    $this->arguments['notLoadedExtensions'][] = $file . ' is not an extension for PHPUnit';
+
+                    continue;
+                }
+
+                if (!$manifest->isExtensionFor($applicationName, $version)) {
+                    $this->arguments['notLoadedExtensions'][] = $file . ' is not compatible with this version of PHPUnit';
+
+                    continue;
+                }
+            } catch (ManifestException $e) {
+                $this->arguments['notLoadedExtensions'][] = $file . ': ' . $e->getMessage();
+
+                continue;
+            }
+
+            require $file;
+
+            $this->arguments['loadedExtensions'][] = $manifest->getName()->asString() . ' ' . $manifest->getVersion()->getVersionString();
+        }
+    }
+
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
     private function handleListGroups(TestSuite $suite, bool $exit): int
     {
         $this->printVersionString();

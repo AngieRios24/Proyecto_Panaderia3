@@ -17,6 +17,11 @@ interface Swift_Events_ResponseListener extends Swift_Events_EventListener
 {
     /**
      * Invoked immediately following a response coming back.
+<<<<<<< HEAD
+=======
+     *
+     * @param Swift_Events_ResponseEvent $evt
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
      */
     public function responseReceived(Swift_Events_ResponseEvent $evt);
 }

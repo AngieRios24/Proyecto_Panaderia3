@@ -31,7 +31,11 @@ class Swift_Transport_Esmtp_Auth_PlainAuthenticator implements Swift_Transport_E
     public function authenticate(Swift_Transport_SmtpAgent $agent, $username, $password)
     {
         try {
+<<<<<<< HEAD
             $message = base64_encode($username.\chr(0).$username.\chr(0).$password);
+=======
+            $message = base64_encode($username.chr(0).$username.chr(0).$password);
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
             $agent->executeCommand(sprintf("AUTH PLAIN %s\r\n", $message), [235]);
 
             return true;

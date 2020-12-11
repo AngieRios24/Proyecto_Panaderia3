@@ -30,7 +30,10 @@ class Question
     private $default;
     private $normalizer;
     private $trimmable = true;
+<<<<<<< HEAD
     private $multiline = false;
+=======
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
 
     /**
      * @param string $question The question to ask to the user
@@ -63,6 +66,7 @@ class Question
     }
 
     /**
+<<<<<<< HEAD
      * Returns whether the user response accepts newline characters.
      */
     public function isMultiline(): bool
@@ -83,6 +87,8 @@ class Question
     }
 
     /**
+=======
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
      * Returns whether the user response must be hidden.
      *
      * @return bool

@@ -11,9 +11,12 @@
 
 namespace Symfony\Component\HttpKernel\ControllerMetadata;
 
+<<<<<<< HEAD
 use Symfony\Component\HttpKernel\Attribute\ArgumentInterface;
 use Symfony\Component\HttpKernel\Exception\InvalidMetadataException;
 
+=======
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
 /**
  * Builds {@see ArgumentMetadata} objects based on the given Controller.
  *
@@ -37,6 +40,7 @@ final class ArgumentMetadataFactory implements ArgumentMetadataFactoryInterface
         }
 
         foreach ($reflection->getParameters() as $param) {
+<<<<<<< HEAD
             $attribute = null;
             if (\PHP_VERSION_ID >= 80000) {
                 $reflectionAttributes = $param->getAttributes(ArgumentInterface::class, \ReflectionAttribute::IS_INSTANCEOF);
@@ -59,6 +63,9 @@ final class ArgumentMetadataFactory implements ArgumentMetadataFactoryInterface
             }
 
             $arguments[] = new ArgumentMetadata($param->getName(), $this->getType($param, $reflection), $param->isVariadic(), $param->isDefaultValueAvailable(), $param->isDefaultValueAvailable() ? $param->getDefaultValue() : null, $param->allowsNull(), $attribute);
+=======
+            $arguments[] = new ArgumentMetadata($param->getName(), $this->getType($param, $reflection), $param->isVariadic(), $param->isDefaultValueAvailable(), $param->isDefaultValueAvailable() ? $param->getDefaultValue() : null, $param->allowsNull());
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
         }
 
         return $arguments;

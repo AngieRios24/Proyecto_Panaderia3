@@ -66,7 +66,11 @@ class ServerBag extends ParameterBag
                     // Decode AUTHORIZATION header into PHP_AUTH_USER and PHP_AUTH_PW when authorization header is basic
                     $exploded = explode(':', base64_decode(substr($authorizationHeader, 6)), 2);
                     if (2 == \count($exploded)) {
+<<<<<<< HEAD
                         [$headers['PHP_AUTH_USER'], $headers['PHP_AUTH_PW']] = $exploded;
+=======
+                        list($headers['PHP_AUTH_USER'], $headers['PHP_AUTH_PW']) = $exploded;
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
                     }
                 } elseif (empty($this->parameters['PHP_AUTH_DIGEST']) && (0 === stripos($authorizationHeader, 'digest '))) {
                     // In some circumstances PHP_AUTH_DIGEST needs to be set

@@ -206,6 +206,7 @@ class Response implements ArrayAccess
     }
 
     /**
+<<<<<<< HEAD
      * Get the handler stats of the response.
      *
      * @return array
@@ -216,6 +217,8 @@ class Response implements ArrayAccess
     }
 
     /**
+=======
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
      * Get the underlying PSR response for the response.
      *
      * @return \Psr\Http\Message\ResponseInterface

@@ -32,6 +32,7 @@ use Symfony\Component\Console\Output\OutputInterface;
  */
 class Configuration
 {
+<<<<<<< HEAD
     const COLOR_MODE_AUTO = 'auto';
     const COLOR_MODE_FORCED = 'forced';
     const COLOR_MODE_DISABLED = 'disabled';
@@ -45,6 +46,21 @@ class Configuration
     const VERBOSITY_VERBOSE = 'verbose';
     const VERBOSITY_VERY_VERBOSE = 'very_verbose';
     const VERBOSITY_DEBUG = 'debug';
+=======
+    const COLOR_MODE_AUTO     = 'auto';
+    const COLOR_MODE_FORCED   = 'forced';
+    const COLOR_MODE_DISABLED = 'disabled';
+
+    const INTERACTIVE_MODE_AUTO     = 'auto';
+    const INTERACTIVE_MODE_FORCED   = 'forced';
+    const INTERACTIVE_MODE_DISABLED = 'disabled';
+
+    const VERBOSITY_QUIET        = 'quiet';
+    const VERBOSITY_NORMAL       = 'normal';
+    const VERBOSITY_VERBOSE      = 'verbose';
+    const VERBOSITY_VERY_VERBOSE = 'very_verbose';
+    const VERBOSITY_DEBUG        = 'debug';
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
 
     private static $AVAILABLE_OPTIONS = [
         'codeCleaner',
@@ -98,7 +114,11 @@ class Configuration
     private $useUnicode;
     private $useTabCompletion;
     private $newMatchers = [];
+<<<<<<< HEAD
     private $errorLoggingLevel = \E_ALL;
+=======
+    private $errorLoggingLevel = E_ALL;
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
     private $warnOnMultipleConfigs = false;
     private $colorMode = self::COLOR_MODE_AUTO;
     private $interactiveMode = self::INTERACTIVE_MODE_AUTO;
@@ -138,7 +158,11 @@ class Configuration
 
         // legacy baseDir option
         if (isset($config['baseDir'])) {
+<<<<<<< HEAD
             $msg = "The 'baseDir' configuration option is deprecated; ".
+=======
+            $msg = "The 'baseDir' configuration option is deprecated; " .
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
                 "please specify 'configDir' and 'dataDir' options instead";
             throw new DeprecatedException($msg);
         }
@@ -236,7 +260,11 @@ class Configuration
         }
 
         foreach ($names as $name) {
+<<<<<<< HEAD
             $otherParams[] = '--'.$name;
+=======
+            $otherParams[] = '--' . $name;
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
         }
 
         foreach ($otherParams as $name) {
@@ -324,6 +352,7 @@ class Configuration
     public static function getInputOptions()
     {
         return [
+<<<<<<< HEAD
             new InputOption('config', 'c', InputOption::VALUE_REQUIRED, 'Use an alternate PsySH config file location.'),
             new InputOption('cwd', null, InputOption::VALUE_REQUIRED, 'Use an alternate working directory.'),
 
@@ -341,6 +370,25 @@ class Configuration
             new InputOption('interaction', null, InputOption::VALUE_NONE, 'Force PsySH to run in interactive mode.'),
             new InputOption('no-interaction', null, InputOption::VALUE_NONE, 'Run PsySH without interactive input. Requires input from stdin.'),
             new InputOption('raw-output', 'r', InputOption::VALUE_NONE, 'Print var_export-style return values (for non-interactive input)'),
+=======
+            new InputOption('config',         'c',        InputOption::VALUE_REQUIRED, 'Use an alternate PsySH config file location.'),
+            new InputOption('cwd',            null,       InputOption::VALUE_REQUIRED, 'Use an alternate working directory.'),
+
+            new InputOption('color',          null,       InputOption::VALUE_NONE,     'Force colors in output.'),
+            new InputOption('no-color',       null,       InputOption::VALUE_NONE,     'Disable colors in output.'),
+            // --ansi and --no-ansi aliases to match Symfony, Composer, etc.
+            new InputOption('ansi',           null,       InputOption::VALUE_NONE,     'Force colors in output.'),
+            new InputOption('no-ansi',        null,       InputOption::VALUE_NONE,     'Disable colors in output.'),
+
+            new InputOption('quiet',          'q',        InputOption::VALUE_NONE,     'Shhhhhh.'),
+            new InputOption('verbose',        'v|vv|vvv', InputOption::VALUE_OPTIONAL, 'Increase the verbosity of messages.', '0'),
+            new InputOption('interactive',    'i|a',      InputOption::VALUE_NONE,     'Force PsySH to run in interactive mode.'),
+            new InputOption('no-interactive', 'n',        InputOption::VALUE_NONE,     'Run PsySH without interactive input. Requires input from stdin.'),
+            // --interaction and --no-interaction aliases for compatibility with Symfony, Composer, etc
+            new InputOption('interaction',    null,       InputOption::VALUE_NONE,     'Force PsySH to run in interactive mode.'),
+            new InputOption('no-interaction', null,       InputOption::VALUE_NONE,     'Run PsySH without interactive input. Requires input from stdin.'),
+            new InputOption('raw-output',     'r',        InputOption::VALUE_NONE,     'Print var_export-style return values (for non-interactive input)'),
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
         ];
     }
 
@@ -358,7 +406,11 @@ class Configuration
     {
         // feature detection
         $this->hasReadline = \function_exists('readline');
+<<<<<<< HEAD
         $this->hasPcntl = ProcessForker::isSupported();
+=======
+        $this->hasPcntl    = ProcessForker::isSupported();
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
 
         if ($configFile = $this->getConfigFile()) {
             $this->loadConfigFile($configFile);
@@ -394,7 +446,11 @@ class Configuration
         if (!empty($files)) {
             if ($this->warnOnMultipleConfigs && \count($files) > 1) {
                 $msg = \sprintf('Multiple configuration files found: %s. Using %s', \implode(', ', $files), $files[0]);
+<<<<<<< HEAD
                 \trigger_error($msg, \E_USER_NOTICE);
+=======
+                \trigger_error($msg, E_USER_NOTICE);
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
             }
 
             return $files[0];
@@ -411,7 +467,11 @@ class Configuration
      */
     public function getLocalConfigFile()
     {
+<<<<<<< HEAD
         $localConfig = \getcwd().'/.psysh.php';
+=======
+        $localConfig = \getcwd() . '/.psysh.php';
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
 
         if (@\is_file($localConfig)) {
             return $localConfig;
@@ -427,7 +487,11 @@ class Configuration
     {
         foreach (self::$AVAILABLE_OPTIONS as $option) {
             if (isset($options[$option])) {
+<<<<<<< HEAD
                 $method = 'set'.\ucfirst($option);
+=======
+                $method = 'set' . \ucfirst($option);
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
                 $this->$method($options[$option]);
             }
         }
@@ -435,14 +499,22 @@ class Configuration
         // legacy `tabCompletion` option
         if (isset($options['tabCompletion'])) {
             $msg = '`tabCompletion` is deprecated; use `useTabCompletion` instead.';
+<<<<<<< HEAD
             @\trigger_error($msg, \E_USER_DEPRECATED);
+=======
+            @\trigger_error($msg, E_USER_DEPRECATED);
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
 
             $this->setUseTabCompletion($options['tabCompletion']);
         }
 
         foreach (['commands', 'matchers', 'casters'] as $option) {
             if (isset($options[$option])) {
+<<<<<<< HEAD
                 $method = 'add'.\ucfirst($option);
+=======
+                $method = 'add' . \ucfirst($option);
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
                 $this->$method($options[$option]);
             }
         }
@@ -450,7 +522,11 @@ class Configuration
         // legacy `tabCompletionMatchers` option
         if (isset($options['tabCompletionMatchers'])) {
             $msg = '`tabCompletionMatchers` is deprecated; use `matchers` instead.';
+<<<<<<< HEAD
             @\trigger_error($msg, \E_USER_DEPRECATED);
+=======
+            @\trigger_error($msg, E_USER_DEPRECATED);
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
 
             $this->addMatchers($options['tabCompletionMatchers']);
         }
@@ -577,7 +653,11 @@ class Configuration
 
         if (!\is_dir($this->runtimeDir)) {
             if (!@\mkdir($this->runtimeDir, 0700, true)) {
+<<<<<<< HEAD
                 throw new RuntimeException(\sprintf('Unable to create PsySH runtime directory. Make sure PHP is able to write to %s in order to continue.', \dirname($this->runtimeDir)));
+=======
+                throw new RuntimeException(sprintf('Unable to create PsySH runtime directory. Make sure PHP is able to write to %s in order to continue.', dirname($this->runtimeDir)));
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
             }
         }
 
@@ -613,14 +693,22 @@ class Configuration
         if (!empty($files)) {
             if ($this->warnOnMultipleConfigs && \count($files) > 1) {
                 $msg = \sprintf('Multiple history files found: %s. Using %s', \implode(', ', $files), $files[0]);
+<<<<<<< HEAD
                 \trigger_error($msg, \E_USER_NOTICE);
+=======
+                \trigger_error($msg, E_USER_NOTICE);
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
             }
 
             $this->setHistoryFile($files[0]);
         } else {
             // fallback: create our own history file
             $dir = $this->configDir ?: ConfigPaths::getCurrentConfigDir();
+<<<<<<< HEAD
             $this->setHistoryFile($dir.'/psysh_history');
+=======
+            $this->setHistoryFile($dir . '/psysh_history');
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
         }
 
         return $this->historyFile;
@@ -680,7 +768,11 @@ class Configuration
      */
     public function getTempFile($type, $pid)
     {
+<<<<<<< HEAD
         return \tempnam($this->getRuntimeDir(), $type.'_'.$pid.'_');
+=======
+        return \tempnam($this->getRuntimeDir(), $type . '_' . $pid . '_');
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
     }
 
     /**
@@ -818,7 +910,11 @@ class Configuration
     public function useBracketedPaste()
     {
         // For now, only the GNU readline implementation supports bracketed paste.
+<<<<<<< HEAD
         $supported = ($this->getReadlineClass() === Readline\GNUReadline::class) && Readline\GNUReadline::supportsBracketedPaste();
+=======
+        $supported = ($this->getReadlineClass() === Readline\GNUReadline::class);
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
 
         return $supported && $this->useBracketedPaste;
 
@@ -948,7 +1044,11 @@ class Configuration
      */
     public function setErrorLoggingLevel($errorLoggingLevel)
     {
+<<<<<<< HEAD
         $this->errorLoggingLevel = (\E_ALL | \E_STRICT) & $errorLoggingLevel;
+=======
+        $this->errorLoggingLevel = (E_ALL | E_STRICT) & $errorLoggingLevel;
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
     }
 
     /**
@@ -1153,7 +1253,11 @@ class Configuration
                 $this->pager = $pager;
             } elseif ($less = \exec('which less 2>/dev/null')) {
                 // check for the presence of less...
+<<<<<<< HEAD
                 $this->pager = $less.' -R -S -F -X';
+=======
+                $this->pager = $less . ' -R -S -F -X';
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
             }
         }
 
@@ -1304,7 +1408,11 @@ class Configuration
         if (!empty($files)) {
             if ($this->warnOnMultipleConfigs && \count($files) > 1) {
                 $msg = \sprintf('Multiple manual database files found: %s. Using %s', \implode(', ', $files), $files[0]);
+<<<<<<< HEAD
                 \trigger_error($msg, \E_USER_NOTICE);
+=======
+                \trigger_error($msg, E_USER_NOTICE);
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
             }
 
             return $this->manualDbFile = $files[0];
@@ -1322,7 +1430,11 @@ class Configuration
             $dbFile = $this->getManualDbFile();
             if (\is_file($dbFile)) {
                 try {
+<<<<<<< HEAD
                     $this->manualDb = new \PDO('sqlite:'.$dbFile);
+=======
+                    $this->manualDb = new \PDO('sqlite:' . $dbFile);
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
                 } catch (\PDOException $e) {
                     if ($e->getMessage() === 'could not find driver') {
                         throw new RuntimeException('SQLite PDO driver not found', 0, $e);
@@ -1404,7 +1516,11 @@ class Configuration
 
         if (!\in_array($colorMode, $validColorModes)) {
             // @todo Fix capitalization for 0.11.0
+<<<<<<< HEAD
             throw new \InvalidArgumentException('invalid color mode: '.$colorMode);
+=======
+            throw new \InvalidArgumentException('invalid color mode: ' . $colorMode);
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
         }
 
         $this->colorMode = $colorMode;
@@ -1434,7 +1550,11 @@ class Configuration
         ];
 
         if (!\in_array($interactiveMode, $validInteractiveModes)) {
+<<<<<<< HEAD
             throw new \InvalidArgumentException('Invalid interactive mode: '.$interactiveMode);
+=======
+            throw new \InvalidArgumentException('Invalid interactive mode: ' . $interactiveMode);
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
         }
 
         $this->interactiveMode = $interactiveMode;
@@ -1528,7 +1648,11 @@ class Configuration
 
         if (!\in_array($interval, $validIntervals)) {
             // @todo Fix capitalization for 0.11.0
+<<<<<<< HEAD
             throw new \InvalidArgumentException('invalid update check interval: '.$interval);
+=======
+            throw new \InvalidArgumentException('invalid update check interval: ' . $interval);
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
         }
 
         $this->updateCheck = $interval;
@@ -1543,7 +1667,11 @@ class Configuration
     {
         $dir = $this->configDir ?: ConfigPaths::getCurrentConfigDir();
 
+<<<<<<< HEAD
         return ConfigPaths::touchFileWithMkdir($dir.'/update_check.json');
+=======
+        return ConfigPaths::touchFileWithMkdir($dir . '/update_check.json');
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
     }
 
     /**
@@ -1676,7 +1804,11 @@ class Configuration
         ];
 
         if (!\in_array($verbosity, $validVerbosityLevels)) {
+<<<<<<< HEAD
             throw new \InvalidArgumentException('Invalid verbosity level: '.$verbosity);
+=======
+            throw new \InvalidArgumentException('Invalid verbosity level: ' . $verbosity);
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
         }
 
         $this->verbosity = $verbosity;

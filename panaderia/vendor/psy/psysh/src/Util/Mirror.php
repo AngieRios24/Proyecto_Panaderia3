@@ -21,10 +21,17 @@ use Psy\Reflection\ReflectionNamespace;
  */
 class Mirror
 {
+<<<<<<< HEAD
     const CONSTANT = 1;
     const METHOD = 2;
     const STATIC_PROPERTY = 4;
     const PROPERTY = 8;
+=======
+    const CONSTANT        = 1;
+    const METHOD          = 2;
+    const STATIC_PROPERTY = 4;
+    const PROPERTY        = 8;
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
 
     /**
      * Get a Reflector for a function, class or instance, constant, method or property.
@@ -98,7 +105,11 @@ class Mirror
             return new ReflectionNamespace($namespace);
         }
 
+<<<<<<< HEAD
         throw new \InvalidArgumentException('Unknown namespace, class or function: '.$value);
+=======
+        throw new \InvalidArgumentException('Unknown namespace, class or function: ' . $value);
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
     }
 
     /**

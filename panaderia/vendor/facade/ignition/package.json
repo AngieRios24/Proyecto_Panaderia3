@@ -7,7 +7,11 @@
     },
     "dependencies": {
         "git-url-parse": "^11.1.2",
+<<<<<<< HEAD
         "highlight.js": "^10.4.1",
+=======
+        "highlight.js": "^9.15.6",
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
         "lodash": "^4.17.19",
         "markdown-it": "^9.0.1",
         "md5": "^2.2.1",

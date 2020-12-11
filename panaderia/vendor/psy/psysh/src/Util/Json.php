@@ -26,7 +26,11 @@ class Json
      */
     public static function encode($val, $opt = 0)
     {
+<<<<<<< HEAD
         $opt |= \JSON_UNESCAPED_SLASHES | \JSON_UNESCAPED_UNICODE;
+=======
+        $opt |= JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE;
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
 
         return \json_encode($val, $opt);
     }

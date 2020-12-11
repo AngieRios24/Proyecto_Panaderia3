@@ -42,7 +42,11 @@ class ThrowUpCommand extends Command implements ContextAware
     {
         $parserFactory = new ParserFactory();
 
+<<<<<<< HEAD
         $this->parser = $parserFactory->createParser();
+=======
+        $this->parser  = $parserFactory->createParser();
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
         $this->printer = new Printer();
 
         parent::__construct($name);
@@ -120,7 +124,11 @@ HELP
         }
 
         if (\strpos($code, '<?') === false) {
+<<<<<<< HEAD
             $code = '<?php '.$code;
+=======
+            $code = '<?php ' . $code;
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
         }
 
         $nodes = $this->parse($code);
@@ -160,7 +168,11 @@ HELP
             }
 
             // If we got an unexpected EOF, let's try it again with a semicolon.
+<<<<<<< HEAD
             return $this->parser->parse($code.';');
+=======
+            return $this->parser->parse($code . ';');
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
         }
     }
 }

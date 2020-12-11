@@ -146,6 +146,7 @@ class RedirectResponse extends BaseRedirectResponse
     }
 
     /**
+<<<<<<< HEAD
      * Parse the given errors into an appropriate value.
      *
      * @param  \Illuminate\Contracts\Support\MessageProvider|array|string  $provider
@@ -161,6 +162,8 @@ class RedirectResponse extends BaseRedirectResponse
     }
 
     /**
+=======
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
      * Add a fragment identifier to the URL.
      *
      * @param  string  $fragment
@@ -183,6 +186,24 @@ class RedirectResponse extends BaseRedirectResponse
     }
 
     /**
+<<<<<<< HEAD
+=======
+     * Parse the given errors into an appropriate value.
+     *
+     * @param  \Illuminate\Contracts\Support\MessageProvider|array|string  $provider
+     * @return \Illuminate\Support\MessageBag
+     */
+    protected function parseErrors($provider)
+    {
+        if ($provider instanceof MessageProvider) {
+            return $provider->getMessageBag();
+        }
+
+        return new MessageBag((array) $provider);
+    }
+
+    /**
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
      * Get the original response content.
      *
      * @return null

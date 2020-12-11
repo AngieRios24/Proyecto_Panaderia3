@@ -177,7 +177,11 @@ class TraceableEventDispatcher implements EventDispatcherInterface, ResetInterfa
         $hash = $request ? spl_object_hash($request) : null;
         $called = [];
         foreach ($this->callStack as $listener) {
+<<<<<<< HEAD
             [$eventName, $requestHash] = $this->callStack->getInfo();
+=======
+            list($eventName, $requestHash) = $this->callStack->getInfo();
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
             if (null === $hash || $hash === $requestHash) {
                 $called[] = $listener->getInfo($eventName);
             }
@@ -207,7 +211,11 @@ class TraceableEventDispatcher implements EventDispatcherInterface, ResetInterfa
 
         if (null !== $this->callStack) {
             foreach ($this->callStack as $calledListener) {
+<<<<<<< HEAD
                 [, $requestHash] = $this->callStack->getInfo();
+=======
+                list(, $requestHash) = $this->callStack->getInfo();
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
 
                 if (null === $hash || $hash === $requestHash) {
                     $calledListeners[] = $calledListener->getWrappedListener();

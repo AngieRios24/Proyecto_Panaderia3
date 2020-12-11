@@ -22,7 +22,10 @@ class TableCell
     private $options = [
         'rowspan' => 1,
         'colspan' => 1,
+<<<<<<< HEAD
         'style' => null,
+=======
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
     ];
 
     public function __construct(string $value = '', array $options = [])
@@ -34,10 +37,13 @@ class TableCell
             throw new InvalidArgumentException(sprintf('The TableCell does not support the following options: \'%s\'.', implode('\', \'', $diff)));
         }
 
+<<<<<<< HEAD
         if (isset($options['style']) && !$options['style'] instanceof TableCellStyle) {
             throw new InvalidArgumentException('The style option must be an instance of "TableCellStyle".');
         }
 
+=======
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
         $this->options = array_merge($this->options, $options);
     }
 
@@ -70,9 +76,12 @@ class TableCell
     {
         return (int) $this->options['rowspan'];
     }
+<<<<<<< HEAD
 
     public function getStyle(): ?TableCellStyle
     {
         return $this->options['style'];
     }
+=======
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
 }

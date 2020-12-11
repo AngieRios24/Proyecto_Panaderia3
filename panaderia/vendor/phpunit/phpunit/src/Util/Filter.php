@@ -15,6 +15,10 @@ use function in_array;
 use function is_file;
 use function realpath;
 use function sprintf;
+<<<<<<< HEAD
+=======
+use function strpos;
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
 use PHPUnit\Framework\Exception;
 use PHPUnit\Framework\SyntheticError;
 use Throwable;
@@ -56,7 +60,11 @@ final class Filter
             );
         }
 
+<<<<<<< HEAD
         $prefix      = defined('__PHPUNIT_PHAR_ROOT__') ? __PHPUNIT_PHAR_ROOT__ : null;
+=======
+        $prefix      = defined('__PHPUNIT_PHAR_ROOT__') ? __PHPUNIT_PHAR_ROOT__ : false;
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
         $excludeList = new ExcludeList;
 
         foreach ($eTrace as $frame) {
@@ -72,12 +80,20 @@ final class Filter
         return $filteredStacktrace;
     }
 
+<<<<<<< HEAD
     private static function shouldPrintFrame(array $frame, ?string $prefix, ExcludeList $excludeList): bool
+=======
+    /**
+     * @param false|string $prefix
+     */
+    private static function shouldPrintFrame(array $frame, $prefix, ExcludeList $excludeList): bool
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
     {
         if (!isset($frame['file'])) {
             return false;
         }
 
+<<<<<<< HEAD
         // @see https://github.com/sebastianbergmann/phpunit/issues/4033
         $script = '';
 
@@ -94,6 +110,22 @@ final class Filter
         return $prefix === null &&
                self::fileIsExcluded($file, $excludeList) &&
                is_file($file);
+=======
+        $file              = $frame['file'];
+        $fileIsNotPrefixed = $prefix === false || strpos($file, $prefix) !== 0;
+
+        // @see https://github.com/sebastianbergmann/phpunit/issues/4033
+        if (isset($GLOBALS['_SERVER']['SCRIPT_NAME'])) {
+            $script = realpath($GLOBALS['_SERVER']['SCRIPT_NAME']);
+        } else {
+            $script = '';
+        }
+
+        return is_file($file) &&
+               self::fileIsExcluded($file, $excludeList) &&
+               $fileIsNotPrefixed &&
+               $file !== $script;
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
     }
 
     private static function fileIsExcluded(string $file, ExcludeList $excludeList): bool

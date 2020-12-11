@@ -56,7 +56,11 @@ class SignatureFormatter implements ReflectorFormatter
                 return self::formatConstant($reflector);
 
             default:
+<<<<<<< HEAD
                 throw new \InvalidArgumentException('Unexpected Reflector class: '.\get_class($reflector));
+=======
+                throw new \InvalidArgumentException('Unexpected Reflector class: ' . \get_class($reflector));
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
         }
     }
 
@@ -84,7 +88,11 @@ class SignatureFormatter implements ReflectorFormatter
         if ($reflector instanceof \ReflectionClass && $reflector->isTrait()) {
             // For some reason, PHP 5.x returns `abstract public` modifiers for
             // traits. Let's just ignore that business entirely.
+<<<<<<< HEAD
             if (\version_compare(\PHP_VERSION, '7.0.0', '<')) {
+=======
+            if (\version_compare(PHP_VERSION, '7.0.0', '<')) {
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
                 return '';
             }
         }
@@ -190,7 +198,11 @@ class SignatureFormatter implements ReflectorFormatter
             return 'number';
         } elseif (\is_string($value)) {
             return 'string';
+<<<<<<< HEAD
         } elseif (\is_bool($value) || $value === null) {
+=======
+        } elseif (\is_bool($value) || \is_null($value)) {
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
             return 'bool';
         } else {
             return 'strong'; // @codeCoverageIgnore
@@ -223,15 +235,23 @@ class SignatureFormatter implements ReflectorFormatter
     private static function formatFunction(\ReflectionFunctionAbstract $reflector)
     {
         return \sprintf(
+<<<<<<< HEAD
             '<keyword>function</keyword> %s<function>%s</function>(%s)%s',
             $reflector->returnsReference() ? '&' : '',
             self::formatName($reflector),
             \implode(', ', self::formatFunctionParams($reflector)),
             self::formatFunctionReturnType($reflector)
+=======
+            '<keyword>function</keyword> %s<function>%s</function>(%s)',
+            $reflector->returnsReference() ? '&' : '',
+            self::formatName($reflector),
+            \implode(', ', self::formatFunctionParams($reflector))
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
         );
     }
 
     /**
+<<<<<<< HEAD
      * Format a function signature's return type (if available).
      *
      * @param \ReflectionFunctionAbstract $reflector
@@ -248,6 +268,8 @@ class SignatureFormatter implements ReflectorFormatter
     }
 
     /**
+=======
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
      * Format a method signature.
      *
      * @param \ReflectionMethod $reflector
@@ -276,6 +298,7 @@ class SignatureFormatter implements ReflectorFormatter
         foreach ($reflector->getParameters() as $param) {
             $hint = '';
             try {
+<<<<<<< HEAD
                 if (\method_exists($param, 'getType')) {
                     $hint = self::formatReflectionType($param->getType());
                 } else {
@@ -284,6 +307,12 @@ class SignatureFormatter implements ReflectorFormatter
                     } elseif ($class = $param->getClass()) {
                         $hint = \sprintf('<class>%s</class>', $class->getName());
                     }
+=======
+                if ($param->isArray()) {
+                    $hint = '<keyword>array</keyword> ';
+                } elseif ($class = $param->getClass()) {
+                    $hint = \sprintf('<class>%s</class> ', $class->getName());
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
                 }
             } catch (\Exception $e) {
                 // sometimes we just don't know...
@@ -293,22 +322,39 @@ class SignatureFormatter implements ReflectorFormatter
                 // Hax: we'll try to extract it :P
 
                 // @codeCoverageIgnoreStart
+<<<<<<< HEAD
                 $chunks = \explode('$'.$param->getName(), (string) $param);
                 $chunks = \explode(' ', \trim($chunks[0]));
                 $guess = \end($chunks);
 
                 $hint = \sprintf('<urgent>%s</urgent>', OutputFormatter::escape($guess));
+=======
+                $chunks = \explode('$' . $param->getName(), (string) $param);
+                $chunks = \explode(' ', \trim($chunks[0]));
+                $guess  = \end($chunks);
+
+                $hint = \sprintf('<urgent>%s</urgent> ', $guess);
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
                 // @codeCoverageIgnoreEnd
             }
 
             if ($param->isOptional()) {
                 if (!$param->isDefaultValueAvailable()) {
+<<<<<<< HEAD
                     $value = 'unknown';
                     $typeStyle = 'urgent';
                 } else {
                     $value = $param->getDefaultValue();
                     $typeStyle = self::getTypeStyle($value);
                     $value = \is_array($value) ? '[]' : ($value === null ? 'null' : \var_export($value, true));
+=======
+                    $value     = 'unknown';
+                    $typeStyle = 'urgent';
+                } else {
+                    $value     = $param->getDefaultValue();
+                    $typeStyle = self::getTypeStyle($value);
+                    $value     = \is_array($value) ? '[]' : (\is_null($value) ? 'null' : \var_export($value, true));
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
                 }
                 $default = \sprintf(' = <%s>%s</%s>', $typeStyle, OutputFormatter::escape($value), $typeStyle);
             } else {
@@ -316,10 +362,16 @@ class SignatureFormatter implements ReflectorFormatter
             }
 
             $params[] = \sprintf(
+<<<<<<< HEAD
                 '%s%s%s<strong>$%s</strong>%s',
                 $param->isPassedByReference() ? '&' : '',
                 $hint,
                 $hint !== '' ? ' ' : '',
+=======
+                '%s%s<strong>$%s</strong>%s',
+                $param->isPassedByReference() ? '&' : '',
+                $hint,
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
                 $param->getName(),
                 $default
             );
@@ -327,6 +379,7 @@ class SignatureFormatter implements ReflectorFormatter
 
         return $params;
     }
+<<<<<<< HEAD
 
     /**
      * Print function param or return type(s).
@@ -356,4 +409,6 @@ class SignatureFormatter implements ReflectorFormatter
 
         return \implode('|', $formattedTypes);
     }
+=======
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
 }

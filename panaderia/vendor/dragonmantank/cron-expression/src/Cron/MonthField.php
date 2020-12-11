@@ -44,9 +44,15 @@ class MonthField extends AbstractField
     /**
      * @inheritDoc
      *
+<<<<<<< HEAD
      * @param \DateTime|\DateTimeImmutable $date
      */
     public function increment(DateTimeInterface &$date, $invert = false, $parts = null): FieldInterface
+=======
+     * @param \DateTime|\DateTimeImmutable &$date
+     */
+    public function increment(DateTimeInterface &$date, $invert = false): FieldInterface
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
     {
         if ($invert) {
             $date = $date->modify('last day of previous month')->setTime(23, 59);

@@ -125,11 +125,15 @@ class RequestMatcher implements RequestMatcherInterface
      */
     public function matchIps($ips)
     {
+<<<<<<< HEAD
         $ips = null !== $ips ? (array) $ips : [];
 
         $this->ips = array_reduce($ips, static function (array $ips, string $ip) {
             return array_merge($ips, preg_split('/\s*,\s*/', $ip));
         }, []);
+=======
+        $this->ips = null !== $ips ? (array) $ips : [];
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
     }
 
     /**

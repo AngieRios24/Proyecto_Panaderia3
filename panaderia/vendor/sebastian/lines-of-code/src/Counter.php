@@ -34,10 +34,13 @@ final class Counter
     {
         $linesOfCode = substr_count($source, "\n");
 
+<<<<<<< HEAD
         if ($linesOfCode === 0 && !empty($source)) {
             $linesOfCode = 1;
         }
 
+=======
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
         try {
             $nodes = $this->parser()->parse($source);
 

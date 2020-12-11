@@ -12,6 +12,10 @@ namespace PHPUnit\Framework\MockObject;
 use function assert;
 use function implode;
 use function sprintf;
+<<<<<<< HEAD
+=======
+use Exception;
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
 use PHPUnit\Framework\ExpectationFailedException;
 use PHPUnit\Framework\MockObject\Rule\AnyInvokedCount;
 use PHPUnit\Framework\MockObject\Rule\AnyParameters;
@@ -103,15 +107,23 @@ final class Matcher
     }
 
     /**
+<<<<<<< HEAD
      * @throws MethodNameNotConfiguredException
      * @throws MatchBuilderNotFoundException
+=======
+     * @throws Exception
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
      * @throws RuntimeException
      * @throws ExpectationFailedException
      */
     public function invoked(Invocation $invocation)
     {
         if ($this->methodNameRule === null) {
+<<<<<<< HEAD
             throw new MethodNameNotConfiguredException;
+=======
+            throw new RuntimeException('No method rule is set');
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
         }
 
         if ($this->afterMatchBuilderId !== null) {
@@ -120,9 +132,19 @@ final class Matcher
                                   ->lookupMatcher($this->afterMatchBuilderId);
 
             if (!$matcher) {
+<<<<<<< HEAD
                 throw new MatchBuilderNotFoundException($this->afterMatchBuilderId);
             }
 
+=======
+                throw new RuntimeException(
+                    sprintf(
+                        'No builder found for match builder identification <%s>',
+                        $this->afterMatchBuilderId
+                    )
+                );
+            }
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
             assert($matcher instanceof self);
 
             if ($matcher->invocationRule->hasBeenInvoked()) {
@@ -157,8 +179,11 @@ final class Matcher
 
     /**
      * @throws RuntimeException
+<<<<<<< HEAD
      * @throws MethodNameNotConfiguredException
      * @throws MatchBuilderNotFoundException
+=======
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
      * @throws ExpectationFailedException
      * @throws \SebastianBergmann\RecursionContext\InvalidArgumentException
      */
@@ -170,9 +195,19 @@ final class Matcher
                                   ->lookupMatcher($this->afterMatchBuilderId);
 
             if (!$matcher) {
+<<<<<<< HEAD
                 throw new MatchBuilderNotFoundException($this->afterMatchBuilderId);
             }
 
+=======
+                throw new RuntimeException(
+                    sprintf(
+                        'No builder found for match builder identification <%s>',
+                        $this->afterMatchBuilderId
+                    )
+                );
+            }
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
             assert($matcher instanceof self);
 
             if (!$matcher->invocationRule->hasBeenInvoked()) {
@@ -181,7 +216,11 @@ final class Matcher
         }
 
         if ($this->methodNameRule === null) {
+<<<<<<< HEAD
             throw new MethodNameNotConfiguredException;
+=======
+            throw new RuntimeException('No method rule is set');
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
         }
 
         if (!$this->invocationRule->matches($invocation)) {
@@ -208,14 +247,22 @@ final class Matcher
     }
 
     /**
+<<<<<<< HEAD
      * @throws MethodNameNotConfiguredException
+=======
+     * @throws RuntimeException
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
      * @throws ExpectationFailedException
      * @throws \SebastianBergmann\RecursionContext\InvalidArgumentException
      */
     public function verify(): void
     {
         if ($this->methodNameRule === null) {
+<<<<<<< HEAD
             throw new MethodNameNotConfiguredException;
+=======
+            throw new RuntimeException('No method rule is set');
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
         }
 
         try {

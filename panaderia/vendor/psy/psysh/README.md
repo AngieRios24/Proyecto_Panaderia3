@@ -7,7 +7,11 @@ PsySH is a runtime developer console, interactive debugger and [REPL](https://en
 [![Monthly downloads](http://img.shields.io/packagist/dm/psy/psysh.svg?style=flat-square)](https://packagist.org/packages/psy/psysh)
 [![Made out of awesome](https://img.shields.io/badge/made_out_of_awesome-✓-brightgreen.svg?style=flat-square)](http://psysh.org)
 
+<<<<<<< HEAD
 [![Build status](https://img.shields.io/github/workflow/status/bobthecow/psysh/Tests/master.svg?style=flat-square)](https://github.com/bobthecow/psysh/actions?query=branch:master)
+=======
+[![Build status](https://img.shields.io/travis/bobthecow/psysh/master.svg?style=flat-square)](http://travis-ci.org/bobthecow/psysh)
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
 [![StyleCI](https://styleci.io/repos/4549925/shield)](https://styleci.io/repos/4549925)
 
 

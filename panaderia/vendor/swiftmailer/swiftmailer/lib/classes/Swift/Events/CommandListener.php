@@ -17,6 +17,11 @@ interface Swift_Events_CommandListener extends Swift_Events_EventListener
 {
     /**
      * Invoked immediately following a command being sent.
+<<<<<<< HEAD
+=======
+     *
+     * @param Swift_Events_CommandEvent $evt
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
      */
     public function commandSent(Swift_Events_CommandEvent $evt);
 }

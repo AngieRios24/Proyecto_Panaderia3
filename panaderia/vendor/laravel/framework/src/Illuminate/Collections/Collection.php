@@ -1042,6 +1042,7 @@ class Collection implements ArrayAccess, Enumerable
     }
 
     /**
+<<<<<<< HEAD
      * Split a collection into a certain number of groups, and fill the first groups completely.
      *
      * @param  int  $numberOfGroups
@@ -1053,6 +1054,8 @@ class Collection implements ArrayAccess, Enumerable
     }
 
     /**
+=======
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
      * Chunk the collection into chunks of the given size.
      *
      * @param  int  $size
@@ -1121,17 +1124,24 @@ class Collection implements ArrayAccess, Enumerable
     /**
      * Sort the collection using the given callback.
      *
+<<<<<<< HEAD
      * @param  callable|array|string  $callback
+=======
+     * @param  callable|string  $callback
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
      * @param  int  $options
      * @param  bool  $descending
      * @return static
      */
     public function sortBy($callback, $options = SORT_REGULAR, $descending = false)
     {
+<<<<<<< HEAD
         if (is_array($callback) && ! is_callable($callback)) {
             return $this->sortByMany($callback);
         }
 
+=======
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
         $results = [];
 
         $callback = $this->valueRetriever($callback);
@@ -1157,6 +1167,7 @@ class Collection implements ArrayAccess, Enumerable
     }
 
     /**
+<<<<<<< HEAD
      * Sort the collection using multiple comparisons.
      *
      * @param  array  $comparisons
@@ -1201,6 +1212,8 @@ class Collection implements ArrayAccess, Enumerable
     }
 
     /**
+=======
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
      * Sort the collection in descending order using the given callback.
      *
      * @param  callable|string  $callback

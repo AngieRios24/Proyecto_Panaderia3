@@ -42,7 +42,11 @@ class FinalClassPass extends CodeCleanerPass
                 $extends = (string) $node->extends;
                 if ($this->isFinalClass($extends)) {
                     $msg = \sprintf('Class %s may not inherit from final class (%s)', $node->name, $extends);
+<<<<<<< HEAD
                     throw new FatalErrorException($msg, 0, \E_ERROR, null, $node->getLine());
+=======
+                    throw new FatalErrorException($msg, 0, E_ERROR, null, $node->getLine());
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
                 }
             }
 

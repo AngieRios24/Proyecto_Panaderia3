@@ -12,7 +12,10 @@ namespace PHPUnit\Util\TestDox;
 use function get_class;
 use function in_array;
 use PHPUnit\Framework\AssertionFailedError;
+<<<<<<< HEAD
 use PHPUnit\Framework\ErrorTestCase;
+=======
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
 use PHPUnit\Framework\Test;
 use PHPUnit\Framework\TestCase;
 use PHPUnit\Framework\TestSuite;
@@ -314,7 +317,11 @@ abstract class ResultPrinter extends Printer implements ResultPrinterInterface
             return false;
         }
 
+<<<<<<< HEAD
         if ($test instanceof ErrorTestCase || $test instanceof WarningTestCase) {
+=======
+        if ($test instanceof WarningTestCase) {
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
             return false;
         }
 

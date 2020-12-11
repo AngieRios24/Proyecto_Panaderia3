@@ -45,7 +45,11 @@ class FunctionContextPass extends CodeCleanerPass
         // It causes fatal error.
         if ($node instanceof Yield_) {
             $msg = 'The "yield" expression can only be used inside a function';
+<<<<<<< HEAD
             throw new FatalErrorException($msg, 0, \E_ERROR, null, $node->getLine());
+=======
+            throw new FatalErrorException($msg, 0, E_ERROR, null, $node->getLine());
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
         }
     }
 

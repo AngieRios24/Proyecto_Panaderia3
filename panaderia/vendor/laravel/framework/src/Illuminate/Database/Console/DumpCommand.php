@@ -32,8 +32,11 @@ class DumpCommand extends Command
     /**
      * Execute the console command.
      *
+<<<<<<< HEAD
      * @param  \Illuminate\Database\ConnectionResolverInterface  $connections
      * @param  \Illuminate\Contracts\Events\Dispatcher  $dispatcher
+=======
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
      * @return int
      */
     public function handle(ConnectionResolverInterface $connections, Dispatcher $dispatcher)

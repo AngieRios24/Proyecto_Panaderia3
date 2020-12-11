@@ -1036,7 +1036,11 @@ trait ValidatesAttributes
      */
     public function validateImage($attribute, $value)
     {
+<<<<<<< HEAD
         return $this->validateMimes($attribute, $value, ['jpg', 'jpeg', 'png', 'gif', 'bmp', 'svg', 'webp']);
+=======
+        return $this->validateMimes($attribute, $value, ['jpeg', 'png', 'gif', 'bmp', 'svg', 'webp']);
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
     }
 
     /**
@@ -1188,10 +1192,13 @@ trait ValidatesAttributes
             return false;
         }
 
+<<<<<<< HEAD
         if (in_array('jpg', $parameters) || in_array('jpeg', $parameters)) {
             $parameters = array_unique(array_merge($parameters, ['jpg', 'jpeg']));
         }
 
+=======
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
         return $value->getPath() !== '' && in_array($value->guessExtension(), $parameters);
     }
 

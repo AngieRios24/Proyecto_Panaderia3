@@ -30,8 +30,13 @@ class ClassEnumerator extends Enumerator
         }
 
         $internal = $input->getOption('internal');
+<<<<<<< HEAD
         $user = $input->getOption('user');
         $prefix = $reflector === null ? null : \strtolower($reflector->getName()).'\\';
+=======
+        $user     = $input->getOption('user');
+        $prefix   = $reflector === null ? null : \strtolower($reflector->getName()) . '\\';
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
 
         $ret = [];
 
@@ -71,7 +76,11 @@ class ClassEnumerator extends Enumerator
         $ret = [];
 
         if ($internal) {
+<<<<<<< HEAD
             $ret['Internal '.$key] = \array_filter($classes, function ($class) use ($prefix) {
+=======
+            $ret['Internal ' . $key] = \array_filter($classes, function ($class) use ($prefix) {
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
                 if ($prefix !== null && \strpos(\strtolower($class), $prefix) !== 0) {
                     return false;
                 }
@@ -83,7 +92,11 @@ class ClassEnumerator extends Enumerator
         }
 
         if ($user) {
+<<<<<<< HEAD
             $ret['User '.$key] = \array_filter($classes, function ($class) use ($prefix) {
+=======
+            $ret['User ' . $key] = \array_filter($classes, function ($class) use ($prefix) {
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
                 if ($prefix !== null && \strpos(\strtolower($class), $prefix) !== 0) {
                     return false;
                 }

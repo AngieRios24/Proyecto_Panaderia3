@@ -25,7 +25,11 @@ class PostgresSchemaState extends SchemaState
                         })->implode(' ');
 
         $this->makeProcess(
+<<<<<<< HEAD
             $this->baseDumpCommand().' --file=$LARAVEL_LOAD_PATH '.$excludedTables
+=======
+            $this->baseDumpCommand().' --no-owner --file=$LARAVEL_LOAD_PATH '.$excludedTables
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
         )->mustRun($this->output, array_merge($this->baseVariables($this->connection->getConfig()), [
             'LARAVEL_LOAD_PATH' => $path,
         ]));
@@ -39,7 +43,11 @@ class PostgresSchemaState extends SchemaState
      */
     public function load($path)
     {
+<<<<<<< HEAD
         $command = 'PGPASSWORD=$LARAVEL_LOAD_PASSWORD pg_restore --no-owner --no-acl --host=$LARAVEL_LOAD_HOST --port=$LARAVEL_LOAD_PORT --username=$LARAVEL_LOAD_USER --dbname=$LARAVEL_LOAD_DATABASE $LARAVEL_LOAD_PATH';
+=======
+        $command = 'PGPASSWORD=$LARAVEL_LOAD_PASSWORD pg_restore --host=$LARAVEL_LOAD_HOST --port=$LARAVEL_LOAD_PORT --username=$LARAVEL_LOAD_USER --dbname=$LARAVEL_LOAD_DATABASE $LARAVEL_LOAD_PATH';
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
 
         if (Str::endsWith($path, '.sql')) {
             $command = 'PGPASSWORD=$LARAVEL_LOAD_PASSWORD psql --file=$LARAVEL_LOAD_PATH --host=$LARAVEL_LOAD_HOST --port=$LARAVEL_LOAD_PORT --username=$LARAVEL_LOAD_USER --dbname=$LARAVEL_LOAD_DATABASE';

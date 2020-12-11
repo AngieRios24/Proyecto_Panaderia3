@@ -118,6 +118,10 @@ class MarkdownDescriptor extends Descriptor
      */
     protected function describeCommand(Command $command, array $options = [])
     {
+<<<<<<< HEAD
+=======
+        $command->getSynopsis();
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
         $command->mergeApplicationDefinition(false);
 
         $this->write(
@@ -135,10 +139,16 @@ class MarkdownDescriptor extends Descriptor
             $this->write($help);
         }
 
+<<<<<<< HEAD
         $definition = $command->getDefinition();
         if ($definition->getOptions() || $definition->getArguments()) {
             $this->write("\n\n");
             $this->describeInputDefinition($definition);
+=======
+        if ($command->getNativeDefinition()) {
+            $this->write("\n\n");
+            $this->describeInputDefinition($command->getNativeDefinition());
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
         }
     }
 

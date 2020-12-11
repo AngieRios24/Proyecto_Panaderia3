@@ -9,6 +9,10 @@
  */
 namespace PHPUnit\Framework\MockObject;
 
+<<<<<<< HEAD
+=======
+use function sprintf;
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
 use function strtolower;
 use Exception;
 use PHPUnit\Framework\MockObject\Builder\InvocationMocker;
@@ -83,12 +87,22 @@ final class InvocationHandler
      * @param string  $id      The identification of the matcher
      * @param Matcher $matcher The builder which is being registered
      *
+<<<<<<< HEAD
      * @throws MatcherAlreadyRegisteredException
+=======
+     * @throws RuntimeException
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
      */
     public function registerMatcher(string $id, Matcher $matcher): void
     {
         if (isset($this->matcherMap[$id])) {
+<<<<<<< HEAD
             throw new MatcherAlreadyRegisteredException($id);
+=======
+            throw new RuntimeException(
+                'Matcher with id <' . $id . '> is already registered.'
+            );
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
         }
 
         $this->matcherMap[$id] = $matcher;
@@ -140,7 +154,17 @@ final class InvocationHandler
         }
 
         if (!$this->returnValueGeneration) {
+<<<<<<< HEAD
             $exception = new ReturnValueNotConfiguredException($invocation);
+=======
+            $exception = new RuntimeException(
+                sprintf(
+                    'Return value inference disabled and no expectation set up for %s::%s()',
+                    $invocation->getClassName(),
+                    $invocation->getMethodName()
+                )
+            );
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
 
             if (strtolower($invocation->getMethodName()) === '__tostring') {
                 $this->deferredError = $exception;

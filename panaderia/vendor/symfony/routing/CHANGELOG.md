@@ -1,6 +1,7 @@
 CHANGELOG
 =========
 
+<<<<<<< HEAD
 5.2.0
 -----
 
@@ -8,6 +9,8 @@ CHANGELOG
  * Added support for `\A` and `\z` as regex start and end for route requirement
  * Added support for `#[Route]` attributes
 
+=======
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
 5.1.0
 -----
 

@@ -4,7 +4,11 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
+<<<<<<< HEAD
     "content-hash": "ba5b0526898e851fb4533bd86b183acd",
+=======
+    "content-hash": "534985a965d261900168a56314e4677c",
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -153,6 +157,7 @@
             "time": "2018-08-06T03:29:54+00:00"
         },
         {
+<<<<<<< HEAD
             "name": "darryldecode/cart",
             "version": "4.2.0",
             "source": {
@@ -212,6 +217,8 @@
             "time": "2020-09-12T12:23:59+00:00"
         },
         {
+=======
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
             "name": "dnoegel/php-xdg-base-dir",
             "version": "v0.1.1",
             "source": {

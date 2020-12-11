@@ -32,8 +32,13 @@ use PhpParser\NodeTraverser;
  */
 class UseStatementPass extends CodeCleanerPass
 {
+<<<<<<< HEAD
     private $aliases = [];
     private $lastAliases = [];
+=======
+    private $aliases       = [];
+    private $lastAliases   = [];
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
     private $lastNamespace = null;
 
     /**
@@ -92,8 +97,13 @@ class UseStatementPass extends CodeCleanerPass
         // Start fresh, since we're done with this namespace.
         if ($node instanceof Namespace_) {
             $this->lastNamespace = $node->name;
+<<<<<<< HEAD
             $this->lastAliases = $this->aliases;
             $this->aliases = [];
+=======
+            $this->lastAliases   = $this->aliases;
+            $this->aliases       = [];
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
 
             return;
         }
@@ -128,8 +138,13 @@ class UseStatementPass extends CodeCleanerPass
         foreach ($this->aliases as $alias => $prefix) {
             if ($that === $alias) {
                 return new FullyQualifiedName($prefix->toString());
+<<<<<<< HEAD
             } elseif (\substr($that, 0, \strlen($alias) + 1) === $alias.'\\') {
                 return new FullyQualifiedName($prefix->toString().\substr($name, \strlen($alias)));
+=======
+            } elseif (\substr($that, 0, \strlen($alias) + 1) === $alias . '\\') {
+                return new FullyQualifiedName($prefix->toString() . \substr($name, \strlen($alias)));
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
             }
         }
     }

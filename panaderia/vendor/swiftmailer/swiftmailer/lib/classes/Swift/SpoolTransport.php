@@ -25,7 +25,11 @@ class Swift_SpoolTransport extends Swift_Transport_SpoolTransport
 
         $arguments[] = $spool;
 
+<<<<<<< HEAD
         \call_user_func_array(
+=======
+        call_user_func_array(
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
             [$this, 'Swift_Transport_SpoolTransport::__construct'],
             $arguments
         );

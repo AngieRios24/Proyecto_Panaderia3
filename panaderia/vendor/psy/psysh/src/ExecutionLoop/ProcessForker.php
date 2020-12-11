@@ -108,7 +108,11 @@ class ProcessForker extends AbstractListener
      */
     public function beforeRun(Shell $shell)
     {
+<<<<<<< HEAD
         list($up, $down) = \stream_socket_pair(\STREAM_PF_UNIX, \STREAM_SOCK_STREAM, \STREAM_IPPROTO_IP);
+=======
+        list($up, $down) = \stream_socket_pair(STREAM_PF_UNIX, STREAM_SOCK_STREAM, STREAM_IPPROTO_IP);
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
 
         if (!$up) {
             throw new \RuntimeException('Unable to create socket pair');
@@ -124,8 +128,13 @@ class ProcessForker extends AbstractListener
             \fclose($up);
 
             // Wait for a return value from the loop process.
+<<<<<<< HEAD
             $read = [$down];
             $write = null;
+=======
+            $read   = [$down];
+            $write  = null;
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
             $except = null;
 
             do {
@@ -190,7 +199,11 @@ class ProcessForker extends AbstractListener
     {
         // if there's an old savegame hanging around, let's kill it.
         if (isset($this->savegame)) {
+<<<<<<< HEAD
             \posix_kill($this->savegame, \SIGKILL);
+=======
+            \posix_kill($this->savegame, SIGKILL);
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
             \pcntl_signal_dispatch();
         }
     }
@@ -208,7 +221,11 @@ class ProcessForker extends AbstractListener
             \fwrite($this->up, $this->serializeReturn($shell->getScopeVariables(false)));
             \fclose($this->up);
 
+<<<<<<< HEAD
             \posix_kill(\posix_getpid(), \SIGKILL);
+=======
+            \posix_kill(\posix_getpid(), SIGKILL);
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
         }
     }
 
@@ -233,7 +250,11 @@ class ProcessForker extends AbstractListener
 
             // worker exited cleanly, let's bail
             if (!\pcntl_wexitstatus($status)) {
+<<<<<<< HEAD
                 \posix_kill(\posix_getpid(), \SIGKILL);
+=======
+                \posix_kill(\posix_getpid(), SIGKILL);
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
             }
 
             // worker didn't exit cleanly, we'll need to have another go

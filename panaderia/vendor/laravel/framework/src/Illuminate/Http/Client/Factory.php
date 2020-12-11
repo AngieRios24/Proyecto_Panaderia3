@@ -225,6 +225,7 @@ class Factory
     }
 
     /**
+<<<<<<< HEAD
      * Assert that the given request were sent in the given order.
      *
      * @param  array  $callbacks
@@ -247,6 +248,8 @@ class Factory
     }
 
     /**
+=======
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
      * Assert that a request / response pair was not recorded matching a given truth test.
      *
      * @param  callable  $callback

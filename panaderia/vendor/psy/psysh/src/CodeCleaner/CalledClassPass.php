@@ -61,7 +61,11 @@ class CalledClassPass extends CodeCleanerPass
             $name = \strtolower($node->name);
             if (\in_array($name, ['get_class', 'get_called_class'])) {
                 $msg = \sprintf('%s() called without object from outside a class', $name);
+<<<<<<< HEAD
                 throw new ErrorException($msg, 0, \E_USER_WARNING, null, $node->getLine());
+=======
+                throw new ErrorException($msg, 0, E_USER_WARNING, null, $node->getLine());
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
             }
         }
     }

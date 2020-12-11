@@ -66,7 +66,11 @@ abstract class PrettyPrinterAbstract
         BinaryOp\BooleanAnd::class     => [120, -1],
         BinaryOp\BooleanOr::class      => [130, -1],
         BinaryOp\Coalesce::class       => [140,  1],
+<<<<<<< HEAD
         Expr\Ternary::class            => [150,  0],
+=======
+        Expr\Ternary::class            => [150, -1],
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
         // parser uses %left for assignments, but they really behave as %right
         Expr\Assign::class             => [160,  1],
         Expr\AssignRef::class          => [160,  1],

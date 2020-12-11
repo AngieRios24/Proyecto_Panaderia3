@@ -4,7 +4,11 @@ namespace Illuminate\Support\Facades;
 
 /**
  * @method static \Illuminate\Contracts\View\Factory addNamespace(string $namespace, string|array $hints)
+<<<<<<< HEAD
  * @method static \Illuminate\Contracts\View\Factory first(array $views, \Illuminate\Contracts\Support\Arrayable|array $data = [], array $mergeData = [])
+=======
+ * @method static \Illuminate\Contracts\View\Factory first(array $views, \Illuminate\Contracts\Support\Arrayable|array $data, array $mergeData)
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
  * @method static \Illuminate\Contracts\View\Factory replaceNamespace(string $namespace, string|array $hints)
  * @method static \Illuminate\Contracts\View\View file(string $path, array $data = [], array $mergeData = [])
  * @method static \Illuminate\Contracts\View\View make(string $view, array $data = [], array $mergeData = [])

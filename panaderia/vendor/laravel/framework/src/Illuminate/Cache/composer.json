@@ -35,7 +35,11 @@
         "illuminate/database": "Required to use the database cache driver (^8.0).",
         "illuminate/filesystem": "Required to use the file cache driver (^8.0).",
         "illuminate/redis": "Required to use the redis cache driver (^8.0).",
+<<<<<<< HEAD
         "symfony/cache": "Required to PSR-6 cache bridge (^5.1.4)."
+=======
+        "symfony/cache": "Required to PSR-6 cache bridge (^5.1)."
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
     },
     "config": {
         "sort-packages": true

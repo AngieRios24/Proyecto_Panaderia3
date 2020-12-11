@@ -1,5 +1,10 @@
 language: php
 
+<<<<<<< HEAD
+=======
+sudo: false
+
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
 before_script:
     - cp tests/acceptance.conf.php.default tests/acceptance.conf.php
     - cp tests/smoke.conf.php.default tests/smoke.conf.php
@@ -9,11 +14,15 @@ before_script:
     - gem install mailcatcher
     - mailcatcher --smtp-port 4456
 
+<<<<<<< HEAD
 script: ./vendor/bin/simple-phpunit
 
 env:
     global:
         - SYMFONY_PHPUNIT_REMOVE_RETURN_TYPEHINT=1
+=======
+script: SYMFONY_PHPUNIT_VERSION=6.1 ./vendor/bin/simple-phpunit
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
 
 matrix:
     include:
@@ -21,8 +30,11 @@ matrix:
         - php: 7.1
         - php: 7.2
         - php: 7.3
+<<<<<<< HEAD
         - php: 7.4
         - php: 8.0
+=======
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
     fast_finish: true
 
 cache:

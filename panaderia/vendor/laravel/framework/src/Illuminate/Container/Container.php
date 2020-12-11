@@ -626,7 +626,11 @@ class Container implements ArrayAccess, ContainerContract
     /**
      * An alias function name for make().
      *
+<<<<<<< HEAD
      * @param  string|callable  $abstract
+=======
+     * @param  string  $abstract
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
      * @param  array  $parameters
      * @return mixed
      *
@@ -640,7 +644,11 @@ class Container implements ArrayAccess, ContainerContract
     /**
      * Resolve the given type from the container.
      *
+<<<<<<< HEAD
      * @param  string|callable  $abstract
+=======
+     * @param  string  $abstract
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
      * @param  array  $parameters
      * @return mixed
      *
@@ -670,7 +678,11 @@ class Container implements ArrayAccess, ContainerContract
     /**
      * Resolve the given type from the container.
      *
+<<<<<<< HEAD
      * @param  string|callable  $abstract
+=======
+     * @param  string  $abstract
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
      * @param  array  $parameters
      * @param  bool  $raiseEvents
      * @return mixed
@@ -681,7 +693,11 @@ class Container implements ArrayAccess, ContainerContract
     {
         $abstract = $this->getAlias($abstract);
 
+<<<<<<< HEAD
         // First we'll fire any event handlers which handle the "before" resolving of
+=======
+        // First we wil fire any event handlers that handle the "before" resolving of
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
         // specific types. This gives some hooks the chance to add various extends
         // calls to change the resolution of objects that they're interested in.
         if ($raiseEvents) {
@@ -745,7 +761,11 @@ class Container implements ArrayAccess, ContainerContract
     /**
      * Get the concrete type for a given abstract.
      *
+<<<<<<< HEAD
      * @param  string|callable  $abstract
+=======
+     * @param  string  $abstract
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
      * @return mixed
      */
     protected function getConcrete($abstract)
@@ -763,7 +783,11 @@ class Container implements ArrayAccess, ContainerContract
     /**
      * Get the contextual concrete binding for the given abstract.
      *
+<<<<<<< HEAD
      * @param  string|callable  $abstract
+=======
+     * @param  string  $abstract
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
      * @return \Closure|string|array|null
      */
     protected function getContextualConcrete($abstract)
@@ -789,7 +813,11 @@ class Container implements ArrayAccess, ContainerContract
     /**
      * Find the concrete binding for the given abstract in the contextual binding array.
      *
+<<<<<<< HEAD
      * @param  string|callable  $abstract
+=======
+     * @param  string  $abstract
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
      * @return \Closure|string|null
      */
     protected function findInContextualBindings($abstract)

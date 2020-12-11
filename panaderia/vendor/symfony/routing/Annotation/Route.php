@@ -18,9 +18,13 @@ namespace Symfony\Component\Routing\Annotation;
  * @Target({"CLASS", "METHOD"})
  *
  * @author Fabien Potencier <fabien@symfony.com>
+<<<<<<< HEAD
  * @author Alexander M. Turek <me@derrabus.de>
  */
 #[\Attribute(\Attribute::IS_REPEATABLE | \Attribute::TARGET_CLASS | \Attribute::TARGET_METHOD)]
+=======
+ */
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
 class Route
 {
     private $path;
@@ -36,6 +40,7 @@ class Route
     private $priority;
 
     /**
+<<<<<<< HEAD
      * @param array|string      $data         data array managed by the Doctrine Annotations library or the path
      * @param array|string|null $path
      * @param string[]          $requirements
@@ -89,6 +94,14 @@ class Route
             return null !== $value;
         });
 
+=======
+     * @param array $data An array of key/value parameters
+     *
+     * @throws \BadMethodCallException
+     */
+    public function __construct(array $data)
+    {
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
         if (isset($data['localized_paths'])) {
             throw new \BadMethodCallException(sprintf('Unknown property "localized_paths" on annotation "%s".', static::class));
         }

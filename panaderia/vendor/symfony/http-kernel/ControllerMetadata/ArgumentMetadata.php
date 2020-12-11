@@ -11,8 +11,11 @@
 
 namespace Symfony\Component\HttpKernel\ControllerMetadata;
 
+<<<<<<< HEAD
 use Symfony\Component\HttpKernel\Attribute\ArgumentInterface;
 
+=======
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
 /**
  * Responsible for storing metadata of an argument.
  *
@@ -26,9 +29,14 @@ class ArgumentMetadata
     private $hasDefaultValue;
     private $defaultValue;
     private $isNullable;
+<<<<<<< HEAD
     private $attribute;
 
     public function __construct(string $name, ?string $type, bool $isVariadic, bool $hasDefaultValue, $defaultValue, bool $isNullable = false, ?ArgumentInterface $attribute = null)
+=======
+
+    public function __construct(string $name, ?string $type, bool $isVariadic, bool $hasDefaultValue, $defaultValue, bool $isNullable = false)
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
     {
         $this->name = $name;
         $this->type = $type;
@@ -36,7 +44,10 @@ class ArgumentMetadata
         $this->hasDefaultValue = $hasDefaultValue;
         $this->defaultValue = $defaultValue;
         $this->isNullable = $isNullable || null === $type || ($hasDefaultValue && null === $defaultValue);
+<<<<<<< HEAD
         $this->attribute = $attribute;
+=======
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
     }
 
     /**
@@ -108,6 +119,7 @@ class ArgumentMetadata
 
         return $this->defaultValue;
     }
+<<<<<<< HEAD
 
     /**
      * Returns the attribute (if any) that was set on the argument.
@@ -116,4 +128,6 @@ class ArgumentMetadata
     {
         return $this->attribute;
     }
+=======
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
 }

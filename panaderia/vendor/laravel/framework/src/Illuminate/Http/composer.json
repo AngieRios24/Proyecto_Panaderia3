@@ -20,9 +20,15 @@
         "illuminate/macroable": "^8.0",
         "illuminate/session": "^8.0",
         "illuminate/support": "^8.0",
+<<<<<<< HEAD
         "symfony/http-foundation": "^5.1.4",
         "symfony/http-kernel": "^5.1.4",
         "symfony/mime": "^5.1.4"
+=======
+        "symfony/http-foundation": "^5.1",
+        "symfony/http-kernel": "^5.1",
+        "symfony/mime": "^5.1"
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
     },
     "autoload": {
         "psr-4": {

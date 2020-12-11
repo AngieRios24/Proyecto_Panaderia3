@@ -254,9 +254,15 @@ class Swift_CharacterStream_NgCharacterStream implements Swift_CharacterStream
         $this->datas .= $chars;
         $this->charCount += $this->charReader->getCharPositions(substr($this->datas, $this->datasSize), $this->datasSize, $this->map, $ignored);
         if (false !== $ignored) {
+<<<<<<< HEAD
             $this->datasSize = \strlen($this->datas) - \strlen($ignored);
         } else {
             $this->datasSize = \strlen($this->datas);
+=======
+            $this->datasSize = strlen($this->datas) - strlen($ignored);
+        } else {
+            $this->datasSize = strlen($this->datas);
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
         }
     }
 }

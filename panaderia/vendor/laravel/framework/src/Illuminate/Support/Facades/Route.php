@@ -25,7 +25,11 @@ namespace Illuminate\Support\Facades;
  * @method static \Illuminate\Routing\RouteRegistrar domain(string $value)
  * @method static \Illuminate\Routing\RouteRegistrar middleware(array|string|null $middleware)
  * @method static \Illuminate\Routing\RouteRegistrar name(string $value)
+<<<<<<< HEAD
  * @method static \Illuminate\Routing\RouteRegistrar namespace(string|null $value)
+=======
+ * @method static \Illuminate\Routing\RouteRegistrar namespace(string $value)
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
  * @method static \Illuminate\Routing\RouteRegistrar prefix(string  $prefix)
  * @method static \Illuminate\Routing\RouteRegistrar where(array  $where)
  * @method static \Illuminate\Routing\Router|\Illuminate\Routing\RouteRegistrar group(\Closure|string|array $attributes, \Closure|string $routes)

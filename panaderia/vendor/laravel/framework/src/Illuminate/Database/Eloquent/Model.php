@@ -1061,23 +1061,37 @@ abstract class Model implements Arrayable, ArrayAccess, Jsonable, JsonSerializab
      */
     public static function destroy($ids)
     {
+<<<<<<< HEAD
+=======
+        // We'll initialize a count here so we will return the total number of deletes
+        // for the operation. The developers can then check this number as a boolean
+        // type value or get this total count of records deleted for logging, etc.
+        $count = 0;
+
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
         if ($ids instanceof BaseCollection) {
             $ids = $ids->all();
         }
 
         $ids = is_array($ids) ? $ids : func_get_args();
 
+<<<<<<< HEAD
         if (count($ids) === 0) {
             return 0;
         }
 
+=======
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
         // We will actually pull the models from the database table and call delete on
         // each of them individually so that their events get fired properly with a
         // correct set of attributes in case the developers wants to check these.
         $key = ($instance = new static)->getKeyName();
 
+<<<<<<< HEAD
         $count = 0;
 
+=======
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
         foreach ($instance->whereIn($key, $ids)->get() as $model) {
             if ($model->delete()) {
                 $count++;

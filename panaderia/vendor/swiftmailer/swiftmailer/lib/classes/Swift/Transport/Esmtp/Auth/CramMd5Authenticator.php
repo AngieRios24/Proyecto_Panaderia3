@@ -56,6 +56,7 @@ class Swift_Transport_Esmtp_Auth_CramMd5Authenticator implements Swift_Transport
      */
     private function getResponse($secret, $challenge)
     {
+<<<<<<< HEAD
         if (\strlen($secret) > 64) {
             $secret = pack('H32', md5($secret));
         }
@@ -66,6 +67,18 @@ class Swift_Transport_Esmtp_Auth_CramMd5Authenticator implements Swift_Transport
 
         $k_ipad = substr($secret, 0, 64) ^ str_repeat(\chr(0x36), 64);
         $k_opad = substr($secret, 0, 64) ^ str_repeat(\chr(0x5C), 64);
+=======
+        if (strlen($secret) > 64) {
+            $secret = pack('H32', md5($secret));
+        }
+
+        if (strlen($secret) < 64) {
+            $secret = str_pad($secret, 64, chr(0));
+        }
+
+        $k_ipad = substr($secret, 0, 64) ^ str_repeat(chr(0x36), 64);
+        $k_opad = substr($secret, 0, 64) ^ str_repeat(chr(0x5C), 64);
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
 
         $inner = pack('H32', md5($k_ipad.$challenge));
         $digest = md5($k_opad.$inner);

@@ -326,7 +326,11 @@ class MorphTo extends BelongsTo
     /**
      * Specify constraints on the query for a given morph types.
      *
+<<<<<<< HEAD
      * @param  array  $callbacks
+=======
+     * @param  array  $with
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
      * @return \Illuminate\Database\Eloquent\Relations\MorphTo
      */
     public function constrain(array $callbacks)

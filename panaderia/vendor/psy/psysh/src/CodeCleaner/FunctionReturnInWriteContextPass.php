@@ -46,7 +46,11 @@ class FunctionReturnInWriteContextPass extends CodeCleanerPass
             $items = $node instanceof Array_ ? $node->items : $node->args;
             foreach ($items as $item) {
                 if ($item && $item->byRef && $this->isCallNode($item->value)) {
+<<<<<<< HEAD
                     throw new FatalErrorException(self::EXCEPTION_MESSAGE, 0, \E_ERROR, null, $node->getLine());
+=======
+                    throw new FatalErrorException(self::EXCEPTION_MESSAGE, 0, E_ERROR, null, $node->getLine());
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
                 }
             }
         } elseif ($node instanceof Isset_ || $node instanceof Unset_) {
@@ -56,10 +60,17 @@ class FunctionReturnInWriteContextPass extends CodeCleanerPass
                 }
 
                 $msg = $node instanceof Isset_ ? self::ISSET_MESSAGE : self::EXCEPTION_MESSAGE;
+<<<<<<< HEAD
                 throw new FatalErrorException($msg, 0, \E_ERROR, null, $node->getLine());
             }
         } elseif ($node instanceof Assign && $this->isCallNode($node->var)) {
             throw new FatalErrorException(self::EXCEPTION_MESSAGE, 0, \E_ERROR, null, $node->getLine());
+=======
+                throw new FatalErrorException($msg, 0, E_ERROR, null, $node->getLine());
+            }
+        } elseif ($node instanceof Assign && $this->isCallNode($node->var)) {
+            throw new FatalErrorException(self::EXCEPTION_MESSAGE, 0, E_ERROR, null, $node->getLine());
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
         }
     }
 

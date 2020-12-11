@@ -36,7 +36,11 @@ class StrictTypesPass extends CodeCleanerPass
 
     public function __construct()
     {
+<<<<<<< HEAD
         $this->atLeastPhp7 = \version_compare(\PHP_VERSION, '7.0', '>=');
+=======
+        $this->atLeastPhp7 = \version_compare(PHP_VERSION, '7.0', '>=');
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
     }
 
     /**
@@ -65,7 +69,11 @@ class StrictTypesPass extends CodeCleanerPass
                     if ($declareKey === 'strict_types') {
                         $value = $declare->value;
                         if (!$value instanceof LNumber || ($value->value !== 0 && $value->value !== 1)) {
+<<<<<<< HEAD
                             throw new FatalErrorException(self::EXCEPTION_MESSAGE, 0, \E_ERROR, null, $node->getLine());
+=======
+                            throw new FatalErrorException(self::EXCEPTION_MESSAGE, 0, E_ERROR, null, $node->getLine());
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
                         }
 
                         $this->strictTypes = $value->value === 1;

@@ -32,10 +32,15 @@ abstract class AbstractCloner implements ClonerInterface
         'Closure' => ['Symfony\Component\VarDumper\Caster\ReflectionCaster', 'castClosure'],
         'Generator' => ['Symfony\Component\VarDumper\Caster\ReflectionCaster', 'castGenerator'],
         'ReflectionType' => ['Symfony\Component\VarDumper\Caster\ReflectionCaster', 'castType'],
+<<<<<<< HEAD
         'ReflectionAttribute' => ['Symfony\Component\VarDumper\Caster\ReflectionCaster', 'castAttribute'],
         'ReflectionGenerator' => ['Symfony\Component\VarDumper\Caster\ReflectionCaster', 'castReflectionGenerator'],
         'ReflectionClass' => ['Symfony\Component\VarDumper\Caster\ReflectionCaster', 'castClass'],
         'ReflectionClassConstant' => ['Symfony\Component\VarDumper\Caster\ReflectionCaster', 'castClassConstant'],
+=======
+        'ReflectionGenerator' => ['Symfony\Component\VarDumper\Caster\ReflectionCaster', 'castReflectionGenerator'],
+        'ReflectionClass' => ['Symfony\Component\VarDumper\Caster\ReflectionCaster', 'castClass'],
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
         'ReflectionFunctionAbstract' => ['Symfony\Component\VarDumper\Caster\ReflectionCaster', 'castFunctionAbstract'],
         'ReflectionMethod' => ['Symfony\Component\VarDumper\Caster\ReflectionCaster', 'castMethod'],
         'ReflectionParameter' => ['Symfony\Component\VarDumper\Caster\ReflectionCaster', 'castParameter'],
@@ -152,10 +157,14 @@ abstract class AbstractCloner implements ClonerInterface
 
         ':dba' => ['Symfony\Component\VarDumper\Caster\ResourceCaster', 'castDba'],
         ':dba persistent' => ['Symfony\Component\VarDumper\Caster\ResourceCaster', 'castDba'],
+<<<<<<< HEAD
 
         'GdImage' => ['Symfony\Component\VarDumper\Caster\ResourceCaster', 'castGd'],
         ':gd' => ['Symfony\Component\VarDumper\Caster\ResourceCaster', 'castGd'],
 
+=======
+        ':gd' => ['Symfony\Component\VarDumper\Caster\ResourceCaster', 'castGd'],
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
         ':mysql link' => ['Symfony\Component\VarDumper\Caster\ResourceCaster', 'castMysqlLink'],
         ':pgsql large object' => ['Symfony\Component\VarDumper\Caster\PgSqlCaster', 'castLargeObject'],
         ':pgsql link' => ['Symfony\Component\VarDumper\Caster\PgSqlCaster', 'castLink'],
@@ -163,6 +172,7 @@ abstract class AbstractCloner implements ClonerInterface
         ':pgsql result' => ['Symfony\Component\VarDumper\Caster\PgSqlCaster', 'castResult'],
         ':process' => ['Symfony\Component\VarDumper\Caster\ResourceCaster', 'castProcess'],
         ':stream' => ['Symfony\Component\VarDumper\Caster\ResourceCaster', 'castStream'],
+<<<<<<< HEAD
 
         'OpenSSLCertificate' => ['Symfony\Component\VarDumper\Caster\ResourceCaster', 'castOpensslX509'],
         ':OpenSSL X.509' => ['Symfony\Component\VarDumper\Caster\ResourceCaster', 'castOpensslX509'],
@@ -171,6 +181,11 @@ abstract class AbstractCloner implements ClonerInterface
         ':stream-context' => ['Symfony\Component\VarDumper\Caster\ResourceCaster', 'castStreamContext'],
 
         'XmlParser' => ['Symfony\Component\VarDumper\Caster\XmlResourceCaster', 'castXml'],
+=======
+        ':OpenSSL X.509' => ['Symfony\Component\VarDumper\Caster\ResourceCaster', 'castOpensslX509'],
+        ':persistent stream' => ['Symfony\Component\VarDumper\Caster\ResourceCaster', 'castStream'],
+        ':stream-context' => ['Symfony\Component\VarDumper\Caster\ResourceCaster', 'castStreamContext'],
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
         ':xml' => ['Symfony\Component\VarDumper\Caster\XmlResourceCaster', 'castXml'],
 
         'RdKafka' => ['Symfony\Component\VarDumper\Caster\RdKafkaCaster', 'castRdKafka'],
@@ -313,7 +328,11 @@ abstract class AbstractCloner implements ClonerInterface
             $stub->class = get_debug_type($obj);
         }
         if (isset($this->classInfo[$class])) {
+<<<<<<< HEAD
             [$i, $parents, $hasDebugInfo, $fileInfo] = $this->classInfo[$class];
+=======
+            list($i, $parents, $hasDebugInfo, $fileInfo) = $this->classInfo[$class];
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
         } else {
             $i = 2;
             $parents = [$class];

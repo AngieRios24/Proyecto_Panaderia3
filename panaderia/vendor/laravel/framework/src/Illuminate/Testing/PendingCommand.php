@@ -351,7 +351,11 @@ class PendingCommand
             $table->render();
 
             $lines = array_filter(
+<<<<<<< HEAD
                 explode(PHP_EOL, $output->fetch())
+=======
+                explode("\n", $output->fetch())
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
             );
 
             foreach ($lines as $line) {

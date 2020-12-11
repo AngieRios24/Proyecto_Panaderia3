@@ -35,7 +35,11 @@ class DataPart extends TextPart
         if (null === $contentType) {
             $contentType = 'application/octet-stream';
         }
+<<<<<<< HEAD
         [$this->mediaType, $subtype] = explode('/', $contentType);
+=======
+        list($this->mediaType, $subtype) = explode('/', $contentType);
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
 
         parent::__construct($body, null, $subtype, $encoding);
 

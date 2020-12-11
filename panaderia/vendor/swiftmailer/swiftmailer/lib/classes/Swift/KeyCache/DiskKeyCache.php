@@ -80,7 +80,14 @@ class Swift_KeyCache_DiskKeyCache implements Swift_KeyCache
                 $fp = $this->getHandle($nsKey, $itemKey, self::POSITION_END);
                 break;
             default:
+<<<<<<< HEAD
                 throw new Swift_SwiftException('Invalid mode ['.$mode.'] used to set nsKey='.$nsKey.', itemKey='.$itemKey);
+=======
+                throw new Swift_SwiftException(
+                    'Invalid mode ['.$mode.'] used to set nsKey='.
+                    $nsKey.', itemKey='.$itemKey
+                    );
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
                 break;
         }
         fwrite($fp, $string);
@@ -109,7 +116,14 @@ class Swift_KeyCache_DiskKeyCache implements Swift_KeyCache
                 $fp = $this->getHandle($nsKey, $itemKey, self::POSITION_END);
                 break;
             default:
+<<<<<<< HEAD
                 throw new Swift_SwiftException('Invalid mode ['.$mode.'] used to set nsKey='.$nsKey.', itemKey='.$itemKey);
+=======
+                throw new Swift_SwiftException(
+                    'Invalid mode ['.$mode.'] used to set nsKey='.
+                    $nsKey.', itemKey='.$itemKey
+                    );
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
                 break;
         }
         while (false !== $bytes = $os->read(8192)) {
@@ -218,7 +232,11 @@ class Swift_KeyCache_DiskKeyCache implements Swift_KeyCache
      */
     public function clearAll($nsKey)
     {
+<<<<<<< HEAD
         if (\array_key_exists($nsKey, $this->keys)) {
+=======
+        if (array_key_exists($nsKey, $this->keys)) {
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
             foreach ($this->keys[$nsKey] as $itemKey => $null) {
                 $this->clearKey($nsKey, $itemKey);
             }

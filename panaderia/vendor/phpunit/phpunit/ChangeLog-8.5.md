@@ -2,6 +2,7 @@
 
 All notable changes of the PHPUnit 8.5 release series are documented in this file using the [Keep a CHANGELOG](https://keepachangelog.com/) principles.
 
+<<<<<<< HEAD
 ## [8.5.14] - 2020-MM-DD
 
 ### Fixed
@@ -40,6 +41,8 @@ All notable changes of the PHPUnit 8.5 release series are documented in this fil
 
 * [#4516](https://github.com/sebastianbergmann/phpunit/issues/4516): `phpunit/phpunit-selenium` does not work with PHPUnit 8.5.9
 
+=======
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
 ## [8.5.9] - 2020-11-10
 
 ### Fixed
@@ -122,11 +125,14 @@ All notable changes of the PHPUnit 8.5 release series are documented in this fil
 * [#3967](https://github.com/sebastianbergmann/phpunit/issues/3967): Cannot double interface that extends interface that extends `\Throwable`
 * [#3968](https://github.com/sebastianbergmann/phpunit/pull/3968): Test class run in a separate PHP process are passing when `exit` called inside
 
+<<<<<<< HEAD
 [8.5.14]: https://github.com/sebastianbergmann/phpunit/compare/8.5.13...8.5
 [8.5.13]: https://github.com/sebastianbergmann/phpunit/compare/8.5.12...8.5.13
 [8.5.12]: https://github.com/sebastianbergmann/phpunit/compare/8.5.11...8.5.12
 [8.5.11]: https://github.com/sebastianbergmann/phpunit/compare/8.5.10...8.5.11
 [8.5.10]: https://github.com/sebastianbergmann/phpunit/compare/8.5.9...8.5.10
+=======
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
 [8.5.9]: https://github.com/sebastianbergmann/phpunit/compare/8.5.8...8.5.9
 [8.5.8]: https://github.com/sebastianbergmann/phpunit/compare/8.5.7...8.5.8
 [8.5.7]: https://github.com/sebastianbergmann/phpunit/compare/8.5.6...8.5.7

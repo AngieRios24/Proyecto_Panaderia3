@@ -35,7 +35,10 @@ use PHPUnit\Runner\AfterLastTestHook;
 use PHPUnit\Runner\BaseTestRunner;
 use PHPUnit\Runner\BeforeFirstTestHook;
 use PHPUnit\Runner\DefaultTestResultCache;
+<<<<<<< HEAD
 use PHPUnit\Runner\Extension\ExtensionHandler;
+=======
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
 use PHPUnit\Runner\Filter\ExcludeGroupFilterIterator;
 use PHPUnit\Runner\Filter\Factory;
 use PHPUnit\Runner\Filter\IncludeGroupFilterIterator;
@@ -51,6 +54,10 @@ use PHPUnit\Runner\TestSuiteSorter;
 use PHPUnit\Runner\Version;
 use PHPUnit\TextUI\XmlConfiguration\CodeCoverage\FilterMapper;
 use PHPUnit\TextUI\XmlConfiguration\Configuration;
+<<<<<<< HEAD
+=======
+use PHPUnit\TextUI\XmlConfiguration\ExtensionHandler;
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
 use PHPUnit\TextUI\XmlConfiguration\Loader;
 use PHPUnit\TextUI\XmlConfiguration\PhpHandler;
 use PHPUnit\Util\Filesystem;
@@ -1021,7 +1028,11 @@ final class TestRunner extends BaseTestRunner
             $extensionHandler = new ExtensionHandler;
 
             foreach ($arguments['configurationObject']->extensions() as $extension) {
+<<<<<<< HEAD
                 $extensionHandler->registerExtension($extension, $this);
+=======
+                $this->addExtension($extensionHandler->createHookInstance($extension));
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
             }
 
             foreach ($arguments['configurationObject']->listeners() as $listener) {
@@ -1082,7 +1093,11 @@ final class TestRunner extends BaseTestRunner
         $extensionHandler = new ExtensionHandler;
 
         foreach ($arguments['extensions'] as $extension) {
+<<<<<<< HEAD
             $extensionHandler->registerExtension($extension, $this);
+=======
+            $this->addExtension($extensionHandler->createHookInstance($extension));
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
         }
 
         unset($extensionHandler);

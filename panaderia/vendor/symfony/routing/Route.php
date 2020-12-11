@@ -130,7 +130,22 @@ class Route implements \Serializable
      */
     public function setPath(string $pattern)
     {
+<<<<<<< HEAD
         $pattern = $this->extractInlineDefaultsAndRequirements($pattern);
+=======
+        if (false !== strpbrk($pattern, '?<')) {
+            $pattern = preg_replace_callback('#\{(!?\w++)(<.*?>)?(\?[^\}]*+)?\}#', function ($m) {
+                if (isset($m[3][0])) {
+                    $this->setDefault($m[1], '?' !== $m[3] ? substr($m[3], 1) : null);
+                }
+                if (isset($m[2][0])) {
+                    $this->setRequirement($m[1], substr($m[2], 1, -1));
+                }
+
+                return '{'.$m[1].'}';
+            }, $pattern);
+        }
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
 
         // A pattern must start with a slash and must not have multiple slashes at the beginning because the
         // generated path for this route would be confused with a network path, e.g. '//domain.com/path'.
@@ -159,7 +174,11 @@ class Route implements \Serializable
      */
     public function setHost(?string $pattern)
     {
+<<<<<<< HEAD
         $this->host = $this->extractInlineDefaultsAndRequirements((string) $pattern);
+=======
+        $this->host = (string) $pattern;
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
         $this->compiled = null;
 
         return $this;
@@ -533,6 +552,7 @@ class Route implements \Serializable
         return $this->compiled = $class::compile($this);
     }
 
+<<<<<<< HEAD
     private function extractInlineDefaultsAndRequirements(string $pattern): string
     {
         if (false === strpbrk($pattern, '?<')) {
@@ -559,12 +579,21 @@ class Route implements \Serializable
             } elseif (0 === strpos($regex, '\\A')) {
                 $regex = substr($regex, 2);
             }
+=======
+    private function sanitizeRequirement(string $key, string $regex)
+    {
+        if ('' !== $regex && '^' === $regex[0]) {
+            $regex = (string) substr($regex, 1); // returns false for a single character
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
         }
 
         if ('$' === substr($regex, -1)) {
             $regex = substr($regex, 0, -1);
+<<<<<<< HEAD
         } elseif (\strlen($regex) - 2 === strpos($regex, '\\z')) {
             $regex = substr($regex, 0, -2);
+=======
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
         }
 
         if ('' === $regex) {

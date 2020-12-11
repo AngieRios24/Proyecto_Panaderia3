@@ -194,11 +194,14 @@ class ParameterBag implements \IteratorAggregate, \Countable
             $options['flags'] = \FILTER_REQUIRE_ARRAY;
         }
 
+<<<<<<< HEAD
         if ((\FILTER_CALLBACK & $filter) && !(($options['options'] ?? null) instanceof \Closure)) {
             trigger_deprecation('symfony/http-foundation', '5.2', 'Not passing a Closure together with FILTER_CALLBACK to "%s()" is deprecated. Wrap your filter in a closure instead.', __METHOD__);
             // throw new \InvalidArgumentException(sprintf('A Closure must be passed to "%s()" when FILTER_CALLBACK is used, "%s" given.', __METHOD__, get_debug_type($options['options'] ?? null)));
         }
 
+=======
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
         return filter_var($value, $filter, $options);
     }
 

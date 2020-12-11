@@ -3,7 +3,10 @@
 namespace Illuminate\Database\Concerns;
 
 use Closure;
+<<<<<<< HEAD
 use RuntimeException;
+=======
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
 use Throwable;
 
 trait ManagesTransactions
@@ -43,8 +46,11 @@ trait ManagesTransactions
             try {
                 if ($this->transactions == 1) {
                     $this->getPdo()->commit();
+<<<<<<< HEAD
 
                     optional($this->transactionsManager)->commit($this->getName());
+=======
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
                 }
 
                 $this->transactions = max(0, $this->transactions - 1);
@@ -81,10 +87,13 @@ trait ManagesTransactions
             $this->transactions > 1) {
             $this->transactions--;
 
+<<<<<<< HEAD
             optional($this->transactionsManager)->rollback(
                 $this->getName(), $this->transactions
             );
 
+=======
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
             throw $e;
         }
 
@@ -114,10 +123,13 @@ trait ManagesTransactions
 
         $this->transactions++;
 
+<<<<<<< HEAD
         optional($this->transactionsManager)->begin(
             $this->getName(), $this->transactions
         );
 
+=======
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
         $this->fireConnectionEvent('beganTransaction');
     }
 
@@ -187,8 +199,11 @@ trait ManagesTransactions
     {
         if ($this->transactions == 1) {
             $this->getPdo()->commit();
+<<<<<<< HEAD
 
             optional($this->transactionsManager)->commit($this->getName());
+=======
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
         }
 
         $this->transactions = max(0, $this->transactions - 1);
@@ -254,10 +269,13 @@ trait ManagesTransactions
 
         $this->transactions = $toLevel;
 
+<<<<<<< HEAD
         optional($this->transactionsManager)->rollback(
             $this->getName(), $this->transactions
         );
 
+=======
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
         $this->fireConnectionEvent('rollingBack');
     }
 
@@ -292,10 +310,13 @@ trait ManagesTransactions
     {
         if ($this->causedByLostConnection($e)) {
             $this->transactions = 0;
+<<<<<<< HEAD
 
             optional($this->transactionsManager)->rollback(
                 $this->getName(), $this->transactions
             );
+=======
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
         }
 
         throw $e;
@@ -310,6 +331,7 @@ trait ManagesTransactions
     {
         return $this->transactions;
     }
+<<<<<<< HEAD
 
     /**
      * Execute the callback after a transaction commits.
@@ -325,4 +347,6 @@ trait ManagesTransactions
 
         throw new RuntimeException('Transactions Manager has not been set.');
     }
+=======
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
 }

@@ -34,7 +34,11 @@ class Store implements StoreInterface
     public function __construct(string $root)
     {
         $this->root = $root;
+<<<<<<< HEAD
         if (!is_dir($this->root) && !@mkdir($this->root, 0777, true) && !is_dir($this->root)) {
+=======
+        if (!file_exists($this->root) && !@mkdir($this->root, 0777, true) && !is_dir($this->root)) {
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
             throw new \RuntimeException(sprintf('Unable to create the store directory (%s).', $this->root));
         }
         $this->keyCache = new \SplObjectStorage();
@@ -66,7 +70,11 @@ class Store implements StoreInterface
 
         if (!isset($this->locks[$key])) {
             $path = $this->getPath($key);
+<<<<<<< HEAD
             if (!is_dir(\dirname($path)) && false === @mkdir(\dirname($path), 0777, true) && !is_dir(\dirname($path))) {
+=======
+            if (!file_exists(\dirname($path)) && false === @mkdir(\dirname($path), 0777, true) && !is_dir(\dirname($path))) {
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
                 return $path;
             }
             $h = fopen($path, 'cb');
@@ -110,7 +118,11 @@ class Store implements StoreInterface
             return true; // shortcut if lock held by this process
         }
 
+<<<<<<< HEAD
         if (!is_file($path = $this->getPath($key))) {
+=======
+        if (!file_exists($path = $this->getPath($key))) {
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
             return false;
         }
 
@@ -331,7 +343,11 @@ class Store implements StoreInterface
             unset($this->locks[$key]);
         }
 
+<<<<<<< HEAD
         if (is_file($path = $this->getPath($key))) {
+=======
+        if (file_exists($path = $this->getPath($key))) {
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
             unlink($path);
 
             return true;
@@ -347,7 +363,11 @@ class Store implements StoreInterface
     {
         $path = $this->getPath($key);
 
+<<<<<<< HEAD
         return is_file($path) && false !== ($contents = file_get_contents($path)) ? $contents : null;
+=======
+        return file_exists($path) && false !== ($contents = file_get_contents($path)) ? $contents : null;
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
     }
 
     /**
@@ -372,7 +392,11 @@ class Store implements StoreInterface
                 return false;
             }
         } else {
+<<<<<<< HEAD
             if (!is_dir(\dirname($path)) && false === @mkdir(\dirname($path), 0777, true) && !is_dir(\dirname($path))) {
+=======
+            if (!file_exists(\dirname($path)) && false === @mkdir(\dirname($path), 0777, true) && !is_dir(\dirname($path))) {
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
                 return false;
             }
 

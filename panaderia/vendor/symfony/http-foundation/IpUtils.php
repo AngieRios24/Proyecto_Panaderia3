@@ -71,7 +71,11 @@ class IpUtils
         }
 
         if (false !== strpos($ip, '/')) {
+<<<<<<< HEAD
             [$address, $netmask] = explode('/', $ip, 2);
+=======
+            list($address, $netmask) = explode('/', $ip, 2);
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
 
             if ('0' === $netmask) {
                 return self::$checkedIps[$cacheKey] = filter_var($address, \FILTER_VALIDATE_IP, \FILTER_FLAG_IPV4);
@@ -118,7 +122,11 @@ class IpUtils
         }
 
         if (false !== strpos($ip, '/')) {
+<<<<<<< HEAD
             [$address, $netmask] = explode('/', $ip, 2);
+=======
+            list($address, $netmask) = explode('/', $ip, 2);
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
 
             if ('0' === $netmask) {
                 return (bool) unpack('n*', @inet_pton($address));

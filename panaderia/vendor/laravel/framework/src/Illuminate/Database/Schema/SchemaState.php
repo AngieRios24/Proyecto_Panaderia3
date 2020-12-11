@@ -47,8 +47,13 @@ abstract class SchemaState
      * Create a new dumper instance.
      *
      * @param  \Illuminate\Database\Connection  $connection
+<<<<<<< HEAD
      * @param  \Illuminate\Filesystem\Filesystem|null  $files
      * @param  callable|null  $processFactory
+=======
+     * @param  \Illuminate\Filesystem\Filesystem  $files
+     * @param  callable  $processFactory
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
      * @return void
      */
     public function __construct(Connection $connection, Filesystem $files = null, callable $processFactory = null)

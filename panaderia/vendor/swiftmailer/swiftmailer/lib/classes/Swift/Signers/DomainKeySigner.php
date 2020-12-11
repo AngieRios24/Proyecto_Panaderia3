@@ -412,7 +412,11 @@ class Swift_Signers_DomainKeySigner implements Swift_Signers_HeaderSigner
 
     protected function canonicalizeBody($string)
     {
+<<<<<<< HEAD
         $len = \strlen($string);
+=======
+        $len = strlen($string);
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
         $canon = '';
         $nofws = ('nofws' == $this->canon);
         for ($i = 0; $i < $len; ++$i) {
@@ -462,7 +466,11 @@ class Swift_Signers_DomainKeySigner implements Swift_Signers_HeaderSigner
 
     protected function endOfBody()
     {
+<<<<<<< HEAD
         if (\strlen($this->bodyCanonLine) > 0) {
+=======
+        if (strlen($this->bodyCanonLine) > 0) {
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
             $this->addToHash("\r\n");
         }
     }

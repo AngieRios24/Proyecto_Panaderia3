@@ -24,8 +24,14 @@ interface Swift_Plugins_Reporter
     /**
      * Notifies this ReportNotifier that $address failed or succeeded.
      *
+<<<<<<< HEAD
      * @param string $address
      * @param int    $result  from {@link RESULT_PASS, RESULT_FAIL}
+=======
+     * @param Swift_Mime_SimpleMessage $message
+     * @param string                   $address
+     * @param int                      $result  from {@link RESULT_PASS, RESULT_FAIL}
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
      */
     public function notify(Swift_Mime_SimpleMessage $message, $address, $result);
 }

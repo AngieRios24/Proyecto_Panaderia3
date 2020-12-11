@@ -11,6 +11,7 @@
 
 namespace Symfony\Component\HttpKernel;
 
+<<<<<<< HEAD
 use Symfony\Component\HttpKernel\Event\ControllerArgumentsEvent;
 use Symfony\Component\HttpKernel\Event\ControllerEvent;
 use Symfony\Component\HttpKernel\Event\ExceptionEvent;
@@ -20,6 +21,8 @@ use Symfony\Component\HttpKernel\Event\ResponseEvent;
 use Symfony\Component\HttpKernel\Event\TerminateEvent;
 use Symfony\Component\HttpKernel\Event\ViewEvent;
 
+=======
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
 /**
  * Contains all events thrown in the HttpKernel component.
  *
@@ -109,6 +112,7 @@ final class KernelEvents
      * @Event("Symfony\Component\HttpKernel\Event\TerminateEvent")
      */
     const TERMINATE = 'kernel.terminate';
+<<<<<<< HEAD
 
     /**
      * Event aliases.
@@ -125,4 +129,6 @@ final class KernelEvents
         ExceptionEvent::class => self::EXCEPTION,
         TerminateEvent::class => self::TERMINATE,
     ];
+=======
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
 }

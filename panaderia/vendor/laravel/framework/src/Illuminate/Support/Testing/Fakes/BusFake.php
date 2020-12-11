@@ -185,6 +185,7 @@ class BusFake implements QueueingDispatcher
     }
 
     /**
+<<<<<<< HEAD
      * Assert if a chain of jobs was dispatched.
      *
      * @param  array  $expectedChain
@@ -297,6 +298,8 @@ class BusFake implements QueueingDispatcher
     }
 
     /**
+=======
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
      * Assert if a batch was dispatched based on a truth-test callback.
      *
      * @param  callable  $callback

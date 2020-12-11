@@ -235,7 +235,11 @@ class ThrottleRequests
      * @param  int  $maxAttempts
      * @param  int  $remainingAttempts
      * @param  int|null  $retryAfter
+<<<<<<< HEAD
      * @param  \Symfony\Component\HttpFoundation\Response|null  $response
+=======
+     * @param  \Symfony\Component\HttpFoundation\Response  $response
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
      * @return array
      */
     protected function getHeaders($maxAttempts,

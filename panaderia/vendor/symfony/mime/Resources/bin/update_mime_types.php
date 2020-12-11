@@ -10,6 +10,7 @@
  */
 
 // load new map
+<<<<<<< HEAD
 $data = json_decode(file_get_contents('https://cdn.jsdelivr.net/gh/jshttp/mime-db@v1.44.0/db.json'), true);
 $new = [];
 foreach ($data as $mimeType => $mimeTypeInformation) {
@@ -17,6 +18,17 @@ foreach ($data as $mimeType => $mimeTypeInformation) {
         continue;
     }
     $new[$mimeType] = $mimeTypeInformation['extensions'];
+=======
+$data = file_get_contents('https://svn.apache.org/repos/asf/httpd/httpd/trunk/docs/conf/mime.types');
+$new = [];
+foreach (explode("\n", $data) as $line) {
+    if (!$line || '#' == $line[0]) {
+        continue;
+    }
+    $mimeType = substr($line, 0, strpos($line, "\t"));
+    $extensions = explode(' ', substr($line, strrpos($line, "\t") + 1));
+    $new[$mimeType] = $extensions;
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
 }
 
 $xml = simplexml_load_string(file_get_contents('https://raw.github.com/minad/mimemagic/master/script/freedesktop.org.xml'));
@@ -64,6 +76,7 @@ foreach (explode("\n", $data) as $line) {
 $map = array_replace_recursive($current, $new);
 ksort($map);
 
+<<<<<<< HEAD
 // force an extension to be in the first position on the map
 $forceExtensionInFirstPositionByMimeType = [
     'application/vnd.apple.keynote' => 'key',
@@ -75,6 +88,8 @@ foreach ($forceExtensionInFirstPositionByMimeType as $mimeType => $extensionToRe
     $map[$mimeType] = array_unique(array_merge([$extensionToRemove], $map[$mimeType]));
 }
 
+=======
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
 $data = $pre;
 foreach ($map as $mimeType => $exts) {
     $data .= sprintf("        '%s' => ['%s'],\n", $mimeType, implode("', '", array_unique($exts)));
@@ -147,10 +162,13 @@ $exts = [
 ];
 foreach ($map as $mimeType => $extensions) {
     foreach ($extensions as $extension) {
+<<<<<<< HEAD
         if ('application/octet-stream' === $mimeType && 'bin' !== $extension) {
             continue;
         }
 
+=======
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
         $exts[$extension][] = $mimeType;
     }
 }

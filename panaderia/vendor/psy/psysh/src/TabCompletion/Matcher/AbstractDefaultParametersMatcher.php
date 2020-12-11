@@ -36,7 +36,11 @@ abstract class AbstractDefaultParametersMatcher extends AbstractContextAwareMatc
             return [];
         }
 
+<<<<<<< HEAD
         return [\implode(', ', $parametersProcessed).')'];
+=======
+        return [\implode(', ', $parametersProcessed) . ')'];
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
     }
 
     /**
@@ -62,7 +66,11 @@ abstract class AbstractDefaultParametersMatcher extends AbstractContextAwareMatc
         foreach ($value as $key => $item) {
             $allSequential = $allSequential && \is_numeric($key) && $key === \count($chunksSequential);
 
+<<<<<<< HEAD
             $keyString = $this->valueToShortString($key);
+=======
+            $keyString  = $this->valueToShortString($key);
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
             $itemString = $this->valueToShortString($item);
 
             $chunks[] = "{$keyString} => {$itemString}";
@@ -71,6 +79,10 @@ abstract class AbstractDefaultParametersMatcher extends AbstractContextAwareMatc
 
         $chunksToImplode = $allSequential ? $chunksSequential : $chunks;
 
+<<<<<<< HEAD
         return '['.\implode(', ', $chunksToImplode).']';
+=======
+        return '[' . \implode(', ', $chunksToImplode) . ']';
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
     }
 }

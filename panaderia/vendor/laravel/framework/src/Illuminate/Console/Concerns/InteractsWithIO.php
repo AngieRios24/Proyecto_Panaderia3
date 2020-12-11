@@ -2,7 +2,10 @@
 
 namespace Illuminate\Console\Concerns;
 
+<<<<<<< HEAD
 use Closure;
+=======
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
 use Illuminate\Console\OutputStyle;
 use Illuminate\Contracts\Support\Arrayable;
 use Illuminate\Support\Str;
@@ -239,6 +242,7 @@ trait InteractsWithIO
     }
 
     /**
+<<<<<<< HEAD
      * Execute a given callback while advancing a progress bar.
      *
      * @param  iterable|int  $totalSteps
@@ -271,6 +275,8 @@ trait InteractsWithIO
     }
 
     /**
+=======
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
      * Write a string as information output.
      *
      * @param  string  $string

@@ -10,7 +10,10 @@ use Illuminate\Console\Scheduling\ScheduleFinishCommand;
 use Illuminate\Console\Scheduling\ScheduleRunCommand;
 use Illuminate\Console\Scheduling\ScheduleWorkCommand;
 use Illuminate\Contracts\Support\DeferrableProvider;
+<<<<<<< HEAD
 use Illuminate\Database\Console\DbCommand;
+=======
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
 use Illuminate\Database\Console\DumpCommand;
 use Illuminate\Database\Console\Factories\FactoryMakeCommand;
 use Illuminate\Database\Console\Seeds\SeedCommand;
@@ -89,7 +92,10 @@ class ArtisanServiceProvider extends ServiceProvider implements DeferrableProvid
         'ClearResets' => 'command.auth.resets.clear',
         'ConfigCache' => 'command.config.cache',
         'ConfigClear' => 'command.config.clear',
+<<<<<<< HEAD
         'Db' => DbCommand::class,
+=======
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
         'DbWipe' => 'command.db.wipe',
         'Down' => 'command.down',
         'Environment' => 'command.environment',
@@ -339,6 +345,7 @@ class ArtisanServiceProvider extends ServiceProvider implements DeferrableProvid
      *
      * @return void
      */
+<<<<<<< HEAD
     protected function registerDbCommand()
     {
         $this->app->singleton(DbCommand::class);
@@ -349,6 +356,8 @@ class ArtisanServiceProvider extends ServiceProvider implements DeferrableProvid
      *
      * @return void
      */
+=======
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
     protected function registerDbWipeCommand()
     {
         $this->app->singleton('command.db.wipe', function () {

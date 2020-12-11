@@ -52,10 +52,13 @@ class Version {
         return $this->preReleaseSuffix !== null;
     }
 
+<<<<<<< HEAD
     public function equals(Version $other): bool {
         return $this->getVersionString() === $other->getVersionString();
     }
 
+=======
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
     public function isGreaterThan(Version $version): bool {
         if ($version->getMajor()->getValue() > $this->getMajor()->getValue()) {
             return false;

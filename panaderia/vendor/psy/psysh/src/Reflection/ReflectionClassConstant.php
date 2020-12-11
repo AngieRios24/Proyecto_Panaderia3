@@ -35,11 +35,19 @@ class ReflectionClassConstant implements \Reflector
         }
 
         $this->class = $class;
+<<<<<<< HEAD
         $this->name = $name;
 
         $constants = $class->getConstants();
         if (!\array_key_exists($name, $constants)) {
             throw new \InvalidArgumentException('Unknown constant: '.$name);
+=======
+        $this->name  = $name;
+
+        $constants = $class->getConstants();
+        if (!\array_key_exists($name, $constants)) {
+            throw new \InvalidArgumentException('Unknown constant: ' . $name);
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
         }
 
         $this->value = $constants[$name];
@@ -65,7 +73,11 @@ class ReflectionClassConstant implements \Reflector
             return $str;
         }
 
+<<<<<<< HEAD
         echo $str."\n";
+=======
+        echo $str . "\n";
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
     }
 
     /**
@@ -83,7 +95,11 @@ class ReflectionClassConstant implements \Reflector
         //
         // While this isn't _technically_ correct, it's prolly close enough.
         do {
+<<<<<<< HEAD
             $class = $parent;
+=======
+            $class  = $parent;
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
             $parent = $class->getParentClass();
         } while ($parent && $parent->hasConstant($this->name) && $parent->getConstant($this->name) === $this->value);
 

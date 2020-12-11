@@ -48,7 +48,11 @@ abstract class AbstractField implements FieldInterface
     /**
      * Check to see if a field is satisfied by a value.
      *
+<<<<<<< HEAD
      * @param int $dateValue Date value to check
+=======
+     * @param string $dateValue Date value to check
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
      * @param string $value Value to test
      *
      * @return bool
@@ -100,12 +104,20 @@ abstract class AbstractField implements FieldInterface
      */
     public function isInRange(int $dateValue, $value): bool
     {
+<<<<<<< HEAD
         $parts = array_map(
             function ($value) {
                 $value = trim($value);
 
                 return $this->convertLiterals($value);
             },
+=======
+        $parts = array_map(function ($value) {
+            $value = trim($value);
+
+            return $this->convertLiterals($value);
+        },
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
             explode('-', $value, 2)
         );
 
@@ -115,7 +127,11 @@ abstract class AbstractField implements FieldInterface
     /**
      * Test if a value is within an increments of ranges (offset[-to]/step size).
      *
+<<<<<<< HEAD
      * @param int $dateValue Set date value
+=======
+     * @param string $dateValue Set date value
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
      * @param string $value Value to test
      *
      * @return bool
@@ -127,7 +143,10 @@ abstract class AbstractField implements FieldInterface
         $step = $chunks[1] ?? 0;
 
         // No step or 0 steps aren't cool
+<<<<<<< HEAD
         /** @phpstan-ignore-next-line */
+=======
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
         if (null === $step || '0' === $step || 0 === $step) {
             return false;
         }
@@ -291,7 +310,11 @@ abstract class AbstractField implements FieldInterface
             return false;
         }
 
+<<<<<<< HEAD
         if (false !== strpos($value, '.')) {
+=======
+        if (\is_float($value) || false !== strpos($value, '.')) {
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
             return false;
         }
 

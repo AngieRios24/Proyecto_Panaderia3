@@ -165,6 +165,7 @@ class ArgvInput extends Input
         // unexpected argument
         } else {
             $all = $this->definition->getArguments();
+<<<<<<< HEAD
             $symfonyCommandName = null;
             if (($inputArgument = $all[$key = array_key_first($all)] ?? null) && 'command' === $inputArgument->getName()) {
                 $symfonyCommandName = $this->arguments['command'] ?? null;
@@ -184,6 +185,13 @@ class ArgvInput extends Input
             }
 
             throw new RuntimeException($message);
+=======
+            if (\count($all)) {
+                throw new RuntimeException(sprintf('Too many arguments, expected arguments "%s".', implode('" "', array_keys($all))));
+            }
+
+            throw new RuntimeException(sprintf('No arguments expected, got "%s".', $token));
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
         }
     }
 

@@ -1,6 +1,7 @@
 CHANGELOG
 =========
 
+<<<<<<< HEAD
 5.2.0
 -----
 
@@ -8,6 +9,8 @@ CHANGELOG
  * added option `create_new_console` to allow a subprocess to continue
    to run after the main script exited, both on Linux and on Windows
 
+=======
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
 5.1.0
 -----
 

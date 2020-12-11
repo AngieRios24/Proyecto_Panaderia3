@@ -69,7 +69,11 @@ HELP
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
+<<<<<<< HEAD
         $depth = $input->getOption('depth');
+=======
+        $depth  = $input->getOption('depth');
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
         $target = $this->resolveCode($input->getArgument('target'));
         $output->page($this->presenter->present($target, $depth, $input->getOption('all') ? Presenter::VERBOSE : 0));
 
@@ -89,7 +93,11 @@ HELP
      */
     protected function resolveTarget($name)
     {
+<<<<<<< HEAD
         @\trigger_error('`resolveTarget` is deprecated; use `resolveCode` instead.', \E_USER_DEPRECATED);
+=======
+        @\trigger_error('`resolveTarget` is deprecated; use `resolveCode` instead.', E_USER_DEPRECATED);
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
 
         return $this->resolveCode($name);
     }

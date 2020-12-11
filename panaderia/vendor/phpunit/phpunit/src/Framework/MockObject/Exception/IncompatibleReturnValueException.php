@@ -9,13 +9,17 @@
  */
 namespace PHPUnit\Framework\MockObject;
 
+<<<<<<< HEAD
 use function sprintf;
 
+=======
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
 /**
  * @internal This class is not covered by the backward compatibility promise for PHPUnit
  */
 final class IncompatibleReturnValueException extends \PHPUnit\Framework\Exception implements Exception
 {
+<<<<<<< HEAD
     /**
      * @param mixed $value
      */
@@ -30,4 +34,6 @@ final class IncompatibleReturnValueException extends \PHPUnit\Framework\Exceptio
             )
         );
     }
+=======
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
 }

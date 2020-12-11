@@ -108,6 +108,7 @@ class RedisQueue extends Queue implements QueueContract, ClearableQueue
      */
     public function push($job, $data = '', $queue = null)
     {
+<<<<<<< HEAD
         return $this->enqueueUsing(
             $job,
             $this->createPayload($job, $this->getQueue($queue), $data),
@@ -117,6 +118,9 @@ class RedisQueue extends Queue implements QueueContract, ClearableQueue
                 return $this->pushRaw($payload, $queue);
             }
         );
+=======
+        return $this->pushRaw($this->createPayload($job, $this->getQueue($queue), $data), $queue);
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
     }
 
     /**
@@ -148,6 +152,7 @@ class RedisQueue extends Queue implements QueueContract, ClearableQueue
      */
     public function later($delay, $job, $data = '', $queue = null)
     {
+<<<<<<< HEAD
         return $this->enqueueUsing(
             $job,
             $this->createPayload($job, $this->getQueue($queue), $data),
@@ -157,6 +162,9 @@ class RedisQueue extends Queue implements QueueContract, ClearableQueue
                 return $this->laterRaw($delay, $payload, $queue);
             }
         );
+=======
+        return $this->laterRaw($delay, $this->createPayload($job, $this->getQueue($queue), $data), $queue);
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
     }
 
     /**

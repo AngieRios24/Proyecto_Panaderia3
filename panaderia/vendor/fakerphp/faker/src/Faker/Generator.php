@@ -14,9 +14,12 @@ namespace Faker;
  * @method string title(string $gender = null)
  * @property string $titleMale
  * @property string $titleFemale
+<<<<<<< HEAD
  * @property string $bloodType
  * @property string $bloodRh
  * @property string $bloodGroup
+=======
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
  *
  * @property string $citySuffix
  * @property string $streetSuffix

@@ -238,7 +238,12 @@ class Route
      */
     protected function isSerializedClosure()
     {
+<<<<<<< HEAD
         return RouteAction::containsSerializedClosure($this->action);
+=======
+        return is_string($this->action['uses']) &&
+               Str::startsWith($this->action['uses'], 'C:32:"Opis\\Closure\\SerializableClosure') !== false;
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
     }
 
     /**

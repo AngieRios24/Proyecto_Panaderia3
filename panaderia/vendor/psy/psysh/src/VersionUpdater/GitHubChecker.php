@@ -24,11 +24,15 @@ class GitHubChecker implements Checker
      */
     public function isLatest()
     {
+<<<<<<< HEAD
         // version_compare doesn't handle semver completely;
         // strip pre-release and build metadata before comparing
         $version = \preg_replace('/[+-]\w+/', '', Shell::VERSION);
 
         return \version_compare($version, $this->getLatest(), '>=');
+=======
+        return \version_compare(Shell::VERSION, $this->getLatest(), '>=');
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
     }
 
     /**
@@ -74,7 +78,11 @@ class GitHubChecker implements Checker
     {
         $context = \stream_context_create([
             'http' => [
+<<<<<<< HEAD
                 'user_agent' => 'PsySH/'.Shell::VERSION,
+=======
+                'user_agent' => 'PsySH/' . Shell::VERSION,
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
                 'timeout'    => 3,
             ],
         ]);

@@ -45,8 +45,13 @@ class TraceCommand extends Command
         $this
             ->setName('trace')
             ->setDefinition([
+<<<<<<< HEAD
                 new InputOption('include-psy', 'p', InputOption::VALUE_NONE, 'Include Psy in the call stack.'),
                 new InputOption('num', 'n', InputOption::VALUE_REQUIRED, 'Only include NUM lines.'),
+=======
+                new InputOption('include-psy', 'p', InputOption::VALUE_NONE,     'Include Psy in the call stack.'),
+                new InputOption('num',         'n', InputOption::VALUE_REQUIRED, 'Only include NUM lines.'),
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
 
                 $grep,
                 $insensitive,

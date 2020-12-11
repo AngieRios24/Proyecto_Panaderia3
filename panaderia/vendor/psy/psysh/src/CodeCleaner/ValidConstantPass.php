@@ -47,7 +47,11 @@ class ValidConstantPass extends NamespaceAwarePass
             $name = $this->getFullyQualifiedName($node->name);
             if (!\defined($name)) {
                 $msg = \sprintf('Undefined constant %s', $name);
+<<<<<<< HEAD
                 throw new FatalErrorException($msg, 0, \E_ERROR, null, $node->getLine());
+=======
+                throw new FatalErrorException($msg, 0, E_ERROR, null, $node->getLine());
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
             }
         } elseif ($node instanceof ClassConstFetch) {
             $this->validateClassConstFetchExpression($node);
@@ -75,14 +79,22 @@ class ValidConstantPass extends NamespaceAwarePass
         if (!$stmt->class instanceof Expr) {
             $className = $this->getFullyQualifiedName($stmt->class);
 
+<<<<<<< HEAD
             // if the class doesn't exist, don't throw an exception… it might be
+=======
+            // if the class doesn't exist, don't throw an exception… it might be
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
             // defined in the same line it's used or something stupid like that.
             if (\class_exists($className) || \interface_exists($className)) {
                 $refl = new \ReflectionClass($className);
                 if (!$refl->hasConstant($constName)) {
                     $constType = \class_exists($className) ? 'Class' : 'Interface';
                     $msg = \sprintf('%s constant \'%s::%s\' not found', $constType, $className, $constName);
+<<<<<<< HEAD
                     throw new FatalErrorException($msg, 0, \E_ERROR, null, $stmt->getLine());
+=======
+                    throw new FatalErrorException($msg, 0, E_ERROR, null, $stmt->getLine());
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
                 }
             }
         }

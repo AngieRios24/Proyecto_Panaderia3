@@ -38,9 +38,15 @@ class MethodEnumerator extends Enumerator
             return [];
         }
 
+<<<<<<< HEAD
         $showAll = $input->getOption('all');
         $noInherit = $input->getOption('no-inherit');
         $methods = $this->prepareMethods($this->getMethods($showAll, $reflector, $noInherit));
+=======
+        $showAll   = $input->getOption('all');
+        $noInherit = $input->getOption('no-inherit');
+        $methods   = $this->prepareMethods($this->getMethods($showAll, $reflector, $noInherit));
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
 
         if (empty($methods)) {
             return [];
@@ -78,7 +84,11 @@ class MethodEnumerator extends Enumerator
             }
         }
 
+<<<<<<< HEAD
         \ksort($methods, \SORT_NATURAL | \SORT_FLAG_CASE);
+=======
+        \ksort($methods, SORT_NATURAL | SORT_FLAG_CASE);
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
 
         return $methods;
     }

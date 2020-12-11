@@ -104,6 +104,7 @@ class File extends \SplFileInfo
         return $target;
     }
 
+<<<<<<< HEAD
     public function getContent(): string
     {
         $content = file_get_contents($this->getPathname());
@@ -115,6 +116,8 @@ class File extends \SplFileInfo
         return $content;
     }
 
+=======
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
     /**
      * @return self
      */

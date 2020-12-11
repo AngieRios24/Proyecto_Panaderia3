@@ -25,7 +25,10 @@ use Psy\CodeCleaner\FunctionContextPass;
 use Psy\CodeCleaner\FunctionReturnInWriteContextPass;
 use Psy\CodeCleaner\ImplicitReturnPass;
 use Psy\CodeCleaner\InstanceOfPass;
+<<<<<<< HEAD
 use Psy\CodeCleaner\IssetPass;
+=======
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
 use Psy\CodeCleaner\LabelContextPass;
 use Psy\CodeCleaner\LeavePsyshAlonePass;
 use Psy\CodeCleaner\ListPass;
@@ -65,11 +68,19 @@ class CodeCleaner
     {
         if ($parser === null) {
             $parserFactory = new ParserFactory();
+<<<<<<< HEAD
             $parser = $parserFactory->createParser();
         }
 
         $this->parser = $parser;
         $this->printer = $printer ?: new Printer();
+=======
+            $parser        = $parserFactory->createParser();
+        }
+
+        $this->parser    = $parser;
+        $this->printer   = $printer ?: new Printer();
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
         $this->traverser = $traverser ?: new NodeTraverser();
 
         foreach ($this->getDefaultPasses() as $pass) {
@@ -85,7 +96,11 @@ class CodeCleaner
     private function getDefaultPasses()
     {
         $useStatementPass = new UseStatementPass();
+<<<<<<< HEAD
         $namespacePass = new NamespacePass($this);
+=======
+        $namespacePass    = new NamespacePass($this);
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
 
         // Try to add implicit `use` statements and an implicit namespace,
         // based on the file in which the `debug` call was made.
@@ -101,7 +116,10 @@ class CodeCleaner
             new FunctionContextPass(),
             new FunctionReturnInWriteContextPass(),
             new InstanceOfPass(),
+<<<<<<< HEAD
             new IssetPass(),
+=======
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
             new LabelContextPass(),
             new LeavePsyshAlonePass(),
             new ListPass(),
@@ -175,7 +193,11 @@ class CodeCleaner
      */
     private static function getDebugFile()
     {
+<<<<<<< HEAD
         $trace = \debug_backtrace(\DEBUG_BACKTRACE_IGNORE_ARGS);
+=======
+        $trace = \debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS);
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
 
         foreach (\array_reverse($trace) as $stackFrame) {
             if (!self::isDebugCall($stackFrame)) {
@@ -201,7 +223,11 @@ class CodeCleaner
      */
     private static function isDebugCall(array $stackFrame)
     {
+<<<<<<< HEAD
         $class = isset($stackFrame['class']) ? $stackFrame['class'] : null;
+=======
+        $class    = isset($stackFrame['class']) ? $stackFrame['class'] : null;
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
         $function = isset($stackFrame['function']) ? $stackFrame['function'] : null;
 
         return ($class === null && $function === 'Psy\\debug') ||
@@ -220,7 +246,11 @@ class CodeCleaner
      */
     public function clean(array $codeLines, $requireSemicolons = false)
     {
+<<<<<<< HEAD
         $stmts = $this->parse('<?php '.\implode(\PHP_EOL, $codeLines).\PHP_EOL, $requireSemicolons);
+=======
+        $stmts = $this->parse('<?php ' . \implode(PHP_EOL, $codeLines) . PHP_EOL, $requireSemicolons);
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
         if ($stmts === false) {
             return false;
         }
@@ -229,13 +259,22 @@ class CodeCleaner
         $stmts = $this->traverser->traverse($stmts);
 
         // Work around https://github.com/nikic/PHP-Parser/issues/399
+<<<<<<< HEAD
         $oldLocale = \setlocale(\LC_NUMERIC, 0);
         \setlocale(\LC_NUMERIC, 'C');
+=======
+        $oldLocale = \setlocale(LC_NUMERIC, 0);
+        \setlocale(LC_NUMERIC, 'C');
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
 
         $code = $this->printer->prettyPrint($stmts);
 
         // Now put the locale back
+<<<<<<< HEAD
         \setlocale(\LC_NUMERIC, $oldLocale);
+=======
+        \setlocale(LC_NUMERIC, $oldLocale);
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
 
         return $code;
     }
@@ -302,7 +341,11 @@ class CodeCleaner
 
             try {
                 // Unexpected EOF, try again with an implicit semicolon
+<<<<<<< HEAD
                 return $this->parser->parse($code.';');
+=======
+                return $this->parser->parse($code . ';');
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
             } catch (\PhpParser\Error $e) {
                 return false;
             }
@@ -335,7 +378,11 @@ class CodeCleaner
         }
 
         try {
+<<<<<<< HEAD
             $this->parser->parse($code."';");
+=======
+            $this->parser->parse($code . "';");
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
         } catch (\Exception $e) {
             return false;
         }

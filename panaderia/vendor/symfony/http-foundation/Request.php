@@ -12,7 +12,10 @@
 namespace Symfony\Component\HttpFoundation;
 
 use Symfony\Component\HttpFoundation\Exception\ConflictingHeadersException;
+<<<<<<< HEAD
 use Symfony\Component\HttpFoundation\Exception\JsonException;
+=======
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
 use Symfony\Component\HttpFoundation\Exception\SuspiciousOperationException;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 
@@ -40,6 +43,7 @@ class_exists(ServerBag::class);
  */
 class Request
 {
+<<<<<<< HEAD
     const HEADER_FORWARDED = 0b000001; // When using RFC 7239
     const HEADER_X_FORWARDED_FOR = 0b000010;
     const HEADER_X_FORWARDED_HOST = 0b000100;
@@ -51,6 +55,15 @@ class Request
     const HEADER_X_FORWARDED_ALL = 0b1011110; // All "X-Forwarded-*" headers sent by "usual" reverse proxy
     const HEADER_X_FORWARDED_AWS_ELB = 0b0011010; // AWS ELB doesn't send X-Forwarded-Host
     const HEADER_X_FORWARDED_TRAEFIK = 0b0111110; // All "X-Forwarded-*" headers sent by Traefik reverse proxy
+=======
+    const HEADER_FORWARDED = 0b00001; // When using RFC 7239
+    const HEADER_X_FORWARDED_FOR = 0b00010;
+    const HEADER_X_FORWARDED_HOST = 0b00100;
+    const HEADER_X_FORWARDED_PROTO = 0b01000;
+    const HEADER_X_FORWARDED_PORT = 0b10000;
+    const HEADER_X_FORWARDED_ALL = 0b11110; // All "X-Forwarded-*" headers
+    const HEADER_X_FORWARDED_AWS_ELB = 0b11010; // AWS ELB doesn't send X-Forwarded-Host
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
 
     const METHOD_HEAD = 'HEAD';
     const METHOD_GET = 'GET';
@@ -185,7 +198,11 @@ class Request
     protected $format;
 
     /**
+<<<<<<< HEAD
      * @var SessionInterface|callable
+=======
+     * @var SessionInterface
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
      */
     protected $session;
 
@@ -242,7 +259,10 @@ class Request
         self::HEADER_X_FORWARDED_HOST => 'X_FORWARDED_HOST',
         self::HEADER_X_FORWARDED_PROTO => 'X_FORWARDED_PROTO',
         self::HEADER_X_FORWARDED_PORT => 'X_FORWARDED_PORT',
+<<<<<<< HEAD
         self::HEADER_X_FORWARDED_PREFIX => 'X_FORWARDED_PREFIX',
+=======
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
     ];
 
     /**
@@ -405,7 +425,11 @@ class Request
 
         $queryString = '';
         if (isset($components['query'])) {
+<<<<<<< HEAD
             $qs = HeaderUtils::parseQuery(html_entity_decode($components['query']));
+=======
+            parse_str(html_entity_decode($components['query']), $qs);
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
 
             if ($query) {
                 $query = array_replace($qs, $query);
@@ -594,9 +618,12 @@ class Request
      */
     public static function setTrustedProxies(array $proxies, int $trustedHeaderSet)
     {
+<<<<<<< HEAD
         if (self::HEADER_X_FORWARDED_ALL === $trustedHeaderSet) {
             trigger_deprecation('symfony/http-foundation', '5.2', 'The "HEADER_X_FORWARDED_ALL" constant is deprecated, use either "HEADER_X_FORWARDED_FOR | HEADER_X_FORWARDED_HOST | HEADER_X_FORWARDED_PORT | HEADER_X_FORWARDED_PROTO" or "HEADER_X_FORWARDED_AWS_ELB" or "HEADER_X_FORWARDED_TRAEFIK" constants instead.');
         }
+=======
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
         self::$trustedProxies = array_reduce($proxies, function ($proxies, $proxy) {
             if ('REMOTE_ADDR' !== $proxy) {
                 $proxies[] = $proxy;
@@ -669,7 +696,11 @@ class Request
             return '';
         }
 
+<<<<<<< HEAD
         $qs = HeaderUtils::parseQuery($qs);
+=======
+        parse_str($qs, $qs);
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
         ksort($qs);
 
         return http_build_query($qs, '', '&', \PHP_QUERY_RFC3986);
@@ -904,6 +935,7 @@ class Request
      */
     public function getBaseUrl()
     {
+<<<<<<< HEAD
         $trustedPrefix = '';
 
         // the proxy prefix must be prepended to any prefix being needed at the webserver level
@@ -922,6 +954,8 @@ class Request
      */
     private function getBaseUrlReal()
     {
+=======
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
         if (null === $this->baseUrl) {
             $this->baseUrl = $this->prepareBaseUrl();
         }
@@ -1575,6 +1609,7 @@ class Request
     }
 
     /**
+<<<<<<< HEAD
      * Gets the request body decoded as array, typically from a JSON payload.
      *
      * @throws JsonException When the body cannot be decoded to an array
@@ -1605,6 +1640,8 @@ class Request
     }
 
     /**
+=======
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
      * Gets the Etags.
      *
      * @return array The entity tags
@@ -1907,6 +1944,7 @@ class Request
         }
 
         $basename = basename($baseUrl);
+<<<<<<< HEAD
         if (empty($basename) || !strpos(rawurldecode($truncatedRequestUri).'/', '/'.$basename.'/')) {
             // strip autoindex filename, for virtualhost based on URL path
             $baseUrl = \dirname($baseUrl).'/';
@@ -1916,6 +1954,11 @@ class Request
                 // no match whatsoever; set it blank
                 return '';
             }
+=======
+        if (empty($basename) || !strpos(rawurldecode($truncatedRequestUri), $basename)) {
+            // no match whatsoever; set it blank
+            return '';
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
         }
 
         // If using mod_rewrite or ISAPI_Rewrite strip the script filename
@@ -1973,7 +2016,11 @@ class Request
             $requestUri = '/'.$requestUri;
         }
 
+<<<<<<< HEAD
         if (null === ($baseUrl = $this->getBaseUrlReal())) {
+=======
+        if (null === ($baseUrl = $this->getBaseUrl())) {
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
             return $requestUri;
         }
 
@@ -2077,7 +2124,11 @@ class Request
             }
         }
 
+<<<<<<< HEAD
         if ((self::$trustedHeaderSet & self::HEADER_FORWARDED) && (isset(self::$forwardedParams[$type])) && $this->headers->has(self::$trustedHeaders[self::HEADER_FORWARDED])) {
+=======
+        if ((self::$trustedHeaderSet & self::HEADER_FORWARDED) && $this->headers->has(self::$trustedHeaders[self::HEADER_FORWARDED])) {
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
             $forwarded = $this->headers->get(self::$trustedHeaders[self::HEADER_FORWARDED]);
             $parts = HeaderUtils::split($forwarded, ',;=');
             $forwardedValues = [];

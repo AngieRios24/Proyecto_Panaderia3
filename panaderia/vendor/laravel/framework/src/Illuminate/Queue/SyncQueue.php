@@ -105,7 +105,11 @@ class SyncQueue extends Queue implements QueueContract
     /**
      * Handle an exception that occurred while processing a job.
      *
+<<<<<<< HEAD
      * @param  \Illuminate\Contracts\Queue\Job  $queueJob
+=======
+     * @param  \Illuminate\Queue\Jobs\Job  $queueJob
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
      * @param  \Throwable  $e
      * @return void
      *

@@ -113,6 +113,7 @@ class Connection implements ConnectionInterface
     protected $transactions = 0;
 
     /**
+<<<<<<< HEAD
      * The transaction manager instance.
      *
      * @var \Illuminate\Database\DatabaseTransactionsManager
@@ -120,6 +121,8 @@ class Connection implements ConnectionInterface
     protected $transactionsManager;
 
     /**
+=======
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
      * Indicates if changes have been made to the database.
      *
      * @var int
@@ -1159,6 +1162,7 @@ class Connection implements ConnectionInterface
     }
 
     /**
+<<<<<<< HEAD
      * Set the transaction manager instance on the connection.
      *
      * @param  \Illuminate\Database\DatabaseTransactionsManager  $manager
@@ -1182,6 +1186,8 @@ class Connection implements ConnectionInterface
     }
 
     /**
+=======
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
      * Determine if the connection is in a "dry run".
      *
      * @return bool

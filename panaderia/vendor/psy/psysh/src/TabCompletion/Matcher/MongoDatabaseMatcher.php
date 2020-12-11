@@ -33,8 +33,13 @@ class MongoDatabaseMatcher extends AbstractContextAwareMatcher
             \array_pop($tokens);
         }
         $objectToken = \array_pop($tokens);
+<<<<<<< HEAD
         $objectName = \str_replace('$', '', $objectToken[1]);
         $object = $this->getVariable($objectName);
+=======
+        $objectName  = \str_replace('$', '', $objectToken[1]);
+        $object      = $this->getVariable($objectName);
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
 
         if (!$object instanceof \MongoDB) {
             return [];
@@ -53,7 +58,11 @@ class MongoDatabaseMatcher extends AbstractContextAwareMatcher
      */
     public function hasMatched(array $tokens)
     {
+<<<<<<< HEAD
         $token = \array_pop($tokens);
+=======
+        $token     = \array_pop($tokens);
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
         $prevToken = \array_pop($tokens);
 
         switch (true) {

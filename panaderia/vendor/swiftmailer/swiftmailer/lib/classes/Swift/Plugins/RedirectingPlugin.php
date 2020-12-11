@@ -112,7 +112,11 @@ class Swift_Plugins_RedirectingPlugin implements Swift_Events_SendListener
         }
 
         foreach ((array) $this->recipient as $recipient) {
+<<<<<<< HEAD
             if (!\array_key_exists($recipient, $to)) {
+=======
+            if (!array_key_exists($recipient, $to)) {
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
                 $message->addTo($recipient);
             }
         }
@@ -155,7 +159,11 @@ class Swift_Plugins_RedirectingPlugin implements Swift_Events_SendListener
      */
     protected function isWhitelisted($recipient)
     {
+<<<<<<< HEAD
         if (\in_array($recipient, (array) $this->recipient)) {
+=======
+        if (in_array($recipient, (array) $this->recipient)) {
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
             return true;
         }
 

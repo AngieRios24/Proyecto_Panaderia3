@@ -77,7 +77,11 @@ class ReflectionLanguageConstruct extends \ReflectionFunctionAbstract
     public function __construct($keyword)
     {
         if (!self::isLanguageConstruct($keyword)) {
+<<<<<<< HEAD
             throw new \InvalidArgumentException('Unknown language construct: '.$keyword);
+=======
+            throw new \InvalidArgumentException('Unknown language construct: ' . $keyword);
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
         }
 
         $this->keyword = $keyword;
@@ -122,7 +126,11 @@ class ReflectionLanguageConstruct extends \ReflectionFunctionAbstract
     {
         $params = [];
         foreach (self::$languageConstructs[$this->keyword] as $parameter => $opts) {
+<<<<<<< HEAD
             $params[] = new ReflectionLanguageConstructParameter($this->keyword, $parameter, $opts);
+=======
+            \array_push($params, new ReflectionLanguageConstructParameter($this->keyword, $parameter, $opts));
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
         }
 
         return $params;

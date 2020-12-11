@@ -105,6 +105,7 @@ class ReflectionCaster
         return $a;
     }
 
+<<<<<<< HEAD
     public static function castAttribute(\ReflectionAttribute $c, array $a, Stub $stub, bool $isNested)
     {
         self::addMap($a, $c, [
@@ -115,6 +116,8 @@ class ReflectionCaster
         return $a;
     }
 
+=======
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
     public static function castReflectionGenerator(\ReflectionGenerator $c, array $a, Stub $stub, bool $isNested)
     {
         $prefix = Caster::PREFIX_VIRTUAL;
@@ -161,7 +164,11 @@ class ReflectionCaster
         self::addMap($a, $c, [
             'extends' => 'getParentClass',
             'implements' => 'getInterfaceNames',
+<<<<<<< HEAD
             'constants' => 'getReflectionConstants',
+=======
+            'constants' => 'getConstants',
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
         ]);
 
         foreach ($c->getProperties() as $n) {
@@ -172,8 +179,11 @@ class ReflectionCaster
             $a[$prefix.'methods'][$n->name] = $n;
         }
 
+<<<<<<< HEAD
         self::addAttributes($a, $c, $prefix);
 
+=======
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
         if (!($filter & Caster::EXCLUDE_VERBOSE) && !$isNested) {
             self::addExtra($a, $c);
         }
@@ -218,8 +228,11 @@ class ReflectionCaster
             $a[$prefix.'parameters'] = new EnumStub($a[$prefix.'parameters']);
         }
 
+<<<<<<< HEAD
         self::addAttributes($a, $c, $prefix);
 
+=======
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
         if (!($filter & Caster::EXCLUDE_VERBOSE) && $v = $c->getStaticVariables()) {
             foreach ($v as $k => &$v) {
                 if (\is_object($v)) {
@@ -239,6 +252,7 @@ class ReflectionCaster
         return $a;
     }
 
+<<<<<<< HEAD
     public static function castClassConstant(\ReflectionClassConstant $c, array $a, Stub $stub, bool $isNested)
     {
         $a[Caster::PREFIX_VIRTUAL.'modifiers'] = implode(' ', \Reflection::getModifierNames($c->getModifiers()));
@@ -249,6 +263,8 @@ class ReflectionCaster
         return $a;
     }
 
+=======
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
     public static function castMethod(\ReflectionMethod $c, array $a, Stub $stub, bool $isNested)
     {
         $a[Caster::PREFIX_VIRTUAL.'modifiers'] = implode(' ', \Reflection::getModifierNames($c->getModifiers()));
@@ -267,8 +283,11 @@ class ReflectionCaster
             'allowsNull' => 'allowsNull',
         ]);
 
+<<<<<<< HEAD
         self::addAttributes($a, $c, $prefix);
 
+=======
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
         if ($v = $c->getType()) {
             $a[$prefix.'typeHint'] = $v instanceof \ReflectionNamedType ? $v->getName() : (string) $v;
         }
@@ -297,8 +316,11 @@ class ReflectionCaster
     public static function castProperty(\ReflectionProperty $c, array $a, Stub $stub, bool $isNested)
     {
         $a[Caster::PREFIX_VIRTUAL.'modifiers'] = implode(' ', \Reflection::getModifierNames($c->getModifiers()));
+<<<<<<< HEAD
 
         self::addAttributes($a, $c);
+=======
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
         self::addExtra($a, $c);
 
         return $a;
@@ -405,7 +427,11 @@ class ReflectionCaster
         }
     }
 
+<<<<<<< HEAD
     private static function addMap(array &$a, object $c, array $map, string $prefix = Caster::PREFIX_VIRTUAL)
+=======
+    private static function addMap(array &$a, \Reflector $c, array $map, string $prefix = Caster::PREFIX_VIRTUAL)
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
     {
         foreach ($map as $k => $m) {
             if (\PHP_VERSION_ID >= 80000 && 'isDisabled' === $k) {
@@ -417,6 +443,7 @@ class ReflectionCaster
             }
         }
     }
+<<<<<<< HEAD
 
     private static function addAttributes(array &$a, \Reflector $c, string $prefix = Caster::PREFIX_VIRTUAL): void
     {
@@ -426,4 +453,6 @@ class ReflectionCaster
             }
         }
     }
+=======
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
 }

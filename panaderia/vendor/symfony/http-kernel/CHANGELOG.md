@@ -1,6 +1,7 @@
 CHANGELOG
 =========
 
+<<<<<<< HEAD
 5.2.0
 -----
 
@@ -15,6 +16,8 @@ CHANGELOG
  * added parameter `kernel.runtime_environment`, defined as `%env(default:kernel.environment:APP_RUNTIME_ENV)%`
  * do not set a default `Accept` HTTP header when using `HttpKernelBrowser`
 
+=======
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
 5.1.0
 -----
 

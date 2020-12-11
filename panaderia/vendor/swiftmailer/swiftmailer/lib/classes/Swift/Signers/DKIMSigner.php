@@ -295,7 +295,11 @@ class Swift_Signers_DKIMSigner implements Swift_Signers_HeaderSigner
                 break;
             case 'rsa-sha256':
                 $this->hashAlgorithm = 'rsa-sha256';
+<<<<<<< HEAD
                 if (!\defined('OPENSSL_ALGO_SHA256')) {
+=======
+                if (!defined('OPENSSL_ALGO_SHA256')) {
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
                     throw new Swift_SwiftException('Unable to set sha256 as it is not supported by OpenSSL.');
                 }
                 break;
@@ -574,7 +578,11 @@ class Swift_Signers_DKIMSigner implements Swift_Signers_HeaderSigner
 
     protected function canonicalizeBody($string)
     {
+<<<<<<< HEAD
         $len = \strlen($string);
+=======
+        $len = strlen($string);
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
         $canon = '';
         $method = ('relaxed' == $this->bodyCanon);
         for ($i = 0; $i < $len; ++$i) {
@@ -629,7 +637,11 @@ class Swift_Signers_DKIMSigner implements Swift_Signers_HeaderSigner
     protected function endOfBody()
     {
         // Add trailing Line return if last line is non empty
+<<<<<<< HEAD
         if (\strlen($this->bodyCanonLine) > 0) {
+=======
+        if (strlen($this->bodyCanonLine) > 0) {
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
             $this->addToBodyHash("\r\n");
         }
         $this->bodyHash = hash_final($this->bodyHashHandler, true);
@@ -637,7 +649,11 @@ class Swift_Signers_DKIMSigner implements Swift_Signers_HeaderSigner
 
     private function addToBodyHash($string)
     {
+<<<<<<< HEAD
         $len = \strlen($string);
+=======
+        $len = strlen($string);
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
         if ($len > ($new_len = ($this->maxLen - $this->bodyLen))) {
             $string = substr($string, 0, $new_len);
             $len = $new_len;

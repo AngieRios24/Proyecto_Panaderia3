@@ -2,6 +2,7 @@
 
 All notable changes are documented in this file using the [Keep a CHANGELOG](http://keepachangelog.com/) principles.
 
+<<<<<<< HEAD
 ## [9.2.5] - 2020-11-28
 
 ### Fixed
@@ -14,6 +15,8 @@ All notable changes are documented in this file using the [Keep a CHANGELOG](htt
 
 * [#834](https://github.com/sebastianbergmann/php-code-coverage/issues/834): Support `XDEBUG_MODE` environment variable
 
+=======
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
 ## [9.2.3] - 2020-10-30
 
 ### Changed
@@ -318,8 +321,11 @@ All notable changes are documented in this file using the [Keep a CHANGELOG](htt
 * Class names are now abbreviated (unqualified name shown, fully qualified name shown on hover) in the file view of the HTML report
 * Update HTML report to Bootstrap 4
 
+<<<<<<< HEAD
 [9.2.5]: https://github.com/sebastianbergmann/php-code-coverage/compare/9.2.4...9.2.5
 [9.2.4]: https://github.com/sebastianbergmann/php-code-coverage/compare/9.2.3...9.2.4
+=======
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
 [9.2.3]: https://github.com/sebastianbergmann/php-code-coverage/compare/9.2.2...9.2.3
 [9.2.2]: https://github.com/sebastianbergmann/php-code-coverage/compare/9.2.1...9.2.2
 [9.2.1]: https://github.com/sebastianbergmann/php-code-coverage/compare/9.2.0...9.2.1

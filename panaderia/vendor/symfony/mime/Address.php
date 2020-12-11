@@ -89,6 +89,7 @@ final class Address
             return $address;
         }
         if (\is_string($address)) {
+<<<<<<< HEAD
             if (false === strpos($address, '<')) {
                 return new self($address);
             }
@@ -101,6 +102,12 @@ final class Address
         }
 
         throw new InvalidArgumentException(sprintf('An address can be an instance of Address or a string ("%s" given).', get_debug_type($address)));
+=======
+            return self::fromString($address);
+        }
+
+        throw new InvalidArgumentException(sprintf('An address can be an instance of Address or a string ("%s") given).', get_debug_type($address)));
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
     }
 
     /**
@@ -118,6 +125,7 @@ final class Address
         return $addrs;
     }
 
+<<<<<<< HEAD
     /**
      * @deprecated since Symfony 5.2, use "create()" instead.
      */
@@ -125,12 +133,20 @@ final class Address
     {
         trigger_deprecation('symfony/mime', '5.2', '"%s()" is deprecated, use "%s::create()" instead.', __METHOD__, __CLASS__);
 
+=======
+    public static function fromString(string $string): self
+    {
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
         if (false === strpos($string, '<')) {
             return new self($string, '');
         }
 
         if (!preg_match(self::FROM_STRING_PATTERN, $string, $matches)) {
+<<<<<<< HEAD
             throw new InvalidArgumentException(sprintf('Could not parse "%s" to a "%s" instance.', $string, self::class));
+=======
+            throw new InvalidArgumentException(sprintf('Could not parse "%s" to a "%s" instance.', $string, static::class));
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
         }
 
         return new self($matches['addrSpec'], trim($matches['displayName'], ' \'"'));

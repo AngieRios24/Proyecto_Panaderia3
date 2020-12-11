@@ -29,7 +29,11 @@ trait CallsCommands
     }
 
     /**
+<<<<<<< HEAD
      * Call another console command without output.
+=======
+     * Call another console command silently.
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
      *
      * @param  \Symfony\Component\Console\Command\Command|string  $command
      * @param  array  $arguments
@@ -41,6 +45,7 @@ trait CallsCommands
     }
 
     /**
+<<<<<<< HEAD
      * Call another console command without output.
      *
      * @param  \Symfony\Component\Console\Command\Command|string  $command
@@ -53,6 +58,8 @@ trait CallsCommands
     }
 
     /**
+=======
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
      * Run the given the console command.
      *
      * @param  \Symfony\Component\Console\Command\Command|string  $command

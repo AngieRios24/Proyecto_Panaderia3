@@ -12,7 +12,10 @@ use Illuminate\Contracts\Auth\PasswordBroker;
  * @method static void deleteToken(\Illuminate\Contracts\Auth\CanResetPassword $user)
  * @method static bool tokenExists(\Illuminate\Contracts\Auth\CanResetPassword $user, string $token)
  * @method static \Illuminate\Auth\Passwords\TokenRepositoryInterface getRepository()
+<<<<<<< HEAD
  * @method static \Illuminate\Contracts\Auth\PasswordBroker broker(string|null $name = null)
+=======
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
  *
  * @see \Illuminate\Auth\Passwords\PasswordBroker
  */

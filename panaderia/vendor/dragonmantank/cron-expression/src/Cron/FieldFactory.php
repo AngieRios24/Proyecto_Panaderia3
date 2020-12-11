@@ -30,7 +30,11 @@ class FieldFactory implements FieldFactoryInterface
         return $this->fields[$position] ?? $this->fields[$position] = $this->instantiateField($position);
     }
 
+<<<<<<< HEAD
     private function instantiateField(int $position): FieldInterface
+=======
+    private function instantiateField($position): FieldInterface
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
     {
         switch ($position) {
             case CronExpression::MINUTE:

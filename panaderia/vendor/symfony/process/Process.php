@@ -71,7 +71,10 @@ class Process implements \IteratorAggregate
     private $incrementalErrorOutputOffset = 0;
     private $tty = false;
     private $pty;
+<<<<<<< HEAD
     private $options = ['suppress_errors' => true, 'bypass_shell' => true];
+=======
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
 
     private $useFileHandles = false;
     /** @var PipesInterface */
@@ -197,11 +200,15 @@ class Process implements \IteratorAggregate
 
     public function __destruct()
     {
+<<<<<<< HEAD
         if ($this->options['create_new_console'] ?? false) {
             $this->processPipes->close();
         } else {
             $this->stop(0);
         }
+=======
+        $this->stop(0);
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
     }
 
     public function __clone()
@@ -308,7 +315,14 @@ class Process implements \IteratorAggregate
             $commandline = $this->replacePlaceholders($commandline, $env);
         }
 
+<<<<<<< HEAD
         if ('\\' === \DIRECTORY_SEPARATOR) {
+=======
+        $options = ['suppress_errors' => true];
+
+        if ('\\' === \DIRECTORY_SEPARATOR) {
+            $options['bypass_shell'] = true;
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
             $commandline = $this->prepareWindowsCommandLine($commandline, $env);
         } elseif (!$this->useFileHandles && $this->isSigchildEnabled()) {
             // last exit code is output on the fourth pipe and caught to work around --enable-sigchild
@@ -334,7 +348,11 @@ class Process implements \IteratorAggregate
             throw new RuntimeException(sprintf('The provided cwd "%s" does not exist.', $this->cwd));
         }
 
+<<<<<<< HEAD
         $this->process = @proc_open($commandline, $descriptors, $this->processPipes->pipes, $this->cwd, $envPairs, $this->options);
+=======
+        $this->process = @proc_open($commandline, $descriptors, $this->processPipes->pipes, $this->cwd, $envPairs, $options);
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
 
         if (!\is_resource($this->process)) {
             throw new RuntimeException('Unable to launch a new process.');
@@ -1223,6 +1241,7 @@ class Process implements \IteratorAggregate
     }
 
     /**
+<<<<<<< HEAD
      * Defines options to pass to the underlying proc_open().
      *
      * @see https://php.net/proc_open for the options supported by PHP.
@@ -1249,6 +1268,8 @@ class Process implements \IteratorAggregate
     }
 
     /**
+=======
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
      * Returns whether TTY is supported on the current operating system.
      */
     public static function isTtySupported(): bool

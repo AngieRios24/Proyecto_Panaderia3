@@ -130,10 +130,14 @@ EOF;
      */
     protected function filterRequest(DomRequest $request)
     {
+<<<<<<< HEAD
         $httpRequest = Request::create($request->getUri(), $request->getMethod(), $request->getParameters(), $request->getCookies(), $request->getFiles(), $server = $request->getServer(), $request->getContent());
         if (!isset($server['HTTP_ACCEPT'])) {
             $httpRequest->headers->remove('Accept');
         }
+=======
+        $httpRequest = Request::create($request->getUri(), $request->getMethod(), $request->getParameters(), $request->getCookies(), $request->getFiles(), $request->getServer(), $request->getContent());
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
 
         foreach ($this->filterFiles($httpRequest->files->all()) as $key => $value) {
             $httpRequest->files->set($key, $value);

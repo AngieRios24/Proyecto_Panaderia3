@@ -1,6 +1,9 @@
 /.php_cs.cache
 /.phpunit
+<<<<<<< HEAD
 /.phpunit.result.cache
+=======
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
 /build/*
 /composer.lock
 /phpunit.xml

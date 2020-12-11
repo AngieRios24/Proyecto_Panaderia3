@@ -11,6 +11,7 @@
 
 namespace Symfony\Component\VarDumper;
 
+<<<<<<< HEAD
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpKernel\Debug\FileLinkFormatter;
@@ -23,6 +24,14 @@ use Symfony\Component\VarDumper\Dumper\ContextProvider\SourceContextProvider;
 use Symfony\Component\VarDumper\Dumper\ContextualizedDumper;
 use Symfony\Component\VarDumper\Dumper\HtmlDumper;
 use Symfony\Component\VarDumper\Dumper\ServerDumper;
+=======
+use Symfony\Component\VarDumper\Caster\ReflectionCaster;
+use Symfony\Component\VarDumper\Cloner\VarCloner;
+use Symfony\Component\VarDumper\Dumper\CliDumper;
+use Symfony\Component\VarDumper\Dumper\ContextProvider\SourceContextProvider;
+use Symfony\Component\VarDumper\Dumper\ContextualizedDumper;
+use Symfony\Component\VarDumper\Dumper\HtmlDumper;
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
 
 // Load the global dump() function
 require_once __DIR__.'/Resources/functions/dump.php';
@@ -37,7 +46,24 @@ class VarDumper
     public static function dump($var)
     {
         if (null === self::$handler) {
+<<<<<<< HEAD
             self::register();
+=======
+            $cloner = new VarCloner();
+            $cloner->addCasters(ReflectionCaster::UNSET_CLOSURE_FILE_INFO);
+
+            if (isset($_SERVER['VAR_DUMPER_FORMAT'])) {
+                $dumper = 'html' === $_SERVER['VAR_DUMPER_FORMAT'] ? new HtmlDumper() : new CliDumper();
+            } else {
+                $dumper = \in_array(\PHP_SAPI, ['cli', 'phpdbg']) ? new CliDumper() : new HtmlDumper();
+            }
+
+            $dumper = new ContextualizedDumper($dumper, [new SourceContextProvider()]);
+
+            self::$handler = function ($var) use ($cloner, $dumper) {
+                $dumper->dump($cloner->cloneVar($var));
+            };
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
         }
 
         return (self::$handler)($var);
@@ -56,6 +82,7 @@ class VarDumper
 
         return $prevHandler;
     }
+<<<<<<< HEAD
 
     private static function register(): void
     {
@@ -106,4 +133,6 @@ class VarDumper
             'source' => new SourceContextProvider(null, null, $fileLinkFormatter),
         ];
     }
+=======
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
 }

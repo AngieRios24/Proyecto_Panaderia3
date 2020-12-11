@@ -1,6 +1,7 @@
 Changelog
 =========
 
+<<<<<<< HEAD
 6.2.4 (2020-12-08)
 ------------------
 
@@ -9,6 +10,9 @@ Changelog
  * Code cleanups
 
 6.2.3 (2019-11-12)
+=======
+6.2.2 (2019-11-12)
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
 ------------------
 
  * no changes
@@ -16,7 +20,11 @@ Changelog
 6.2.2 (2019-11-12)
 ------------------
 
+<<<<<<< HEAD
  * fixed compat with PHP 7.4
+=======
+ * fixed cmopat with PHP 7.4
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
  * fixed error message when connecting to a stream raises an error before connect()
 
 6.2.1 (2019-04-21)

@@ -26,9 +26,15 @@ use Psy\Util\Mirror;
  */
 abstract class ReflectingCommand extends Command implements ContextAware
 {
+<<<<<<< HEAD
     const CLASS_OR_FUNC = '/^[\\\\\w]+$/';
     const CLASS_MEMBER = '/^([\\\\\w]+)::(\w+)$/';
     const CLASS_STATIC = '/^([\\\\\w]+)::\$(\w+)$/';
+=======
+    const CLASS_OR_FUNC   = '/^[\\\\\w]+$/';
+    const CLASS_MEMBER    = '/^([\\\\\w]+)::(\w+)$/';
+    const CLASS_STATIC    = '/^([\\\\\w]+)::\$(\w+)$/';
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
     const INSTANCE_MEMBER = '/^(\$\w+)(::|->)(\w+)$/';
 
     /**
@@ -60,7 +66,11 @@ abstract class ReflectingCommand extends Command implements ContextAware
     protected function getTarget($valueName)
     {
         $valueName = \trim($valueName);
+<<<<<<< HEAD
         $matches = [];
+=======
+        $matches   = [];
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
         switch (true) {
             case \preg_match(self::CLASS_OR_FUNC, $valueName, $matches):
                 return [$this->resolveName($matches[0], true), null, 0];
@@ -110,7 +120,11 @@ abstract class ReflectingCommand extends Command implements ContextAware
             }
 
             $msg = \sprintf('Cannot use "%s" when no class scope is active', \strtolower($name));
+<<<<<<< HEAD
             throw new ErrorException($msg, 0, \E_USER_ERROR, "eval()'d code", 1);
+=======
+            throw new ErrorException($msg, 0, E_USER_ERROR, "eval()'d code", 1);
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
         }
 
         if (\substr($name, 0, 1) === '\\') {
@@ -120,7 +134,11 @@ abstract class ReflectingCommand extends Command implements ContextAware
         // Check $name against the current namespace and use statements.
         if (self::couldBeClassName($name)) {
             try {
+<<<<<<< HEAD
                 $maybeAlias = $this->resolveCode($name.'::class');
+=======
+                $maybeAlias = $this->resolveCode($name . '::class');
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
                 if ($maybeAlias !== $name) {
                     return $maybeAlias;
                 }
@@ -130,7 +148,11 @@ abstract class ReflectingCommand extends Command implements ContextAware
         }
 
         if ($namespace = $shell->getNamespace()) {
+<<<<<<< HEAD
             $fullName = $namespace.'\\'.$name;
+=======
+            $fullName = $namespace . '\\' . $name;
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
 
             if (\class_exists($fullName) || \interface_exists($fullName) || ($includeFunctions && \function_exists($fullName))) {
                 return $fullName;
@@ -181,7 +203,11 @@ abstract class ReflectingCommand extends Command implements ContextAware
         }
 
         if (!isset($value) || $value instanceof NoReturnValue) {
+<<<<<<< HEAD
             throw new RuntimeException('Unknown target: '.$code);
+=======
+            throw new RuntimeException('Unknown target: ' . $code);
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
         }
 
         return $value;
@@ -216,7 +242,11 @@ abstract class ReflectingCommand extends Command implements ContextAware
      */
     protected function resolveInstance($name)
     {
+<<<<<<< HEAD
         @\trigger_error('`resolveInstance` is deprecated; use `resolveCode` instead.', \E_USER_DEPRECATED);
+=======
+        @\trigger_error('`resolveInstance` is deprecated; use `resolveCode` instead.', E_USER_DEPRECATED);
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
 
         return $this->resolveCode($name);
     }
@@ -288,7 +318,11 @@ abstract class ReflectingCommand extends Command implements ContextAware
                 if ($fileName = $reflector->getExecutingFile()) {
                     $vars['__file'] = $fileName;
                     $vars['__line'] = $reflector->getExecutingLine();
+<<<<<<< HEAD
                     $vars['__dir'] = \dirname($fileName);
+=======
+                    $vars['__dir']  = \dirname($fileName);
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
                 }
                 break;
 
@@ -303,7 +337,11 @@ abstract class ReflectingCommand extends Command implements ContextAware
                 // no line for these, but this'll do
                 if ($fileName = $reflector->getDeclaringClass()->getFileName()) {
                     $vars['__file'] = $fileName;
+<<<<<<< HEAD
                     $vars['__dir'] = \dirname($fileName);
+=======
+                    $vars['__dir']  = \dirname($fileName);
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
                 }
                 break;
 
@@ -318,7 +356,11 @@ abstract class ReflectingCommand extends Command implements ContextAware
             if ($fileName = $reflector->getFileName()) {
                 $vars['__file'] = $fileName;
                 $vars['__line'] = $reflector->getStartLine();
+<<<<<<< HEAD
                 $vars['__dir'] = \dirname($fileName);
+=======
+                $vars['__dir']  = \dirname($fileName);
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
             }
         }
 

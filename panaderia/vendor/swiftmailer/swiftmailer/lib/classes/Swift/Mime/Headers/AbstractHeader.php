@@ -216,7 +216,11 @@ abstract class Swift_Mime_Headers_AbstractHeader implements Swift_Mime_Header
                 // ... otherwise it needs encoding
                 // Determine space remaining on line if first line
                 if ($shorten) {
+<<<<<<< HEAD
                     $usedLength = \strlen($header->getFieldName().': ');
+=======
+                    $usedLength = strlen($header->getFieldName().': ');
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
                 } else {
                     $usedLength = 0;
                 }
@@ -271,7 +275,11 @@ abstract class Swift_Mime_Headers_AbstractHeader implements Swift_Mime_Header
                 }
 
                 if (-1 == $usedLength) {
+<<<<<<< HEAD
                     $usedLength = \strlen($header->getFieldName().': ') + \strlen($value);
+=======
+                    $usedLength = strlen($header->getFieldName().': ') + strlen($value);
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
                 }
                 $value .= $this->getTokenAsEncodedWord($token, $usedLength);
 
@@ -313,14 +321,22 @@ abstract class Swift_Mime_Headers_AbstractHeader implements Swift_Mime_Header
             if ($this->tokenNeedsEncoding($token)) {
                 $encodedToken .= $token;
             } else {
+<<<<<<< HEAD
                 if (\strlen($encodedToken) > 0) {
+=======
+                if (strlen($encodedToken) > 0) {
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
                     $tokens[] = $encodedToken;
                     $encodedToken = '';
                 }
                 $tokens[] = $token;
             }
         }
+<<<<<<< HEAD
         if (\strlen($encodedToken)) {
+=======
+        if (strlen($encodedToken)) {
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
             $tokens[] = $encodedToken;
         }
 
@@ -342,7 +358,11 @@ abstract class Swift_Mime_Headers_AbstractHeader implements Swift_Mime_Header
         if (isset($this->lang)) {
             $charsetDecl .= '*'.$this->lang;
         }
+<<<<<<< HEAD
         $encodingWrapperLength = \strlen(
+=======
+        $encodingWrapperLength = strlen(
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
             '=?'.$charsetDecl.'?'.$this->encoder->getName().'??='
             );
 
@@ -458,8 +478,13 @@ abstract class Swift_Mime_Headers_AbstractHeader implements Swift_Mime_Header
         foreach ($tokens as $i => $token) {
             // Line longer than specified maximum or token was just a new line
             if (("\r\n" == $token) ||
+<<<<<<< HEAD
                 ($i > 0 && \strlen($currentLine.$token) > $this->lineLength)
                 && 0 < \strlen($currentLine)) {
+=======
+                ($i > 0 && strlen($currentLine.$token) > $this->lineLength)
+                && 0 < strlen($currentLine)) {
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
                 $headerLines[] = '';
                 $currentLine = &$headerLines[$lineCount++];
             }

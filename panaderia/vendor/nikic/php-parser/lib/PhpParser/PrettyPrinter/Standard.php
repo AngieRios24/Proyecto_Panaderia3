@@ -1040,7 +1040,11 @@ class Standard extends PrettyPrinterAbstract
      * @param Node[] $nodes
      * @return bool
      */
+<<<<<<< HEAD
     protected function hasNodeWithComments(array $nodes) {
+=======
+    private function hasNodeWithComments(array $nodes) {
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
         foreach ($nodes as $node) {
             if ($node && $node->getComments()) {
                 return true;
@@ -1049,7 +1053,11 @@ class Standard extends PrettyPrinterAbstract
         return false;
     }
 
+<<<<<<< HEAD
     protected function pMaybeMultiline(array $nodes, bool $trailingComma = false) {
+=======
+    private function pMaybeMultiline(array $nodes, bool $trailingComma = false) {
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
         if (!$this->hasNodeWithComments($nodes)) {
             return $this->pCommaSeparated($nodes);
         } else {
@@ -1057,7 +1065,11 @@ class Standard extends PrettyPrinterAbstract
         }
     }
 
+<<<<<<< HEAD
     protected function pAttrGroups(array $nodes, bool $inline = false): string {
+=======
+    private function pAttrGroups(array $nodes, bool $inline = false): string {
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
         $result = '';
         $sep = $inline ? ' ' : $this->nl;
         foreach ($nodes as $node) {

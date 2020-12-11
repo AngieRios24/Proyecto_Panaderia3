@@ -10,7 +10,10 @@
     "require": {
         "php": "^7.3|^8.0",
         "codemancompany/laravel-mercadopago": "^1.07",
+<<<<<<< HEAD
         "darryldecode/cart": "^4.2",
+=======
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
         "fideloper/proxy": "^4.4",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",

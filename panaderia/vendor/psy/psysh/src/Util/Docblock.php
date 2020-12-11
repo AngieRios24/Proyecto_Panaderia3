@@ -84,8 +84,13 @@ class Docblock
      */
     protected function setComment($comment)
     {
+<<<<<<< HEAD
         $this->desc = '';
         $this->tags = [];
+=======
+        $this->desc    = '';
+        $this->tags    = [];
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
         $this->comment = $comment;
 
         $this->parseComment($comment);
@@ -109,7 +114,11 @@ class Docblock
         \sort($lines);
 
         $first = \reset($lines);
+<<<<<<< HEAD
         $last = \end($lines);
+=======
+        $last  = \end($lines);
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
 
         // Special case for single-line comments
         if (\count($lines) === 1) {
@@ -169,7 +178,11 @@ class Docblock
                 $this->desc = $body;
             } else {
                 // This block is tagged
+<<<<<<< HEAD
                 $tag = \substr(self::strTag($body), 1);
+=======
+                $tag  = \substr(self::strTag($body), 1);
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
                 $body = \ltrim(\substr($body, \strlen($tag) + 2));
 
                 if (isset(self::$vectors[$tag])) {

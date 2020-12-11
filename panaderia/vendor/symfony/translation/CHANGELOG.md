@@ -1,6 +1,7 @@
 CHANGELOG
 =========
 
+<<<<<<< HEAD
 5.2.0
 -----
 
@@ -10,6 +11,8 @@ CHANGELOG
  * added the `t()` function to easily create `TranslatableMessage` objects
  * Added support for extracting messages from `TranslatableMessage` objects
 
+=======
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
 5.1.0
 -----
 

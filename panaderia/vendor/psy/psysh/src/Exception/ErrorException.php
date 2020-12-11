@@ -37,6 +37,7 @@ class ErrorException extends \ErrorException implements Exception
         }
 
         switch ($severity) {
+<<<<<<< HEAD
             case \E_STRICT:
                 $type = 'Strict error';
                 break;
@@ -59,6 +60,30 @@ class ErrorException extends \ErrorException implements Exception
                 break;
 
             case \E_RECOVERABLE_ERROR:
+=======
+            case E_STRICT:
+                $type = 'Strict error';
+                break;
+
+            case E_NOTICE:
+            case E_USER_NOTICE:
+                $type = 'Notice';
+                break;
+
+            case E_WARNING:
+            case E_CORE_WARNING:
+            case E_COMPILE_WARNING:
+            case E_USER_WARNING:
+                $type = 'Warning';
+                break;
+
+            case E_DEPRECATED:
+            case E_USER_DEPRECATED:
+                $type = 'Deprecated';
+                break;
+
+            case E_RECOVERABLE_ERROR:
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
                 $type = 'Recoverable fatal error';
                 break;
 
@@ -67,7 +92,11 @@ class ErrorException extends \ErrorException implements Exception
                 break;
         }
 
+<<<<<<< HEAD
         $message = \sprintf('PHP %s:  %s%s on line %d', $type, $message, $filename ? ' in '.$filename : '', $lineno);
+=======
+        $message = \sprintf('PHP %s:  %s%s on line %d', $type, $message, $filename ? ' in ' . $filename : '', $lineno);
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
         parent::__construct($message, $code, $severity, $filename, $lineno, $previous);
     }
 

@@ -49,6 +49,10 @@ class XmlDescriptor extends Descriptor
         $dom = new \DOMDocument('1.0', 'UTF-8');
         $dom->appendChild($commandXML = $dom->createElement('command'));
 
+<<<<<<< HEAD
+=======
+        $command->getSynopsis();
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
         $command->mergeApplicationDefinition(false);
 
         $commandXML->setAttribute('id', $command->getName());
@@ -67,7 +71,11 @@ class XmlDescriptor extends Descriptor
         $commandXML->appendChild($helpXML = $dom->createElement('help'));
         $helpXML->appendChild($dom->createTextNode(str_replace("\n", "\n ", $command->getProcessedHelp())));
 
+<<<<<<< HEAD
         $definitionXML = $this->getInputDefinitionDocument($command->getDefinition());
+=======
+        $definitionXML = $this->getInputDefinitionDocument($command->getNativeDefinition());
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
         $this->appendDocument($commandXML, $definitionXML->getElementsByTagName('definition')->item(0));
 
         return $dom;

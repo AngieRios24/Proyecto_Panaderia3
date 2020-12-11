@@ -1,12 +1,15 @@
 CHANGELOG
 =========
 
+<<<<<<< HEAD
 5.2.0
 -----
 
  * Add support for DKIM
  * Deprecated `Address::fromString()`, use `Address::create()` instead
 
+=======
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
 4.4.0
 -----
 

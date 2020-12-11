@@ -40,11 +40,19 @@ class TraceFormatter
         }
 
         if ($cwd = \getcwd()) {
+<<<<<<< HEAD
             $cwd = \rtrim($cwd, \DIRECTORY_SEPARATOR).\DIRECTORY_SEPARATOR;
         }
 
         if ($count === null) {
             $count = \PHP_INT_MAX;
+=======
+            $cwd = \rtrim($cwd, DIRECTORY_SEPARATOR) . DIRECTORY_SEPARATOR;
+        }
+
+        if ($count === null) {
+            $count = PHP_INT_MAX;
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
         }
 
         $lines = [];
@@ -68,11 +76,19 @@ class TraceFormatter
         }
 
         for ($i = 0, $count = \min($count, \count($trace)); $i < $count; $i++) {
+<<<<<<< HEAD
             $class = isset($trace[$i]['class']) ? $trace[$i]['class'] : '';
             $type = isset($trace[$i]['type']) ? $trace[$i]['type'] : '';
             $function = $trace[$i]['function'];
             $file = isset($trace[$i]['file']) ? self::replaceCwd($cwd, $trace[$i]['file']) : 'n/a';
             $line = isset($trace[$i]['line']) ? $trace[$i]['line'] : 'n/a';
+=======
+            $class    = isset($trace[$i]['class']) ? $trace[$i]['class'] : '';
+            $type     = isset($trace[$i]['type']) ? $trace[$i]['type'] : '';
+            $function = $trace[$i]['function'];
+            $file     = isset($trace[$i]['file']) ? self::replaceCwd($cwd, $trace[$i]['file']) : 'n/a';
+            $line     = isset($trace[$i]['line']) ? $trace[$i]['line'] : 'n/a';
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
 
             // Leave execution loop out of the `eval()'d code` lines
             if (\preg_match("#/src/Execution(?:Loop)?Closure.php\(\d+\) : eval\(\)'d code$#", \str_replace('\\', '/', $file))) {
@@ -110,7 +126,11 @@ class TraceFormatter
         if ($cwd === false) {
             return $file;
         } else {
+<<<<<<< HEAD
             return \preg_replace('/^'.\preg_quote($cwd, '/').'/', '', $file);
+=======
+            return \preg_replace('/^' . \preg_quote($cwd, '/') . '/', '', $file);
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
         }
     }
 }

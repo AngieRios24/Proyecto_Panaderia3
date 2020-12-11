@@ -61,7 +61,11 @@ class ConstantEnumerator extends Enumerator
             return [];
         }
 
+<<<<<<< HEAD
         $user = $input->getOption('user');
+=======
+        $user     = $input->getOption('user');
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
         $internal = $input->getOption('internal');
         $category = $input->getOption('category');
 
@@ -89,7 +93,11 @@ class ConstantEnumerator extends Enumerator
 
         if ($category) {
             $caseCategory = \array_key_exists($category, self::$categoryLabels) ? self::$categoryLabels[$category] : \ucfirst($category);
+<<<<<<< HEAD
             $label = $caseCategory.' Constants';
+=======
+            $label = $caseCategory . ' Constants';
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
             $ret[$label] = $this->getConstants($category);
         }
 
@@ -98,7 +106,11 @@ class ConstantEnumerator extends Enumerator
         }
 
         if ($reflector !== null) {
+<<<<<<< HEAD
             $prefix = \strtolower($reflector->getName()).'\\';
+=======
+            $prefix = \strtolower($reflector->getName()) . '\\';
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
 
             foreach ($ret as $key => $names) {
                 foreach (\array_keys($names) as $name) {
@@ -133,7 +145,11 @@ class ConstantEnumerator extends Enumerator
         if ($category === 'internal') {
             unset($consts['user']);
 
+<<<<<<< HEAD
             return \call_user_func_array('array_merge', \array_values($consts));
+=======
+            return \call_user_func_array('array_merge', $consts);
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
         }
 
         foreach ($consts as $key => $value) {

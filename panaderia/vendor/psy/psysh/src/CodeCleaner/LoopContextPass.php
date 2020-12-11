@@ -63,23 +63,39 @@ class LoopContextPass extends CodeCleanerPass
 
                 if ($this->loopDepth === 0) {
                     $msg = \sprintf("'%s' not in the 'loop' or 'switch' context", $operator);
+<<<<<<< HEAD
                     throw new FatalErrorException($msg, 0, \E_ERROR, null, $node->getLine());
+=======
+                    throw new FatalErrorException($msg, 0, E_ERROR, null, $node->getLine());
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
                 }
 
                 if ($node->num instanceof LNumber || $node->num instanceof DNumber) {
                     $num = $node->num->value;
                     if ($node->num instanceof DNumber || $num < 1) {
                         $msg = \sprintf("'%s' operator accepts only positive numbers", $operator);
+<<<<<<< HEAD
                         throw new FatalErrorException($msg, 0, \E_ERROR, null, $node->getLine());
+=======
+                        throw new FatalErrorException($msg, 0, E_ERROR, null, $node->getLine());
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
                     }
 
                     if ($num > $this->loopDepth) {
                         $msg = \sprintf("Cannot '%s' %d levels", $operator, $num);
+<<<<<<< HEAD
                         throw new FatalErrorException($msg, 0, \E_ERROR, null, $node->getLine());
                     }
                 } elseif ($node->num) {
                     $msg = \sprintf("'%s' operator with non-constant operand is no longer supported", $operator);
                     throw new FatalErrorException($msg, 0, \E_ERROR, null, $node->getLine());
+=======
+                        throw new FatalErrorException($msg, 0, E_ERROR, null, $node->getLine());
+                    }
+                } elseif ($node->num) {
+                    $msg = \sprintf("'%s' operator with non-constant operand is no longer supported", $operator);
+                    throw new FatalErrorException($msg, 0, E_ERROR, null, $node->getLine());
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
                 }
                 break;
         }

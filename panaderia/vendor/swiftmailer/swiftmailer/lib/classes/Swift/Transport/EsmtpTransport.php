@@ -235,7 +235,11 @@ class Swift_Transport_EsmtpTransport extends Swift_Transport_AbstractSmtpTranspo
      * Returns whether SMTP pipelining is enabled.
      *
      * @return bool|null a boolean if pipelining is explicitly enabled or disabled,
+<<<<<<< HEAD
      *                   or null if support is auto-detected
+=======
+     *                   or null if support is auto-detected.
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
      */
     public function getPipelining()
     {
@@ -284,7 +288,11 @@ class Swift_Transport_EsmtpTransport extends Swift_Transport_AbstractSmtpTranspo
      * @param int[]    $codes
      * @param string[] $failures An array of failures by-reference
      * @param bool     $pipeline Do not wait for response
+<<<<<<< HEAD
      * @param string   $address  the address, if command is RCPT TO
+=======
+     * @param string   $address  The address, if command is RCPT TO.
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
      *
      * @return string|null The server response, or null if pipelining is enabled
      */
@@ -309,10 +317,17 @@ class Swift_Transport_EsmtpTransport extends Swift_Transport_AbstractSmtpTranspo
     public function __call($method, $args)
     {
         foreach ($this->handlers as $handler) {
+<<<<<<< HEAD
             if (\in_array(strtolower($method),
                 array_map('strtolower', (array) $handler->exposeMixinMethods())
                 )) {
                 $return = \call_user_func_array([$handler, $method], $args);
+=======
+            if (in_array(strtolower($method),
+                array_map('strtolower', (array) $handler->exposeMixinMethods())
+                )) {
+                $return = call_user_func_array([$handler, $method], $args);
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
                 // Allow fluid method calls
                 if (null === $return && 'set' == substr($method, 0, 3)) {
                     return $this;
@@ -425,7 +440,11 @@ class Swift_Transport_EsmtpTransport extends Swift_Transport_AbstractSmtpTranspo
     private function setHandlerParams()
     {
         foreach ($this->handlers as $keyword => $handler) {
+<<<<<<< HEAD
             if (\array_key_exists($keyword, $this->capabilities)) {
+=======
+            if (array_key_exists($keyword, $this->capabilities)) {
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
                 $handler->setKeywordParams($this->capabilities[$keyword]);
             }
         }
@@ -436,7 +455,11 @@ class Swift_Transport_EsmtpTransport extends Swift_Transport_AbstractSmtpTranspo
     {
         $handlers = [];
         foreach ($this->handlers as $keyword => $handler) {
+<<<<<<< HEAD
             if (\array_key_exists($keyword, $this->capabilities)) {
+=======
+            if (array_key_exists($keyword, $this->capabilities)) {
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
                 $handlers[] = $handler;
             }
         }

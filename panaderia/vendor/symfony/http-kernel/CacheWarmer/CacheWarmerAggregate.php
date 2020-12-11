@@ -101,7 +101,11 @@ class CacheWarmerAggregate implements CacheWarmerInterface
             if ($collectDeprecations) {
                 restore_error_handler();
 
+<<<<<<< HEAD
                 if (is_file($this->deprecationLogsFilepath)) {
+=======
+                if (file_exists($this->deprecationLogsFilepath)) {
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
                     $previousLogs = unserialize(file_get_contents($this->deprecationLogsFilepath));
                     $collectedLogs = array_merge($previousLogs, $collectedLogs);
                 }

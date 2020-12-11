@@ -87,7 +87,11 @@ class Context
                 break;
         }
 
+<<<<<<< HEAD
         throw new \InvalidArgumentException('Unknown variable: $'.$name);
+=======
+        throw new \InvalidArgumentException('Unknown variable: $' . $name);
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
     }
 
     /**

@@ -198,7 +198,11 @@ class Swift_FileSpool extends Swift_ConfigurableSpool
         // This string MUST stay FS safe, avoid special chars
         $base = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_-';
         $ret = '';
+<<<<<<< HEAD
         $strlen = \strlen($base);
+=======
+        $strlen = strlen($base);
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
         for ($i = 0; $i < $count; ++$i) {
             $ret .= $base[random_int(0, $strlen - 1)];
         }

@@ -14,17 +14,26 @@ namespace Symfony\Component\Console;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Command\HelpCommand;
 use Symfony\Component\Console\Command\ListCommand;
+<<<<<<< HEAD
 use Symfony\Component\Console\Command\SignalableCommandInterface;
 use Symfony\Component\Console\CommandLoader\CommandLoaderInterface;
 use Symfony\Component\Console\Event\ConsoleCommandEvent;
 use Symfony\Component\Console\Event\ConsoleErrorEvent;
 use Symfony\Component\Console\Event\ConsoleSignalEvent;
+=======
+use Symfony\Component\Console\CommandLoader\CommandLoaderInterface;
+use Symfony\Component\Console\Event\ConsoleCommandEvent;
+use Symfony\Component\Console\Event\ConsoleErrorEvent;
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
 use Symfony\Component\Console\Event\ConsoleTerminateEvent;
 use Symfony\Component\Console\Exception\CommandNotFoundException;
 use Symfony\Component\Console\Exception\ExceptionInterface;
 use Symfony\Component\Console\Exception\LogicException;
 use Symfony\Component\Console\Exception\NamespaceNotFoundException;
+<<<<<<< HEAD
 use Symfony\Component\Console\Exception\RuntimeException;
+=======
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
 use Symfony\Component\Console\Formatter\OutputFormatter;
 use Symfony\Component\Console\Helper\DebugFormatterHelper;
 use Symfony\Component\Console\Helper\FormatterHelper;
@@ -42,7 +51,10 @@ use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\ConsoleOutput;
 use Symfony\Component\Console\Output\ConsoleOutputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
+<<<<<<< HEAD
 use Symfony\Component\Console\SignalRegistry\SignalRegistry;
+=======
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
 use Symfony\Component\Console\Style\SymfonyStyle;
 use Symfony\Component\ErrorHandler\ErrorHandler;
 use Symfony\Contracts\EventDispatcher\EventDispatcherInterface;
@@ -80,8 +92,11 @@ class Application implements ResetInterface
     private $defaultCommand;
     private $singleCommand = false;
     private $initialized;
+<<<<<<< HEAD
     private $signalRegistry;
     private $signalsToDispatchEvent = [];
+=======
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
 
     public function __construct(string $name = 'UNKNOWN', string $version = 'UNKNOWN')
     {
@@ -89,10 +104,13 @@ class Application implements ResetInterface
         $this->version = $version;
         $this->terminal = new Terminal();
         $this->defaultCommand = 'list';
+<<<<<<< HEAD
         if (\defined('SIGINT') && SignalRegistry::isSupported()) {
             $this->signalRegistry = new SignalRegistry();
             $this->signalsToDispatchEvent = [\SIGINT, \SIGTERM, \SIGUSR1, \SIGUSR2];
         }
+=======
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
     }
 
     /**
@@ -108,6 +126,7 @@ class Application implements ResetInterface
         $this->commandLoader = $commandLoader;
     }
 
+<<<<<<< HEAD
     public function getSignalRegistry(): SignalRegistry
     {
         if (!$this->signalRegistry) {
@@ -122,6 +141,8 @@ class Application implements ResetInterface
         $this->signalsToDispatchEvent = $signalsToDispatchEvent;
     }
 
+=======
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
     /**
      * Runs the current application.
      *
@@ -940,6 +961,7 @@ class Application implements ResetInterface
             }
         }
 
+<<<<<<< HEAD
         if ($command instanceof SignalableCommandInterface) {
             if (!$this->signalRegistry) {
                 throw new RuntimeException('Unable to subscribe to signal events. Make sure that the `pcntl` extension is installed and that "pcntl_*" functions are not disabled by your php.ini\'s "disable_functions" directive.');
@@ -967,6 +989,8 @@ class Application implements ResetInterface
             }
         }
 
+=======
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
         if (null === $this->dispatcher) {
             return $command->run($input, $output);
         }
@@ -1029,7 +1053,12 @@ class Application implements ResetInterface
     {
         return new InputDefinition([
             new InputArgument('command', InputArgument::REQUIRED, 'The command to execute'),
+<<<<<<< HEAD
             new InputOption('--help', '-h', InputOption::VALUE_NONE, 'Display help for the given command. When no command is given display help for the <info>'.$this->defaultCommand.'</info> command'),
+=======
+
+            new InputOption('--help', '-h', InputOption::VALUE_NONE, 'Display this help message'),
+>>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
             new InputOption('--quiet', '-q', InputOption::VALUE_NONE, 'Do not output any message'),
             new InputOption('--verbose', '-v|vv|vvv', InputOption::VALUE_NONE, 'Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug'),
             new InputOption('--version', '-V', InputOption::VALUE_NONE, 'Display this application version'),
