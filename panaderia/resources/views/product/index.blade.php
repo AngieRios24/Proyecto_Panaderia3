@@ -17,6 +17,13 @@
     </div>
 </div>
 <div class="row">
+@if($buscar)
+    <div class="col-lg-12 col-md-4 col-sm-6 col-xs-12 text-center alert alert-primary" role="alert">
+        <h4>Los resultados de la busqueda</h4>
+    </div>
+</div>
+@endif
+<div class="row">
     <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 text-right">
         <form>
             <div class="form-group">

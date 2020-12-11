@@ -11,10 +11,14 @@ class CategoryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+            $buscar = $request->get('buscar');
+            DB::select("SELECT * FROM  SearchCategories2('$buscar')");
+            //$category=Category::where('name', 'LIKE', '%'.$buscar.'%')->paginate($this::PAGINACION);
         return view('categories.index',[
-            'category' =>DB::select("SELECT * FROM  ListarCategories()")
+           'category' =>DB::select("SELECT * FROM  ListarCategories()"),'buscar'=>$buscar
+            //'category'=>$category,'buscar'=>$buscar
         ]);
     }
 

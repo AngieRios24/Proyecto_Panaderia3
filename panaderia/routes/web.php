@@ -7,6 +7,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\VendorsController;
 use App\Http\Controllers\DomiciliaryController;
 use App\Http\Controllers\VendorController;
+use App\Http\Controllers\CartController;
 use App\Models\Product;
 /*
 |--------------------------------------------------------------------------
@@ -31,4 +32,10 @@ Route::resource('vendors', 'App\Http\Controllers\VendorsController'::class)->mid
 Route::resource('domiciliary', 'App\Http\Controllers\DomiciliaryController'::class)->middleware('auth');
 Route::resource('/productos', 'App\Http\Controllers\VistaController'::class)->middleware('auth');
 Route::get('vendedor',[\App\Http\Controllers\VendorController::class,'index'])->name('vendedor')->middleware('auth');
+
+
+Route::post('/add-cart',[\App\Http\Controllers\CartController::class,'add'])->name('add-cart');
+Route::get('/cart-checkout',[\App\Http\Controllers\CartController::class,'cart'])->name('cart-checkout');
+Route::post('/cart-clear',[\App\Http\Controllers\CartController::class,'clear'])->name('cart-clear');
+Route::post('/cart-removeitem',[\App\Http\Controllers\CartController::class,'removeitem'])->name('cart-removeitem');
 Auth::routes();

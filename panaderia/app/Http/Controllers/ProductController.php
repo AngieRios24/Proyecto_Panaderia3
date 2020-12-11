@@ -15,12 +15,18 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view('product.index',[
-            'product' =>DB::select("SELECT * FROM  ListarProducts()"),
 
-        ]);
+        if($request){
+            $query = trim ($request->get('buscar'));
+            DB::select("SELECT * FROM  SearchCategories2('$query')");
+
+            return view('product.index',[
+                'product' =>DB::select("SELECT * FROM  ListarProducts()"),'buscar'=>$query
+            ]);
+        }
+
     }
 
     /**
