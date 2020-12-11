@@ -30,7 +30,6 @@ Route::resource('products', 'App\Http\Controllers\ProductController'::class)->mi
 Route::resource('categories', 'App\Http\Controllers\CategoryController'::class)->middleware('auth');
 Route::resource('vendors', 'App\Http\Controllers\VendorsController'::class)->middleware('auth');
 Route::resource('domiciliary', 'App\Http\Controllers\DomiciliaryController'::class)->middleware('auth');
-<<<<<<< HEAD
 Route::resource('/productos', 'App\Http\Controllers\VistaController'::class)->middleware('auth');
 Route::get('vendedor',[\App\Http\Controllers\VendorController::class,'index'])->name('vendedor')->middleware('auth');
 
@@ -40,8 +39,8 @@ Route::get('/cart-checkout',[\App\Http\Controllers\CartController::class,'cart']
 Route::post('/cart-clear',[\App\Http\Controllers\CartController::class,'clear'])->name('cart-clear');
 Route::post('/cart-removeitem',[\App\Http\Controllers\CartController::class,'removeitem'])->name('cart-removeitem');
 Auth::routes();
-=======
+
 
 Auth::routes();
 
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
+

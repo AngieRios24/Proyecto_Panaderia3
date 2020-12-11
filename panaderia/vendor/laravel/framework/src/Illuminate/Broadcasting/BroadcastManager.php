@@ -2,13 +2,13 @@
 
 namespace Illuminate\Broadcasting;
 
-<<<<<<< HEAD
+
 use Ably\AblyRest;
 use Closure;
 use Illuminate\Broadcasting\Broadcasters\AblyBroadcaster;
-=======
+
 use Closure;
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
+
 use Illuminate\Broadcasting\Broadcasters\LogBroadcaster;
 use Illuminate\Broadcasting\Broadcasters\NullBroadcaster;
 use Illuminate\Broadcasting\Broadcasters\PusherBroadcaster;
@@ -76,11 +76,11 @@ class BroadcastManager implements FactoryContract
             $router->match(
                 ['get', 'post'], '/broadcasting/auth',
                 '\\'.BroadcastController::class.'@authenticate'
-<<<<<<< HEAD
+
             )->withoutMiddleware([\Illuminate\Foundation\Http\Middleware\VerifyCsrfToken::class]);
-=======
+
             );
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
+
         });
     }
 
@@ -236,7 +236,7 @@ class BroadcastManager implements FactoryContract
      * @param  array  $config
      * @return \Illuminate\Contracts\Broadcasting\Broadcaster
      */
-<<<<<<< HEAD
+
     protected function createAblyDriver(array $config)
     {
         return new AblyBroadcaster(new AblyRest($config));
@@ -248,8 +248,7 @@ class BroadcastManager implements FactoryContract
      * @param  array  $config
      * @return \Illuminate\Contracts\Broadcasting\Broadcaster
      */
-=======
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
+
     protected function createRedisDriver(array $config)
     {
         return new RedisBroadcaster(

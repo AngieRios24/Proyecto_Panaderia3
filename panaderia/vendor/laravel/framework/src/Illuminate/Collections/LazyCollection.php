@@ -1058,7 +1058,6 @@ class LazyCollection implements Enumerable
     }
 
     /**
-<<<<<<< HEAD
      * Split a collection into a certain number of groups, and fill the first groups completely.
      *
      * @param  int  $numberOfGroups
@@ -1070,8 +1069,6 @@ class LazyCollection implements Enumerable
     }
 
     /**
-=======
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
      * Chunk the collection into chunks with a callback.
      *
      * @param  callable  $callback

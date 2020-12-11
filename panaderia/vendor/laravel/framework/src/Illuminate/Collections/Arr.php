@@ -604,11 +604,11 @@ class Arr
      * Sort the array using the given callback or "dot" notation.
      *
      * @param  array  $array
-<<<<<<< HEAD
+
      * @param  callable|array|string|null  $callback
-=======
+
      * @param  callable|string|null  $callback
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
+
      * @return array
      */
     public static function sort($array, $callback = null)

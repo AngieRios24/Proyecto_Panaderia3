@@ -317,11 +317,11 @@ abstract class Broadcaster implements BroadcasterContract
     }
 
     /**
-<<<<<<< HEAD
+
      * Check if the channel name from the request matches a pattern from registered channels.
-=======
+
      * Check if channel name from request match a pattern from registered channels.
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
+
      *
      * @param  string  $channel
      * @param  string  $pattern

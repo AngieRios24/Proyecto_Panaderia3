@@ -425,13 +425,7 @@ trait ManagesFrequencies
 
         $this->dailyAt($time);
 
-<<<<<<< HEAD
         return $this->spliceIntoPosition(3, $daysOfMonth);
-=======
-        return $this->spliceIntoPosition(1, 0)
-            ->spliceIntoPosition(2, 0)
-            ->spliceIntoPosition(3, $daysOfMonth);
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
     }
 
     /**
