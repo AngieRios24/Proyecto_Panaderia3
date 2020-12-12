@@ -9,10 +9,7 @@ use Illuminate\Contracts\Cache\Repository as Cache;
 use Illuminate\Contracts\Container\Container;
 use Illuminate\Contracts\Queue\Job;
 use Illuminate\Contracts\Queue\ShouldBeUnique;
-<<<<<<< HEAD
 use Illuminate\Contracts\Queue\ShouldBeUniqueUntilProcessing;
-=======
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Pipeline\Pipeline;
 use ReflectionClass;
@@ -63,7 +60,6 @@ class CallQueuedHandler
             return $this->handleModelNotFound($job, $e);
         }
 
-<<<<<<< HEAD
         if ($command instanceof ShouldBeUniqueUntilProcessing) {
             $this->ensureUniqueJobLockIsReleased($command);
         }
@@ -71,11 +67,6 @@ class CallQueuedHandler
         $this->dispatchThroughMiddleware($job, $command);
 
         if (! $job->isReleased() && ! $command instanceof ShouldBeUniqueUntilProcessing) {
-=======
-        $this->dispatchThroughMiddleware($job, $command);
-
-        if (! $job->isReleased()) {
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
             $this->ensureUniqueJobLockIsReleased($command);
         }
 
@@ -237,14 +228,10 @@ class CallQueuedHandler
     {
         $command = unserialize($data['command']);
 
-<<<<<<< HEAD
         if (! $command instanceof ShouldBeUniqueUntilProcessing) {
             $this->ensureUniqueJobLockIsReleased($command);
         }
 
-=======
-        $this->ensureUniqueJobLockIsReleased($command);
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
         $this->ensureFailedBatchJobIsRecorded($uuid, $command, $e);
         $this->ensureChainCatchCallbacksAreInvoked($uuid, $command, $e);
 

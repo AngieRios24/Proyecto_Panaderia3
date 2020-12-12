@@ -45,11 +45,7 @@ class ClassAttributesMatcher extends AbstractMatcher
         $vars = \array_merge(
             \array_map(
                 function ($var) {
-<<<<<<< HEAD
                     return '$'.$var;
-=======
-                    return '$' . $var;
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
                 },
                 \array_keys($reflection->getStaticProperties())
             ),
@@ -61,11 +57,7 @@ class ClassAttributesMatcher extends AbstractMatcher
                 $chunks = \explode('\\', $class);
                 $className = \array_pop($chunks);
 
-<<<<<<< HEAD
                 return $className.'::'.$name;
-=======
-                return $className . '::' . $name;
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
             },
             \array_filter(
                 $vars,
@@ -81,11 +73,7 @@ class ClassAttributesMatcher extends AbstractMatcher
      */
     public function hasMatched(array $tokens)
     {
-<<<<<<< HEAD
         $token = \array_pop($tokens);
-=======
-        $token     = \array_pop($tokens);
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
         $prevToken = \array_pop($tokens);
 
         switch (true) {

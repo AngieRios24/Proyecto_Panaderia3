@@ -7,20 +7,14 @@ use Illuminate\Contracts\Filesystem\Factory as FilesystemFactory;
 use Illuminate\Contracts\Mail\Factory as MailFactory;
 use Illuminate\Contracts\Mail\Mailable as MailableContract;
 use Illuminate\Contracts\Queue\Factory as Queue;
-<<<<<<< HEAD
 use Illuminate\Contracts\Support\Htmlable;
-=======
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Support\Collection;
 use Illuminate\Support\HtmlString;
 use Illuminate\Support\Str;
 use Illuminate\Support\Traits\ForwardsCalls;
 use Illuminate\Support\Traits\Localizable;
-<<<<<<< HEAD
 use PHPUnit\Framework\Assert as PHPUnit;
-=======
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
 use ReflectionClass;
 use ReflectionProperty;
 
@@ -155,7 +149,6 @@ class Mailable implements MailableContract, Renderable
     public $mailer;
 
     /**
-<<<<<<< HEAD
      * The rendered mailable views for testing / assertions.
      *
      * @var array
@@ -163,8 +156,6 @@ class Mailable implements MailableContract, Renderable
     protected $assertionableRenderStrings;
 
     /**
-=======
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
      * The callback that should be invoked while building the view data.
      *
      * @var callable
@@ -863,7 +854,6 @@ class Mailable implements MailableContract, Renderable
     }
 
     /**
-<<<<<<< HEAD
      * Assert that the given text is present in the HTML email body.
      *
      * @param  string  $string
@@ -960,8 +950,6 @@ class Mailable implements MailableContract, Renderable
     }
 
     /**
-=======
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
      * Set the name of the mailer that should send the message.
      *
      * @param  string  $mailer

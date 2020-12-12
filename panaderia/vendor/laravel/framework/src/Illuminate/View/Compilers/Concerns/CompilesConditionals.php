@@ -285,10 +285,7 @@ trait CompilesConditionals
     /**
      * Compile an once block into valid PHP.
      *
-<<<<<<< HEAD
      * @param  string|null  $id
-=======
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
      * @return string
      */
     protected function compileOnce($id = null)

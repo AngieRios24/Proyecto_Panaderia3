@@ -71,13 +71,10 @@ class DatabaseServiceProvider extends ServiceProvider
         $this->app->bind('db.connection', function ($app) {
             return $app['db']->connection();
         });
-<<<<<<< HEAD
 
         $this->app->singleton('db.transactions', function ($app) {
             return new DatabaseTransactionsManager;
         });
-=======
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
     }
 
     /**

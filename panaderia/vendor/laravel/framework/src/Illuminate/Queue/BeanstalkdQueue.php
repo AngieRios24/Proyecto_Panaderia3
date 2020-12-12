@@ -77,7 +77,6 @@ class BeanstalkdQueue extends Queue implements QueueContract
      */
     public function push($job, $data = '', $queue = null)
     {
-<<<<<<< HEAD
         return $this->enqueueUsing(
             $job,
             $this->createPayload($job, $this->getQueue($queue), $data),
@@ -87,9 +86,6 @@ class BeanstalkdQueue extends Queue implements QueueContract
                 return $this->pushRaw($payload, $queue);
             }
         );
-=======
-        return $this->pushRaw($this->createPayload($job, $this->getQueue($queue), $data), $queue);
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
     }
 
     /**
@@ -118,7 +114,6 @@ class BeanstalkdQueue extends Queue implements QueueContract
      */
     public function later($delay, $job, $data = '', $queue = null)
     {
-<<<<<<< HEAD
         return $this->enqueueUsing(
             $job,
             $this->createPayload($job, $this->getQueue($queue), $data),
@@ -132,15 +127,6 @@ class BeanstalkdQueue extends Queue implements QueueContract
                     $this->timeToRun
                 );
             }
-=======
-        $pheanstalk = $this->pheanstalk->useTube($this->getQueue($queue));
-
-        return $pheanstalk->put(
-            $this->createPayload($job, $this->getQueue($queue), $data),
-            Pheanstalk::DEFAULT_PRIORITY,
-            $this->secondsUntil($delay),
-            $this->timeToRun
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
         );
     }
 

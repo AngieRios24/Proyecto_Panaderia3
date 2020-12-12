@@ -68,11 +68,7 @@ class MorphToMany extends BelongsToMany
     {
         parent::addWhereConstraints();
 
-<<<<<<< HEAD
         $this->query->where($this->qualifyPivotColumn($this->morphType), $this->morphClass);
-=======
-        $this->query->where($this->qualifyColumn($this->morphType), $this->morphClass);
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
 
         return $this;
     }
@@ -87,11 +83,7 @@ class MorphToMany extends BelongsToMany
     {
         parent::addEagerConstraints($models);
 
-<<<<<<< HEAD
         $this->query->where($this->qualifyPivotColumn($this->morphType), $this->morphClass);
-=======
-        $this->query->where($this->qualifyColumn($this->morphType), $this->morphClass);
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
     }
 
     /**
@@ -119,11 +111,7 @@ class MorphToMany extends BelongsToMany
     public function getRelationExistenceQuery(Builder $query, Builder $parentQuery, $columns = ['*'])
     {
         return parent::getRelationExistenceQuery($query, $parentQuery, $columns)->where(
-<<<<<<< HEAD
             $this->qualifyPivotColumn($this->morphType), $this->morphClass
-=======
-            $this->qualifyColumn($this->morphType), $this->morphClass
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
         );
     }
 
@@ -185,11 +173,7 @@ class MorphToMany extends BelongsToMany
         $defaults = [$this->foreignPivotKey, $this->relatedPivotKey, $this->morphType];
 
         return collect(array_merge($defaults, $this->pivotColumns))->map(function ($column) {
-<<<<<<< HEAD
             return $this->qualifyPivotColumn($column).' as pivot_'.$column;
-=======
-            return $this->qualifyColumn($column).' as pivot_'.$column;
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
         })->unique()->all();
     }
 

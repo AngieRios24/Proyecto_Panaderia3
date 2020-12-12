@@ -26,11 +26,7 @@
         "illuminate/support": "^8.0",
         "opis/closure": "^3.6",
         "ramsey/uuid": "^4.0",
-<<<<<<< HEAD
         "symfony/process": "^5.1.4"
-=======
-        "symfony/process": "^5.1"
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
     },
     "autoload": {
         "psr-4": {
@@ -45,11 +41,7 @@
     "suggest": {
         "ext-pcntl": "Required to use all features of the queue worker.",
         "ext-posix": "Required to use all features of the queue worker.",
-<<<<<<< HEAD
         "aws/aws-sdk-php": "Required to use the SQS queue driver and DynamoDb failed job storage (^3.155).",
-=======
-        "aws/aws-sdk-php": "Required to use the SQS queue driver and DynamoDb failed job storage (^3.0).",
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
         "illuminate/redis": "Required to use the Redis queue driver (^8.0).",
         "pda/pheanstalk": "Required to use the Beanstalk queue driver (^4.0)."
     },

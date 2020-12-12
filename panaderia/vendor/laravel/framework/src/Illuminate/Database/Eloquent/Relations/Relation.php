@@ -56,7 +56,6 @@ abstract class Relation
     public static $morphMap = [];
 
     /**
-<<<<<<< HEAD
      * The count of self joins.
      *
      * @var int
@@ -64,8 +63,6 @@ abstract class Relation
     protected static $selfJoinCount = 0;
 
     /**
-=======
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
      * Create a new relation instance.
      *
      * @param  \Illuminate\Database\Eloquent\Builder  $query
@@ -224,7 +221,6 @@ abstract class Relation
     }
 
     /**
-<<<<<<< HEAD
      * Get a relationship join table hash.
      *
      * @param  bool $incrementJoinCount
@@ -236,8 +232,6 @@ abstract class Relation
     }
 
     /**
-=======
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
      * Get all of the primary keys for an array of models.
      *
      * @param  array  $models

@@ -140,15 +140,11 @@ final class NamePrettifier
      */
     public function prettifyTestCase(TestCase $test): string
     {
-<<<<<<< HEAD
         $annotations = Test::parseTestMethodAnnotations(
             get_class($test),
             $test->getName(false)
         );
 
-=======
-        $annotations                = $test->getAnnotations();
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
         $annotationWithPlaceholders = false;
 
         $callback = static function (string $variable): string {

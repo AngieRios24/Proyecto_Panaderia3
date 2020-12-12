@@ -7,10 +7,7 @@ use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
 use SplFileInfo;
 use stdClass;
-<<<<<<< HEAD
 use Symfony\Component\VarDumper\VarDumper;
-=======
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
 
 trait InteractsWithInput
 {
@@ -466,7 +463,6 @@ trait InteractsWithInput
 
         return $this->$source->get($key, $default);
     }
-<<<<<<< HEAD
 
     /**
      * Dump the request items and end the script.
@@ -497,6 +493,4 @@ trait InteractsWithInput
 
         return $this;
     }
-=======
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
 }

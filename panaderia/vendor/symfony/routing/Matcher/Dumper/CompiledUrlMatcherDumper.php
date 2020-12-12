@@ -83,11 +83,7 @@ EOF;
             $routes = $this->getRoutes();
         }
 
-<<<<<<< HEAD
         [$staticRoutes, $dynamicRoutes] = $this->groupStaticRoutes($routes);
-=======
-        list($staticRoutes, $dynamicRoutes) = $this->groupStaticRoutes($routes);
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
 
         $conditions = [null];
         $compiledRoutes[] = $this->compileStaticRoutes($staticRoutes, $conditions);
@@ -135,11 +131,7 @@ EOF;
 
     private function generateCompiledRoutes(): string
     {
-<<<<<<< HEAD
         [$matchHost, $staticRoutes, $regexpCode, $dynamicRoutes, $checkConditionCode] = $this->getCompiledRoutes(true);
-=======
-        list($matchHost, $staticRoutes, $regexpCode, $dynamicRoutes, $checkConditionCode) = $this->getCompiledRoutes(true);
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
 
         $code = self::export($matchHost).', // $matchHost'."\n";
 
@@ -194,11 +186,7 @@ EOF;
                 if ($hasTrailingSlash) {
                     $url = substr($url, 0, -1);
                 }
-<<<<<<< HEAD
                 foreach ($dynamicRegex as [$hostRx, $rx, $prefix]) {
-=======
-                foreach ($dynamicRegex as list($hostRx, $rx, $prefix)) {
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
                     if (('' === $prefix || 0 === strpos($url, $prefix)) && (preg_match($rx, $url) || preg_match($rx, $url.'/')) && (!$host || !$hostRx || preg_match($hostRx, $host))) {
                         $dynamicRegex[] = [$hostRegex, $regex, $staticPrefix];
                         $dynamicRoutes->add($name, $route);
@@ -233,11 +221,7 @@ EOF;
 
         foreach ($staticRoutes as $url => $routes) {
             $compiledRoutes[$url] = [];
-<<<<<<< HEAD
             foreach ($routes as $name => [$route, $hasTrailingSlash]) {
-=======
-            foreach ($routes as $name => list($route, $hasTrailingSlash)) {
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
                 $compiledRoutes[$url][] = $this->compileRoute($route, $name, (!$route->compile()->getHostVariables() ? $route->getHost() : $route->compile()->getHostRegex()) ?: null, $hasTrailingSlash, false, $conditions);
             }
         }
@@ -258,11 +242,7 @@ EOF;
      * Paths that can match two or more routes, or have user-specified conditions are put in separate switch's cases.
      *
      * Last but not least:
-<<<<<<< HEAD
      *  - Because it is not possible to mix unicode/non-unicode patterns in a single regexp, several of them can be generated.
-=======
-     *  - Because it is not possibe to mix unicode/non-unicode patterns in a single regexp, several of them can be generated.
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
      *  - The same regexp can be used several times when the logic in the switch rejects the match. When this happens, the
      *    matching-but-failing subpattern is excluded by replacing its name by "(*F)", which forces a failure-to-match.
      *    To ease this backlisting operation, the name of subpatterns is also the string offset where the replacement should occur.
@@ -307,11 +287,7 @@ EOF;
             $routes->add($name, $route);
         }
 
-<<<<<<< HEAD
         foreach ($perModifiers as [$modifiers, $routes]) {
-=======
-        foreach ($perModifiers as list($modifiers, $routes)) {
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
             $prev = false;
             $perHost = [];
             foreach ($routes->all() as $name => $route) {
@@ -330,11 +306,7 @@ EOF;
             $state->mark += \strlen($rx);
             $state->regex = $rx;
 
-<<<<<<< HEAD
             foreach ($perHost as [$hostRegex, $routes]) {
-=======
-            foreach ($perHost as list($hostRegex, $routes)) {
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
                 if ($matchHost) {
                     if ($hostRegex) {
                         preg_match('#^.\^(.*)\$.[a-zA-Z]*$#', $hostRegex, $rx);
@@ -419,11 +391,7 @@ EOF;
                 continue;
             }
 
-<<<<<<< HEAD
             [$name, $regex, $vars, $route, $hasTrailingSlash, $hasTrailingVar] = $route;
-=======
-            list($name, $regex, $vars, $route, $hasTrailingSlash, $hasTrailingVar) = $route;
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
             $compiledRoute = $route->compile();
             $vars = array_merge($state->hostVars, $vars);
 

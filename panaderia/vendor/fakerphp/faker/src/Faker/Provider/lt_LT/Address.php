@@ -77,7 +77,6 @@ class Address extends \Faker\Provider\Address
         "{{street}} {{streetSuffix}} {{buildingNumber}}, {{city}} {{postcode}}",
     ];
 
-<<<<<<< HEAD
     /**
      * @link https://en.wikipedia.org/wiki/Municipalities_of_Lithuania
      */
@@ -144,8 +143,6 @@ class Address extends \Faker\Provider\Address
         'Zarasų rajono savivaldybė',
     ];
 
-=======
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
     public static function buildingNumber()
     {
         return static::numerify(static::randomElement(static::$buildingNumber));
@@ -197,7 +194,6 @@ class Address extends \Faker\Provider\Address
     {
         return static::randomElement(static::$street);
     }
-<<<<<<< HEAD
 
     /**
      * Lithuania municipality
@@ -208,6 +204,4 @@ class Address extends \Faker\Provider\Address
     {
         return static::randomElement(static::$municipality);
     }
-=======
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
 }

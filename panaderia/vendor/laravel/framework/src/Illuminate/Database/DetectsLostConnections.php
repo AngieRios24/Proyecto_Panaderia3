@@ -40,11 +40,7 @@ trait DetectsLostConnections
             'Communication link failure',
             'connection is no longer usable',
             'Login timeout expired',
-<<<<<<< HEAD
             'SQLSTATE[HY000] [2002] Connection refused',
-=======
-            'Connection refused',
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
             'running with the --read-only option so it cannot execute this statement',
             'The connection is broken and recovery is not possible. The connection is marked by the client driver as unrecoverable. No attempt was made to restore the connection.',
             'SQLSTATE[HY000] [2002] php_network_getaddresses: getaddrinfo failed: Try again',

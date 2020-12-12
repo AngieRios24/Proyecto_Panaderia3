@@ -15,13 +15,8 @@ class ObjectMethodDefaultParametersMatcher extends AbstractDefaultParametersMatc
 {
     public function getMatches(array $tokens, array $info = [])
     {
-<<<<<<< HEAD
         $openBracket = \array_pop($tokens);
         $functionName = \array_pop($tokens);
-=======
-        $openBracket    = \array_pop($tokens);
-        $functionName   = \array_pop($tokens);
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
         $methodOperator = \array_pop($tokens);
 
         $objectToken = \array_pop($tokens);

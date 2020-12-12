@@ -43,11 +43,7 @@ class LoginController extends Controller
        if($user->role=='cliente'){
            return redirect()->route('productos') ;
         }else if($user->role=='vendor'){
-<<<<<<< HEAD
             return redirect()->route('vendedor') ;
-=======
-            return redirect()->route('vendors') ;
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
         }else if($user->role=='dueño'){
             return redirect()->route('dueño.index');
 

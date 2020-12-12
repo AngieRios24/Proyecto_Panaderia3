@@ -39,13 +39,8 @@ class PropertyEnumerator extends Enumerator
             return [];
         }
 
-<<<<<<< HEAD
         $showAll = $input->getOption('all');
         $noInherit = $input->getOption('no-inherit');
-=======
-        $showAll    = $input->getOption('all');
-        $noInherit  = $input->getOption('no-inherit');
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
         $properties = $this->prepareProperties($this->getProperties($showAll, $reflector, $noInherit), $target);
 
         if (empty($properties)) {
@@ -82,11 +77,7 @@ class PropertyEnumerator extends Enumerator
             }
         }
 
-<<<<<<< HEAD
         \ksort($properties, \SORT_NATURAL | \SORT_FLAG_CASE);
-=======
-        \ksort($properties, SORT_NATURAL | SORT_FLAG_CASE);
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
 
         return $properties;
     }
@@ -105,11 +96,7 @@ class PropertyEnumerator extends Enumerator
 
         foreach ($properties as $name => $property) {
             if ($this->showItem($name)) {
-<<<<<<< HEAD
                 $fname = '$'.$name;
-=======
-                $fname = '$' . $name;
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
                 $ret[$fname] = [
                     'name'  => $fname,
                     'style' => $this->getVisibilityStyle($property),
@@ -174,11 +161,7 @@ class PropertyEnumerator extends Enumerator
                 if (\array_key_exists($property->name, $props)) {
                     $suffix = $property->isStatic() ? '' : ' <aside>(default)</aside>';
 
-<<<<<<< HEAD
                     return $this->presentRef($props[$property->name]).$suffix;
-=======
-                    return $this->presentRef($props[$property->name]) . $suffix;
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
                 }
             } catch (\Exception $e) {
                 // Well, we gave it a shot.

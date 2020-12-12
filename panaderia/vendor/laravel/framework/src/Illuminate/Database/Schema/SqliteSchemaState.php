@@ -34,10 +34,7 @@ class SqliteSchemaState extends SchemaState
     /**
      * Append the migration data to the schema dump.
      *
-<<<<<<< HEAD
      * @param  string  $path
-=======
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
      * @return void
      */
     protected function appendMigrationData(string $path)
@@ -84,10 +81,7 @@ class SqliteSchemaState extends SchemaState
     /**
      * Get the base variables for a dump / load command.
      *
-<<<<<<< HEAD
      * @param  array  $config
-=======
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
      * @return array
      */
     protected function baseVariables(array $config)

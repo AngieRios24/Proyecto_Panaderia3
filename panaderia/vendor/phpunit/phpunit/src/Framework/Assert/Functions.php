@@ -1495,11 +1495,7 @@ if (!function_exists('PHPUnit\Framework\assertInstanceOf')) {
      *
      * @psalm-template ExpectedType of object
      * @psalm-param class-string<ExpectedType> $expected
-<<<<<<< HEAD
      * @psalm-assert =ExpectedType $actual
-=======
-     * @psalm-assert ExpectedType $actual
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
      *
      * @no-named-arguments Parameter names are not covered by the backward compatibility promise for PHPUnit
      *

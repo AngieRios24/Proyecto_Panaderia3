@@ -47,11 +47,7 @@ class ReflectionConstant_ implements \Reflector
         $this->name = $name;
 
         if (!\defined($name) && !self::isMagicConstant($name)) {
-<<<<<<< HEAD
             throw new \InvalidArgumentException('Unknown constant: '.$name);
-=======
-            throw new \InvalidArgumentException('Unknown constant: ' . $name);
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
         }
 
         if (!self::isMagicConstant($name)) {
@@ -78,11 +74,7 @@ class ReflectionConstant_ implements \Reflector
             return $str;
         }
 
-<<<<<<< HEAD
         echo $str."\n";
-=======
-        echo $str . "\n";
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
     }
 
     public static function isMagicConstant($name)

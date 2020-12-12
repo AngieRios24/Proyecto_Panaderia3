@@ -24,13 +24,8 @@ class Dumper extends CliDumper
     private $forceArrayIndexes;
 
     protected static $onlyControlCharsRx = '/^[\x00-\x1F\x7F]+$/';
-<<<<<<< HEAD
     protected static $controlCharsRx = '/([\x00-\x1F\x7F]+)/';
     protected static $controlCharsMap = [
-=======
-    protected static $controlCharsRx     = '/([\x00-\x1F\x7F]+)/';
-    protected static $controlCharsMap    = [
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
         "\0"   => '\0',
         "\t"   => '\t',
         "\n"   => '\n',
@@ -79,11 +74,7 @@ class Dumper extends CliDumper
         $map = self::$controlCharsMap;
         $cchr = $this->styles['cchr'];
 
-<<<<<<< HEAD
         $chunks = \preg_split(self::$controlCharsRx, $value, null, \PREG_SPLIT_NO_EMPTY | \PREG_SPLIT_DELIM_CAPTURE);
-=======
-        $chunks = \preg_split(self::$controlCharsRx, $value, null, PREG_SPLIT_NO_EMPTY | PREG_SPLIT_DELIM_CAPTURE);
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
         foreach ($chunks as $chunk) {
             if (\preg_match(self::$onlyControlCharsRx, $chunk)) {
                 $chars = '';

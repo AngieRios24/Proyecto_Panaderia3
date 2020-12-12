@@ -83,7 +83,6 @@ class SqsQueue extends Queue implements QueueContract, ClearableQueue
      */
     public function push($job, $data = '', $queue = null)
     {
-<<<<<<< HEAD
         return $this->enqueueUsing(
             $job,
             $this->createPayload($job, $queue ?: $this->default, $data),
@@ -93,9 +92,6 @@ class SqsQueue extends Queue implements QueueContract, ClearableQueue
                 return $this->pushRaw($payload, $queue);
             }
         );
-=======
-        return $this->pushRaw($this->createPayload($job, $queue ?: $this->default, $data), $queue);
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
     }
 
     /**
@@ -124,7 +120,6 @@ class SqsQueue extends Queue implements QueueContract, ClearableQueue
      */
     public function later($delay, $job, $data = '', $queue = null)
     {
-<<<<<<< HEAD
         return $this->enqueueUsing(
             $job,
             $this->createPayload($job, $queue ?: $this->default, $data),
@@ -138,13 +133,6 @@ class SqsQueue extends Queue implements QueueContract, ClearableQueue
                 ])->get('MessageId');
             }
         );
-=======
-        return $this->sqs->sendMessage([
-            'QueueUrl' => $this->getQueue($queue),
-            'MessageBody' => $this->createPayload($job, $queue ?: $this->default, $data),
-            'DelaySeconds' => $this->secondsUntil($delay),
-        ])->get('MessageId');
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
     }
 
     /**

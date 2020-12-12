@@ -58,13 +58,8 @@ class Swift_Encoder_Rfc2231Encoder implements Swift_Encoder
 
         while (false !== $char = $this->charStream->read(4)) {
             $encodedChar = rawurlencode($char);
-<<<<<<< HEAD
             if (0 != \strlen($currentLine)
                 && \strlen($currentLine.$encodedChar) > $thisLineLength) {
-=======
-            if (0 != strlen($currentLine)
-                && strlen($currentLine.$encodedChar) > $thisLineLength) {
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
                 $lines[] = '';
                 $currentLine = &$lines[$lineCount++];
                 $thisLineLength = $maxLineLength;

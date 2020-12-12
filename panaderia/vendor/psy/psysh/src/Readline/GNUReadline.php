@@ -14,11 +14,7 @@ namespace Psy\Readline;
 /**
  * A Readline interface implementation for GNU Readline.
  *
-<<<<<<< HEAD
  * This is by far the coolest way to do it, if you can.
-=======
- * This is by far the coolest way to do it, but it doesn't work with new PHP.
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
  *
  * Oh well.
  */
@@ -36,17 +32,13 @@ class GNUReadline implements Readline
      * decided it would be awesome to swap out GNU Readline for Libedit, but
      * they ended up shipping an incomplete implementation. So we've got this.
      *
-<<<<<<< HEAD
      * NOTE: As of PHP 7.4, PHP sometimes has history support in the Libedit
      * wrapper, so that will use the GNUReadline implementation as well!
      *
-=======
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
      * @return bool
      */
     public static function isSupported()
     {
-<<<<<<< HEAD
         return \function_exists('readline') && \function_exists('readline_list_history');
     }
 
@@ -58,9 +50,6 @@ class GNUReadline implements Readline
     public static function supportsBracketedPaste()
     {
         return self::isSupported() && \stripos(\readline_info('library_version'), 'editline') === false;
-=======
-        return \function_exists('readline_list_history');
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
     }
 
     /**
@@ -74,11 +63,7 @@ class GNUReadline implements Readline
     {
         $this->historyFile = ($historyFile !== null) ? $historyFile : false;
         $this->historySize = $historySize;
-<<<<<<< HEAD
         $this->eraseDups = $eraseDups;
-=======
-        $this->eraseDups   = $eraseDups;
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
 
         // HHVM errors on this, so HHVM doesn't get a readline_name.
         if (!\defined('HHVM_VERSION')) {
@@ -115,11 +100,7 @@ class GNUReadline implements Readline
      */
     public function listHistory()
     {
-<<<<<<< HEAD
         return \readline_list_history();
-=======
-        return readline_list_history();
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
     }
 
     /**
@@ -133,11 +114,7 @@ class GNUReadline implements Readline
         //
         //     https://github.com/php/php-src/blob/423a057023ef3c00d2ffc16a6b43ba01d0f71796/NEWS#L19-L21
         //
-<<<<<<< HEAD
         if (\version_compare(\PHP_VERSION, '5.6.7', '>=') || !\ini_get('open_basedir')) {
-=======
-        if (\version_compare(PHP_VERSION, '5.6.7', '>=') || !\ini_get('open_basedir')) {
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
             \readline_read_history();
         }
         \readline_clear_history();

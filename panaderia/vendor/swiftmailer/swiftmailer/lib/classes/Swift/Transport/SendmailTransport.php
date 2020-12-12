@@ -122,15 +122,9 @@ class Swift_Transport_SendmailTransport extends Swift_Transport_AbstractSmtpTran
                 $buffer->setWriteTranslations(["\r\n" => "\n"]);
             }
 
-<<<<<<< HEAD
             $count = \count((array) $message->getTo())
                 + \count((array) $message->getCc())
                 + \count((array) $message->getBcc())
-=======
-            $count = count((array) $message->getTo())
-                + count((array) $message->getCc())
-                + count((array) $message->getBcc())
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
                 ;
             $message->toByteStream($buffer);
             $buffer->flushBuffers();

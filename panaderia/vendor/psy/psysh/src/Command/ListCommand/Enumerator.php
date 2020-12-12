@@ -23,7 +23,6 @@ use Symfony\Component\Console\Input\InputInterface;
 abstract class Enumerator
 {
     // Output styles
-<<<<<<< HEAD
     const IS_PUBLIC = 'public';
     const IS_PROTECTED = 'protected';
     const IS_PRIVATE = 'private';
@@ -31,15 +30,6 @@ abstract class Enumerator
     const IS_CONSTANT = 'const';
     const IS_CLASS = 'class';
     const IS_FUNCTION = 'function';
-=======
-    const IS_PUBLIC    = 'public';
-    const IS_PROTECTED = 'protected';
-    const IS_PRIVATE   = 'private';
-    const IS_GLOBAL    = 'global';
-    const IS_CONSTANT  = 'const';
-    const IS_CLASS     = 'class';
-    const IS_FUNCTION  = 'function';
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
 
     private $filter;
     private $presenter;

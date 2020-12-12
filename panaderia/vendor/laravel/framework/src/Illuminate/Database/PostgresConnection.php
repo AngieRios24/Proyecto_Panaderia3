@@ -77,11 +77,7 @@ class PostgresConnection extends Connection
     /**
      * Get the schema state for the connection.
      *
-<<<<<<< HEAD
      * @param  \Illuminate\Database\Filesystem|null  $files
-=======
-     * @param  \Illuminate\Filesystem\Filesystem|null  $files
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
      * @param  callable|null  $processFactory
      * @return \Illuminate\Database\Schema\PostgresSchemaState
      */

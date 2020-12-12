@@ -32,10 +32,7 @@ class DynamicComponent extends Component
     /**
      * Create a new component instance.
      *
-<<<<<<< HEAD
      * @param  string  $component
-=======
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
      * @return void
      */
     public function __construct(string $component)

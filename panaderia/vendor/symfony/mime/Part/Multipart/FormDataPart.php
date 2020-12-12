@@ -58,7 +58,6 @@ final class FormDataPart extends AbstractMultipartPart
         $values = [];
 
         $prepare = function ($item, $key, $root = null) use (&$values, &$prepare) {
-<<<<<<< HEAD
             if (\is_int($key) && \is_array($item)) {
                 if (1 !== \count($item)) {
                     throw new InvalidArgumentException(sprintf('Form field values with integer keys can only have one array element, the key being the field name and the value being the field value, %d provided.', \count($item)));
@@ -69,9 +68,6 @@ final class FormDataPart extends AbstractMultipartPart
             }
 
             $fieldName = null !== $root ? sprintf('%s[%s]', $root, $key) : $key;
-=======
-            $fieldName = $root ? sprintf('%s[%s]', $root, $key) : $key;
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
 
             if (\is_array($item)) {
                 array_walk($item, $prepare, $fieldName);

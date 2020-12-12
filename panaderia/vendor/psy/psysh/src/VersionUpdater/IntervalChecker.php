@@ -19,11 +19,7 @@ class IntervalChecker extends GitHubChecker
     public function __construct($cacheFile, $interval)
     {
         $this->cacheFile = $cacheFile;
-<<<<<<< HEAD
         $this->interval = $interval;
-=======
-        $this->interval  = $interval;
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
     }
 
     public function fetchLatestRelease()
@@ -62,11 +58,7 @@ class IntervalChecker extends GitHubChecker
     private function updateCache($release)
     {
         $data = [
-<<<<<<< HEAD
             'last_check' => \date(\DATE_ATOM),
-=======
-            'last_check' => \date(DATE_ATOM),
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
             'release'    => $release,
         ];
 

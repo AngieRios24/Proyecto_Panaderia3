@@ -89,7 +89,6 @@ class RedisSessionHandler extends AbstractSessionHandler
      */
     protected function doDestroy(string $sessionId): bool
     {
-<<<<<<< HEAD
         static $unlink = true;
 
         if ($unlink) {
@@ -102,8 +101,6 @@ class RedisSessionHandler extends AbstractSessionHandler
             }
         }
 
-=======
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
         $this->redis->del($this->prefix.$sessionId);
 
         return true;

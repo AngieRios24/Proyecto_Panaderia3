@@ -57,11 +57,7 @@ class VariableEnumerator extends Enumerator
             return [];
         }
 
-<<<<<<< HEAD
         $showAll = $input->getOption('all');
-=======
-        $showAll   = $input->getOption('all');
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
         $variables = $this->prepareVariables($this->getVariables($showAll));
 
         if (empty($variables)) {
@@ -127,11 +123,7 @@ class VariableEnumerator extends Enumerator
         $ret = [];
         foreach ($variables as $name => $val) {
             if ($this->showItem($name)) {
-<<<<<<< HEAD
                 $fname = '$'.$name;
-=======
-                $fname = '$' . $name;
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
                 $ret[$fname] = [
                     'name'  => $fname,
                     'style' => \in_array($name, self::$specialNames) ? self::IS_PRIVATE : self::IS_PUBLIC,

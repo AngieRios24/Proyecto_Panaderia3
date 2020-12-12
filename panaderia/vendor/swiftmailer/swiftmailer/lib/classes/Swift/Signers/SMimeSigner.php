@@ -80,11 +80,7 @@ class Swift_Signers_SMimeSigner implements Swift_Signers_BodySigner
         $this->signCertificate = 'file://'.str_replace('\\', '/', realpath($certificate));
 
         if (null !== $privateKey) {
-<<<<<<< HEAD
             if (\is_array($privateKey)) {
-=======
-            if (is_array($privateKey)) {
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
                 $this->signPrivateKey = $privateKey;
                 $this->signPrivateKey[0] = 'file://'.str_replace('\\', '/', realpath($privateKey[0]));
             } else {
@@ -111,11 +107,7 @@ class Swift_Signers_SMimeSigner implements Swift_Signers_BodySigner
      */
     public function setEncryptCertificate($recipientCerts, $cipher = null)
     {
-<<<<<<< HEAD
         if (\is_array($recipientCerts)) {
-=======
-        if (is_array($recipientCerts)) {
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
             $this->encryptCert = [];
 
             foreach ($recipientCerts as $cert) {
@@ -517,11 +509,7 @@ class Swift_Signers_SMimeSigner implements Swift_Signers_BodySigner
         $bodyStream = new Swift_ByteStream_TemporaryFileByteStream();
 
         // Skip the header and separator and point to the body
-<<<<<<< HEAD
         $emailStream->setReadPointer($headersPosEnd + \strlen($headerBodySeparator));
-=======
-        $emailStream->setReadPointer($headersPosEnd + strlen($headerBodySeparator));
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
 
         while (false !== ($buffer = $emailStream->read($bufferLength))) {
             $bodyStream->write($buffer);

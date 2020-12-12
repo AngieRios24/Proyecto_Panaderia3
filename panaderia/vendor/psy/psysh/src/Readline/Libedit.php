@@ -19,12 +19,9 @@ use Psy\Util\Str;
  * This is largely the same as the Readline implementation, but it emulates
  * support for `readline_list_history` since PHP decided it was a good idea to
  * ship a fake Readline implementation that is missing history support.
-<<<<<<< HEAD
  *
  * NOTE: As of PHP 7.4, PHP sometimes has history support in the Libedit
  * wrapper, so it will use the GNUReadline implementation rather than this one.
-=======
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
  */
 class Libedit extends GNUReadline
 {
@@ -53,15 +50,9 @@ class Libedit extends GNUReadline
         // libedit doesn't seem to support non-unix line separators.
         $history = \explode("\n", $history);
 
-<<<<<<< HEAD
         // remove history signature if it exists
         if ($history[0] === '_HiStOrY_V2_') {
             \array_shift($history);
-=======
-        // shift the history signature, ensure it's valid
-        if (\array_shift($history) !== '_HiStOrY_V2_') {
-            return [];
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
         }
 
         // decode the line
@@ -85,11 +76,7 @@ class Libedit extends GNUReadline
             if (\is_file($this->historyFile) && \is_writable($this->historyFile)) {
                 $this->hasWarnedOwnership = true;
                 $msg = \sprintf('Error writing history file, check file ownership: %s', $this->historyFile);
-<<<<<<< HEAD
                 \trigger_error($msg, \E_USER_NOTICE);
-=======
-                \trigger_error($msg, E_USER_NOTICE);
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
             }
         }
 

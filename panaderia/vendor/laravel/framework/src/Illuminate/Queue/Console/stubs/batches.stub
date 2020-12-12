@@ -20,11 +20,7 @@ class Create{{tableClassName}}Table extends Migration
             $table->integer('pending_jobs');
             $table->integer('failed_jobs');
             $table->text('failed_job_ids');
-<<<<<<< HEAD
             $table->mediumText('options')->nullable();
-=======
-            $table->text('options')->nullable();
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
             $table->integer('cancelled_at')->nullable();
             $table->integer('created_at');
             $table->integer('finished_at')->nullable();

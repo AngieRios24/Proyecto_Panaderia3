@@ -326,11 +326,7 @@ class FilesystemManager implements FactoryContract
      */
     public function getDefaultCloudDriver()
     {
-<<<<<<< HEAD
         return $this->app['config']['filesystems.cloud'] ?? 's3';
-=======
-        return $this->app['config']['filesystems.cloud'];
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
     }
 
     /**

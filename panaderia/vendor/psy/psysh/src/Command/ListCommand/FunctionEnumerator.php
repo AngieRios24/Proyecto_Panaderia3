@@ -35,7 +35,6 @@ class FunctionEnumerator extends Enumerator
         }
 
         if ($input->getOption('user')) {
-<<<<<<< HEAD
             $label = 'User Functions';
             $functions = $this->getFunctions('user');
         } elseif ($input->getOption('internal')) {
@@ -47,19 +46,6 @@ class FunctionEnumerator extends Enumerator
         }
 
         $prefix = $reflector === null ? null : \strtolower($reflector->getName()).'\\';
-=======
-            $label     = 'User Functions';
-            $functions = $this->getFunctions('user');
-        } elseif ($input->getOption('internal')) {
-            $label     = 'Internal Functions';
-            $functions = $this->getFunctions('internal');
-        } else {
-            $label     = 'Functions';
-            $functions = $this->getFunctions();
-        }
-
-        $prefix = $reflector === null ? null : \strtolower($reflector->getName()) . '\\';
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
         $functions = $this->prepareFunctions($functions, $prefix);
 
         if (empty($functions)) {

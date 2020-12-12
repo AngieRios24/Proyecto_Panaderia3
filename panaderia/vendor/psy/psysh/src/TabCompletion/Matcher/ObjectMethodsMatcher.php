@@ -66,11 +66,7 @@ class ObjectMethodsMatcher extends AbstractContextAwareMatcher
      */
     public function hasMatched(array $tokens)
     {
-<<<<<<< HEAD
         $token = \array_pop($tokens);
-=======
-        $token     = \array_pop($tokens);
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
         $prevToken = \array_pop($tokens);
 
         switch (true) {

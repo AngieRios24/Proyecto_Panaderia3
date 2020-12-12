@@ -18,18 +18,11 @@ use function sprintf;
 use function substr_count;
 use function trim;
 use function var_export;
-<<<<<<< HEAD
-=======
-use ReflectionException;
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
 use ReflectionMethod;
 use ReflectionNamedType;
 use ReflectionParameter;
 use ReflectionUnionType;
-<<<<<<< HEAD
 use SebastianBergmann\Template\Exception as TemplateException;
-=======
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
 use SebastianBergmann\Template\Template;
 use SebastianBergmann\Type\ReflectionMapper;
 use SebastianBergmann\Type\Type;
@@ -102,10 +95,7 @@ final class MockMethod
     private $deprecation;
 
     /**
-<<<<<<< HEAD
      * @throws ReflectionException
-=======
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
      * @throws RuntimeException
      */
     public static function fromReflection(ReflectionMethod $method, bool $callOriginalMethod, bool $cloneArguments): self
@@ -249,18 +239,14 @@ final class MockMethod
         return $this->returnType;
     }
 
-<<<<<<< HEAD
     /**
      * @throws RuntimeException
      */
-=======
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
     private function getTemplate(string $template): Template
     {
         $filename = __DIR__ . DIRECTORY_SEPARATOR . 'Generator' . DIRECTORY_SEPARATOR . $template;
 
         if (!isset(self::$templates[$filename])) {
-<<<<<<< HEAD
             try {
                 self::$templates[$filename] = new Template($filename);
             } catch (TemplateException $e) {
@@ -270,9 +256,6 @@ final class MockMethod
                     $e
                 );
             }
-=======
-            self::$templates[$filename] = new Template($filename);
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
         }
 
         return self::$templates[$filename];
@@ -350,11 +333,7 @@ final class MockMethod
     /**
      * Returns the parameters of a function or method.
      *
-<<<<<<< HEAD
      * @throws ReflectionException
-=======
-     * @throws RuntimeException
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
      */
     private static function getMethodParametersForCall(ReflectionMethod $method): string
     {
@@ -385,24 +364,15 @@ final class MockMethod
     }
 
     /**
-<<<<<<< HEAD
      * @throws ReflectionException
-=======
-     * @throws RuntimeException
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
      */
     private static function exportDefaultValue(ReflectionParameter $parameter): string
     {
         try {
             return (string) var_export($parameter->getDefaultValue(), true);
             // @codeCoverageIgnoreStart
-<<<<<<< HEAD
         } catch (\ReflectionException $e) {
             throw new ReflectionException(
-=======
-        } catch (ReflectionException $e) {
-            throw new RuntimeException(
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
                 $e->getMessage(),
                 (int) $e->getCode(),
                 $e

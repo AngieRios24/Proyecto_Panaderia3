@@ -49,23 +49,14 @@ class Presenter
     public function __construct(OutputFormatter $formatter, $forceArrayIndexes = false)
     {
         // Work around https://github.com/symfony/symfony/issues/23572
-<<<<<<< HEAD
         $oldLocale = \setlocale(\LC_NUMERIC, 0);
         \setlocale(\LC_NUMERIC, 'C');
-=======
-        $oldLocale = \setlocale(LC_NUMERIC, 0);
-        \setlocale(LC_NUMERIC, 'C');
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
 
         $this->dumper = new Dumper($formatter, $forceArrayIndexes);
         $this->dumper->setStyles($this->styles);
 
         // Now put the locale back
-<<<<<<< HEAD
         \setlocale(\LC_NUMERIC, $oldLocale);
-=======
-        \setlocale(LC_NUMERIC, $oldLocale);
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
 
         $this->cloner = new Cloner();
         $this->cloner->addCasters(['*' => function ($obj, array $a, Stub $stub, $isNested, $filter = 0) {
@@ -125,36 +116,21 @@ class Presenter
         }
 
         // Work around https://github.com/symfony/symfony/issues/23572
-<<<<<<< HEAD
         $oldLocale = \setlocale(\LC_NUMERIC, 0);
         \setlocale(\LC_NUMERIC, 'C');
-=======
-        $oldLocale = \setlocale(LC_NUMERIC, 0);
-        \setlocale(LC_NUMERIC, 'C');
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
 
         $output = '';
         $this->dumper->dump($data, function ($line, $depth) use (&$output) {
             if ($depth >= 0) {
                 if ('' !== $output) {
-<<<<<<< HEAD
                     $output .= \PHP_EOL;
                 }
                 $output .= \str_repeat('  ', $depth).$line;
-=======
-                    $output .= PHP_EOL;
-                }
-                $output .= \str_repeat('  ', $depth) . $line;
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
             }
         });
 
         // Now put the locale back
-<<<<<<< HEAD
         \setlocale(\LC_NUMERIC, $oldLocale);
-=======
-        \setlocale(LC_NUMERIC, $oldLocale);
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
 
         return OutputFormatter::escape($output);
     }

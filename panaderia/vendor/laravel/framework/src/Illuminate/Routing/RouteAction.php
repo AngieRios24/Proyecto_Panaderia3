@@ -94,7 +94,6 @@ class RouteAction
 
         return $action.'@__invoke';
     }
-<<<<<<< HEAD
 
     /**
      * Determine if the given array actions contains a serialized Closure.
@@ -107,6 +106,4 @@ class RouteAction
         return is_string($action['uses']) &&
                Str::startsWith($action['uses'], 'C:32:"Opis\\Closure\\SerializableClosure') !== false;
     }
-=======
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
 }

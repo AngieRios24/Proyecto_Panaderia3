@@ -23,10 +23,7 @@ use PHPUnit\Framework\TestListener;
 use PHPUnit\Framework\TestSuite;
 use PHPUnit\Framework\Warning;
 use PHPUnit\Util\Printer;
-<<<<<<< HEAD
 use PHPUnit\Util\Test as TestUtil;
-=======
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
 use ReflectionClass;
 use ReflectionException;
 use Throwable;
@@ -187,14 +184,10 @@ final class XmlResultPrinter extends Printer implements TestListener
             $testNode->appendChild($groupNode);
         }
 
-<<<<<<< HEAD
         $annotations = TestUtil::parseTestMethodAnnotations(
             get_class($test),
             $test->getName(false)
         );
-=======
-        $annotations = $test->getAnnotations();
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
 
         foreach (['class', 'method'] as $type) {
             foreach ($annotations[$type] as $annotation => $values) {

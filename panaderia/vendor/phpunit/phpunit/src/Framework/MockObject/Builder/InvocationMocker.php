@@ -12,34 +12,20 @@ namespace PHPUnit\Framework\MockObject\Builder;
 use function array_map;
 use function array_merge;
 use function count;
-<<<<<<< HEAD
 use function in_array;
 use function is_string;
-=======
-use function get_class;
-use function gettype;
-use function in_array;
-use function is_object;
-use function is_string;
-use function sprintf;
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
 use function strtolower;
 use PHPUnit\Framework\Constraint\Constraint;
 use PHPUnit\Framework\MockObject\ConfigurableMethod;
 use PHPUnit\Framework\MockObject\IncompatibleReturnValueException;
 use PHPUnit\Framework\MockObject\InvocationHandler;
 use PHPUnit\Framework\MockObject\Matcher;
-<<<<<<< HEAD
 use PHPUnit\Framework\MockObject\MatcherAlreadyRegisteredException;
 use PHPUnit\Framework\MockObject\MethodCannotBeConfiguredException;
 use PHPUnit\Framework\MockObject\MethodNameAlreadyConfiguredException;
 use PHPUnit\Framework\MockObject\MethodNameNotConfiguredException;
 use PHPUnit\Framework\MockObject\MethodParametersAlreadyConfiguredException;
 use PHPUnit\Framework\MockObject\Rule;
-=======
-use PHPUnit\Framework\MockObject\Rule;
-use PHPUnit\Framework\MockObject\RuntimeException;
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
 use PHPUnit\Framework\MockObject\Stub\ConsecutiveCalls;
 use PHPUnit\Framework\MockObject\Stub\Exception;
 use PHPUnit\Framework\MockObject\Stub\ReturnArgument;
@@ -79,11 +65,8 @@ final class InvocationMocker implements InvocationStubber, MethodNameMatch
     }
 
     /**
-<<<<<<< HEAD
      * @throws MatcherAlreadyRegisteredException
      *
-=======
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
      * @return $this
      */
     public function id($id): self
@@ -103,15 +86,12 @@ final class InvocationMocker implements InvocationStubber, MethodNameMatch
         return $this;
     }
 
-<<<<<<< HEAD
     /**
      * @param mixed   $value
      * @param mixed[] $nextValues
      *
      * @throws IncompatibleReturnValueException
      */
-=======
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
     public function willReturn($value, ...$nextValues): self
     {
         if (count($nextValues) === 0) {
@@ -189,25 +169,17 @@ final class InvocationMocker implements InvocationStubber, MethodNameMatch
     }
 
     /**
-<<<<<<< HEAD
      * @param mixed[] $arguments
      *
      * @throws MethodNameNotConfiguredException
      * @throws MethodParametersAlreadyConfiguredException
      * @throws \PHPUnit\Framework\Exception
-=======
-     * @throws RuntimeException
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
      *
      * @return $this
      */
     public function with(...$arguments): self
     {
-<<<<<<< HEAD
         $this->ensureParametersCanBeConfigured();
-=======
-        $this->canDefineParameters();
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
 
         $this->matcher->setParametersRule(new Rule\Parameters($arguments));
 
@@ -217,23 +189,15 @@ final class InvocationMocker implements InvocationStubber, MethodNameMatch
     /**
      * @param array ...$arguments
      *
-<<<<<<< HEAD
      * @throws MethodNameNotConfiguredException
      * @throws MethodParametersAlreadyConfiguredException
      * @throws \PHPUnit\Framework\Exception
-=======
-     * @throws RuntimeException
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
      *
      * @return $this
      */
     public function withConsecutive(...$arguments): self
     {
-<<<<<<< HEAD
         $this->ensureParametersCanBeConfigured();
-=======
-        $this->canDefineParameters();
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
 
         $this->matcher->setParametersRule(new Rule\ConsecutiveParameters($arguments));
 
@@ -241,22 +205,14 @@ final class InvocationMocker implements InvocationStubber, MethodNameMatch
     }
 
     /**
-<<<<<<< HEAD
      * @throws MethodNameNotConfiguredException
      * @throws MethodParametersAlreadyConfiguredException
-=======
-     * @throws RuntimeException
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
      *
      * @return $this
      */
     public function withAnyParameters(): self
     {
-<<<<<<< HEAD
         $this->ensureParametersCanBeConfigured();
-=======
-        $this->canDefineParameters();
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
 
         $this->matcher->setParametersRule(new Rule\AnyParameters);
 
@@ -266,26 +222,16 @@ final class InvocationMocker implements InvocationStubber, MethodNameMatch
     /**
      * @param Constraint|string $constraint
      *
-<<<<<<< HEAD
      * @throws MethodNameAlreadyConfiguredException
      * @throws MethodCannotBeConfiguredException
      * @throws \PHPUnit\Framework\InvalidArgumentException
-=======
-     * @throws RuntimeException
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
      *
      * @return $this
      */
     public function method($constraint): self
     {
         if ($this->matcher->hasMethodNameRule()) {
-<<<<<<< HEAD
             throw new MethodNameAlreadyConfiguredException;
-=======
-            throw new RuntimeException(
-                'Rule for method name is already defined, cannot redefine'
-            );
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
         }
 
         $configurableMethodNames = array_map(
@@ -296,16 +242,7 @@ final class InvocationMocker implements InvocationStubber, MethodNameMatch
         );
 
         if (is_string($constraint) && !in_array(strtolower($constraint), $configurableMethodNames, true)) {
-<<<<<<< HEAD
             throw new MethodCannotBeConfiguredException($constraint);
-=======
-            throw new RuntimeException(
-                sprintf(
-                    'Trying to configure method "%s" which cannot be configured because it does not exist, has not been specified, is final, or is static',
-                    $constraint
-                )
-            );
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
         }
 
         $this->matcher->setMethodNameRule(new Rule\MethodName($constraint));
@@ -314,7 +251,6 @@ final class InvocationMocker implements InvocationStubber, MethodNameMatch
     }
 
     /**
-<<<<<<< HEAD
      * @throws MethodNameNotConfiguredException
      * @throws MethodParametersAlreadyConfiguredException
      */
@@ -326,25 +262,6 @@ final class InvocationMocker implements InvocationStubber, MethodNameMatch
 
         if ($this->matcher->hasParametersRule()) {
             throw new MethodParametersAlreadyConfiguredException;
-=======
-     * Validate that a parameters rule can be defined, throw exceptions otherwise.
-     *
-     * @throws RuntimeException
-     */
-    private function canDefineParameters(): void
-    {
-        if (!$this->matcher->hasMethodNameRule()) {
-            throw new RuntimeException(
-                'Rule for method name is not defined, cannot define rule for parameters ' .
-                'without one'
-            );
-        }
-
-        if ($this->matcher->hasParametersRule()) {
-            throw new RuntimeException(
-                'Rule for parameters is already defined, cannot redefine'
-            );
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
         }
     }
 
@@ -365,12 +282,9 @@ final class InvocationMocker implements InvocationStubber, MethodNameMatch
         return $configuredMethod;
     }
 
-<<<<<<< HEAD
     /**
      * @throws IncompatibleReturnValueException
      */
-=======
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
     private function ensureTypeOfReturnValues(array $values): void
     {
         $configuredMethod = $this->getConfiguredMethod();
@@ -382,17 +296,8 @@ final class InvocationMocker implements InvocationStubber, MethodNameMatch
         foreach ($values as $value) {
             if (!$configuredMethod->mayReturn($value)) {
                 throw new IncompatibleReturnValueException(
-<<<<<<< HEAD
                     $configuredMethod,
                     $value
-=======
-                    sprintf(
-                        'Method %s may not return value of type %s, its return declaration is "%s"',
-                        $configuredMethod->getName(),
-                        is_object($value) ? get_class($value) : gettype($value),
-                        $configuredMethod->getReturnTypeDeclaration()
-                    )
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
                 );
             }
         }

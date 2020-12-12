@@ -7,27 +7,6 @@ use Illuminate\Support\Str;
 trait InteractsWithContentTypes
 {
     /**
-<<<<<<< HEAD
-=======
-     * Determine if the given content types match.
-     *
-     * @param  string  $actual
-     * @param  string  $type
-     * @return bool
-     */
-    public static function matchesType($actual, $type)
-    {
-        if ($actual === $type) {
-            return true;
-        }
-
-        $split = explode('/', $actual);
-
-        return isset($split[1]) && preg_match('#'.preg_quote($split[0], '#').'/.+\+'.preg_quote($split[1], '#').'#', $type);
-    }
-
-    /**
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
      * Determine if the request is sending JSON.
      *
      * @return bool
@@ -156,7 +135,6 @@ trait InteractsWithContentTypes
     }
 
     /**
-<<<<<<< HEAD
      * Determine if the given content types match.
      *
      * @param  string  $actual
@@ -175,8 +153,6 @@ trait InteractsWithContentTypes
     }
 
     /**
-=======
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
      * Get the data format expected in the response.
      *
      * @param  string  $default

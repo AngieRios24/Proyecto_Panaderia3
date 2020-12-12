@@ -54,16 +54,6 @@ class HasManyThrough extends Relation
     protected $secondLocalKey;
 
     /**
-<<<<<<< HEAD
-=======
-     * The count of self joins.
-     *
-     * @var int
-     */
-    protected static $selfJoinCount = 0;
-
-    /**
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
      * Create a new has many through relationship instance.
      *
      * @param  \Illuminate\Database\Eloquent\Builder  $query
@@ -600,19 +590,6 @@ class HasManyThrough extends Relation
     }
 
     /**
-<<<<<<< HEAD
-=======
-     * Get a relationship join table hash.
-     *
-     * @return string
-     */
-    public function getRelationCountHash()
-    {
-        return 'laravel_reserved_'.static::$selfJoinCount++;
-    }
-
-    /**
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
      * Get the qualified foreign key on the related model.
      *
      * @return string

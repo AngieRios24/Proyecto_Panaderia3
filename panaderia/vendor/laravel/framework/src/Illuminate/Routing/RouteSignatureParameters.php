@@ -18,7 +18,6 @@ class RouteSignatureParameters
      */
     public static function fromAction(array $action, $subClass = null)
     {
-<<<<<<< HEAD
         $callback = RouteAction::containsSerializedClosure($action)
                         ? unserialize($action['uses'])->getClosure()
                         : $action['uses'];
@@ -26,11 +25,6 @@ class RouteSignatureParameters
         $parameters = is_string($callback)
                         ? static::fromClassMethodString($callback)
                         : (new ReflectionFunction($callback))->getParameters();
-=======
-        $parameters = is_string($action['uses'])
-                        ? static::fromClassMethodString($action['uses'])
-                        : (new ReflectionFunction($action['uses']))->getParameters();
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
 
         return is_null($subClass) ? $parameters : array_filter($parameters, function ($p) use ($subClass) {
             return Reflector::isParameterSubclassOf($p, $subClass);

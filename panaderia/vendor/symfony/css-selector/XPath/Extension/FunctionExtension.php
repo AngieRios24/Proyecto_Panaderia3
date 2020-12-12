@@ -51,11 +51,7 @@ class FunctionExtension extends AbstractExtension
     public function translateNthChild(XPathExpr $xpath, FunctionNode $function, bool $last = false, bool $addNameTest = true): XPathExpr
     {
         try {
-<<<<<<< HEAD
             [$a, $b] = Parser::parseSeries($function->getArguments());
-=======
-            list($a, $b) = Parser::parseSeries($function->getArguments());
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
         } catch (SyntaxErrorException $e) {
             throw new ExpressionErrorException(sprintf('Invalid series: "%s".', implode('", "', $function->getArguments())), 0, $e);
         }

@@ -174,7 +174,6 @@ class Markdown
 
         return $this;
     }
-<<<<<<< HEAD
 
     /**
      * Get the theme currently being used by the renderer.
@@ -185,6 +184,4 @@ class Markdown
     {
         return $this->theme;
     }
-=======
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
 }

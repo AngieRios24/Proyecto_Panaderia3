@@ -79,11 +79,7 @@ class Swift_Transport_LoadBalancedTransport implements Swift_Transport
      */
     public function isStarted()
     {
-<<<<<<< HEAD
         return \count($this->transports) > 0;
-=======
-        return count($this->transports) > 0;
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
     }
 
     /**
@@ -115,11 +111,7 @@ class Swift_Transport_LoadBalancedTransport implements Swift_Transport
             }
         }
 
-<<<<<<< HEAD
         return \count($this->transports) > 0;
-=======
-        return count($this->transports) > 0;
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
     }
 
     /**
@@ -134,11 +126,7 @@ class Swift_Transport_LoadBalancedTransport implements Swift_Transport
      */
     public function send(Swift_Mime_SimpleMessage $message, &$failedRecipients = null)
     {
-<<<<<<< HEAD
         $maxTransports = \count($this->transports);
-=======
-        $maxTransports = count($this->transports);
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
         $sent = 0;
         $this->lastUsedTransport = null;
 
@@ -157,15 +145,8 @@ class Swift_Transport_LoadBalancedTransport implements Swift_Transport
             }
         }
 
-<<<<<<< HEAD
         if (0 == \count($this->transports)) {
             throw new Swift_TransportException('All Transports in LoadBalancedTransport failed, or no Transports available');
-=======
-        if (0 == count($this->transports)) {
-            throw new Swift_TransportException(
-                'All Transports in LoadBalancedTransport failed, or no Transports available'
-                );
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
         }
 
         return $sent;

@@ -5,10 +5,7 @@ namespace Illuminate\Queue;
 use Closure;
 use DateTimeInterface;
 use Illuminate\Container\Container;
-<<<<<<< HEAD
 use Illuminate\Support\Arr;
-=======
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
 use Illuminate\Support\InteractsWithTime;
 use Illuminate\Support\Str;
 
@@ -177,11 +174,7 @@ abstract class Queue
             return;
         }
 
-<<<<<<< HEAD
         return collect(Arr::wrap($job->backoff ?? $job->backoff()))
-=======
-        return collect($job->backoff ?? $job->backoff())
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
             ->map(function ($backoff) {
                 return $backoff instanceof DateTimeInterface
                                 ? $this->secondsUntil($backoff) : $backoff;
@@ -264,7 +257,6 @@ abstract class Queue
     }
 
     /**
-<<<<<<< HEAD
      * Enqueue a job using the given callback.
      *
      * @param  \Closure|string|object  $job
@@ -280,8 +272,6 @@ abstract class Queue
     }
 
     /**
-=======
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
      * Get the connection name for the queue.
      *
      * @return string

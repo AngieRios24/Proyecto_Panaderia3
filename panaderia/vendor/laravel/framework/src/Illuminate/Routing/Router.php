@@ -21,10 +21,7 @@ use Illuminate\Support\Str;
 use Illuminate\Support\Traits\Macroable;
 use JsonSerializable;
 use Psr\Http\Message\ResponseInterface as PsrResponseInterface;
-<<<<<<< HEAD
 use ReflectionClass;
-=======
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
 use Symfony\Bridge\PsrHttpMessage\Factory\HttpFoundationFactory;
 use Symfony\Component\HttpFoundation\Response as SymfonyResponse;
 
@@ -712,7 +709,6 @@ class Router implements BindingRegistrar, RegistrarContract
         $middleware = collect($route->gatherMiddleware())->map(function ($name) {
             return (array) MiddlewareNameResolver::resolve($name, $this->middleware, $this->middlewareGroups);
         })->flatten()->reject(function ($name) use ($excluded) {
-<<<<<<< HEAD
             if (empty($excluded)) {
                 return false;
             } elseif (in_array($name, $excluded, true)) {
@@ -728,9 +724,6 @@ class Router implements BindingRegistrar, RegistrarContract
             return collect($excluded)->contains(function ($exclude) use ($reflection) {
                 return class_exists($exclude) && $reflection->isSubclassOf($exclude);
             });
-=======
-            return in_array($name, $excluded, true);
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
         })->values();
 
         return $this->sortMiddleware($middleware);

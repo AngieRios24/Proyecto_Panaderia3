@@ -160,21 +160,10 @@ class Swift_Transport_StreamBuffer extends Swift_ByteStream_AbstractFilterableIn
     {
         if (isset($this->out) && !feof($this->out)) {
             $line = fgets($this->out);
-<<<<<<< HEAD
             if (0 == \strlen($line)) {
                 $metas = stream_get_meta_data($this->out);
                 if ($metas['timed_out']) {
                     throw new Swift_IoException('Connection to '.$this->getReadConnectionDescription().' Timed Out');
-=======
-            if (0 == strlen($line)) {
-                $metas = stream_get_meta_data($this->out);
-                if ($metas['timed_out']) {
-                    throw new Swift_IoException(
-                        'Connection to '.
-                            $this->getReadConnectionDescription().
-                        ' Timed Out'
-                    );
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
                 }
             }
 
@@ -199,21 +188,10 @@ class Swift_Transport_StreamBuffer extends Swift_ByteStream_AbstractFilterableIn
     {
         if (isset($this->out) && !feof($this->out)) {
             $ret = fread($this->out, $length);
-<<<<<<< HEAD
             if (0 == \strlen($ret)) {
                 $metas = stream_get_meta_data($this->out);
                 if ($metas['timed_out']) {
                     throw new Swift_IoException('Connection to '.$this->getReadConnectionDescription().' Timed Out');
-=======
-            if (0 == strlen($ret)) {
-                $metas = stream_get_meta_data($this->out);
-                if ($metas['timed_out']) {
-                    throw new Swift_IoException(
-                        'Connection to '.
-                            $this->getReadConnectionDescription().
-                        ' Timed Out'
-                    );
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
                 }
             }
 
@@ -238,11 +216,7 @@ class Swift_Transport_StreamBuffer extends Swift_ByteStream_AbstractFilterableIn
     protected function doCommit($bytes)
     {
         if (isset($this->in)) {
-<<<<<<< HEAD
             $bytesToWrite = \strlen($bytes);
-=======
-            $bytesToWrite = strlen($bytes);
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
             $totalBytesWritten = 0;
 
             while ($totalBytesWritten < $bytesToWrite) {
@@ -317,13 +291,7 @@ class Swift_Transport_StreamBuffer extends Swift_ByteStream_AbstractFilterableIn
         $this->stream = proc_open($command, $descriptorSpec, $pipes);
         stream_set_blocking($pipes[2], 0);
         if ($err = stream_get_contents($pipes[2])) {
-<<<<<<< HEAD
             throw new Swift_TransportException('Process could not be started ['.$err.']');
-=======
-            throw new Swift_TransportException(
-                'Process could not be started ['.$err.']'
-                );
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
         }
         $this->in = &$pipes[0];
         $this->out = &$pipes[1];

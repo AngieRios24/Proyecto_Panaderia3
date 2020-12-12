@@ -11,10 +11,7 @@
 namespace Carbon\Traits;
 
 use Closure;
-<<<<<<< HEAD
 use Generator;
-=======
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
 use ReflectionClass;
 use ReflectionException;
 use ReflectionMethod;
@@ -73,11 +70,7 @@ trait Mixin
     }
 
     /**
-<<<<<<< HEAD
      * @param object|string $mixin
-=======
-     * @param string $mixin
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
      *
      * @throws ReflectionException
      */
@@ -103,7 +96,6 @@ trait Mixin
      */
     private static function loadMixinTrait($trait)
     {
-<<<<<<< HEAD
         $context = eval(self::getAnonymousClassCodeForTrait($trait));
         $className = \get_class($context);
 
@@ -112,20 +104,6 @@ trait Mixin
 
             static::macro($name, function () use ($closureBase, $className) {
                 /** @phpstan-ignore-next-line */
-=======
-        $baseClass = static::class;
-        $context = eval('return new class() extends '.$baseClass.' {use '.$trait.';};');
-        $className = \get_class($context);
-
-        foreach (get_class_methods($context) as $name) {
-            if (method_exists($baseClass, $name)) {
-                continue;
-            }
-
-            $closureBase = Closure::fromCallable([$context, $name]);
-
-            static::macro($name, function () use ($closureBase, $className) {
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
                 $context = isset($this) ? $this->cast($className) : new $className();
 
                 try {
@@ -139,7 +117,6 @@ trait Mixin
         }
     }
 
-<<<<<<< HEAD
     private static function getAnonymousClassCodeForTrait(string $trait)
     {
         return 'return new class() extends '.static::class.' {use '.$trait.';};';
@@ -156,8 +133,6 @@ trait Mixin
         }
     }
 
-=======
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
     /**
      * Stack a Carbon context from inside calls of self::this() and execute a given action.
      *
