@@ -14,13 +14,9 @@ use const XDEBUG_CC_DEAD_CODE;
 use const XDEBUG_CC_UNUSED;
 use const XDEBUG_FILTER_CODE_COVERAGE;
 use const XDEBUG_PATH_INCLUDE;
-<<<<<<< HEAD
 use function explode;
 use function extension_loaded;
 use function getenv;
-=======
-use function extension_loaded;
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
 use function in_array;
 use function ini_get;
 use function phpversion;
@@ -58,7 +54,6 @@ final class Xdebug3Driver extends Driver
             );
         }
 
-<<<<<<< HEAD
         $mode = getenv('XDEBUG_MODE');
 
         if ($mode === false) {
@@ -67,9 +62,6 @@ final class Xdebug3Driver extends Driver
 
         if ($mode === false ||
             !in_array('coverage', explode(',', $mode), true)) {
-=======
-        if (!ini_get('xdebug.mode') || !in_array('coverage', explode(',', ini_get('xdebug.mode')), true)) {
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
             throw new Xdebug3NotEnabledException;
         }
 

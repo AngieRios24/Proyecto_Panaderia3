@@ -52,7 +52,6 @@ use Symfony\Component\Routing\RouteCollection;
  *         }
  *     }
  *
-<<<<<<< HEAD
  * On PHP 8, the annotation class can be used as an attribute as well:
  *     #[Route('/Blog')]
  *     class Blog
@@ -70,9 +69,6 @@ use Symfony\Component\Routing\RouteCollection;
  *
  * @author Fabien Potencier <fabien@symfony.com>
  * @author Alexander M. Turek <me@derrabus.de>
-=======
- * @author Fabien Potencier <fabien@symfony.com>
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
  */
 abstract class AnnotationClassLoader implements LoaderInterface
 {
@@ -81,22 +77,14 @@ abstract class AnnotationClassLoader implements LoaderInterface
     /**
      * @var string
      */
-<<<<<<< HEAD
     protected $routeAnnotationClass = RouteAnnotation::class;
-=======
-    protected $routeAnnotationClass = 'Symfony\\Component\\Routing\\Annotation\\Route';
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
 
     /**
      * @var int
      */
     protected $defaultRouteIndex = 0;
 
-<<<<<<< HEAD
     public function __construct(Reader $reader = null)
-=======
-    public function __construct(Reader $reader)
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
     {
         $this->reader = $reader;
     }
@@ -136,29 +124,15 @@ abstract class AnnotationClassLoader implements LoaderInterface
 
         foreach ($class->getMethods() as $method) {
             $this->defaultRouteIndex = 0;
-<<<<<<< HEAD
             foreach ($this->getAnnotations($method) as $annot) {
                 $this->addRoute($collection, $annot, $globals, $class, $method);
-=======
-            foreach ($this->reader->getMethodAnnotations($method) as $annot) {
-                if ($annot instanceof $this->routeAnnotationClass) {
-                    $this->addRoute($collection, $annot, $globals, $class, $method);
-                }
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
             }
         }
 
         if (0 === $collection->count() && $class->hasMethod('__invoke')) {
             $globals = $this->resetGlobals();
-<<<<<<< HEAD
             foreach ($this->getAnnotations($class) as $annot) {
                 $this->addRoute($collection, $annot, $globals, $class, $class->getMethod('__invoke'));
-=======
-            foreach ($this->reader->getClassAnnotations($class) as $annot) {
-                if ($annot instanceof $this->routeAnnotationClass) {
-                    $this->addRoute($collection, $annot, $globals, $class, $class->getMethod('__invoke'));
-                }
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
             }
         }
 
@@ -168,11 +142,7 @@ abstract class AnnotationClassLoader implements LoaderInterface
     /**
      * @param RouteAnnotation $annot or an object that exposes a similar interface
      */
-<<<<<<< HEAD
     protected function addRoute(RouteCollection $collection, object $annot, array $globals, \ReflectionClass $class, \ReflectionMethod $method)
-=======
-    protected function addRoute(RouteCollection $collection, $annot, array $globals, \ReflectionClass $class, \ReflectionMethod $method)
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
     {
         $name = $annot->getName();
         if (null === $name) {
@@ -299,7 +269,6 @@ abstract class AnnotationClassLoader implements LoaderInterface
     {
         $globals = $this->resetGlobals();
 
-<<<<<<< HEAD
         $annot = null;
         if (\PHP_VERSION_ID >= 80000 && ($attribute = $class->getAttributes($this->routeAnnotationClass)[0] ?? null)) {
             $annot = $attribute->newInstance();
@@ -309,9 +278,6 @@ abstract class AnnotationClassLoader implements LoaderInterface
         }
 
         if ($annot) {
-=======
-        if ($annot = $this->reader->getClassAnnotation($class, $this->routeAnnotationClass)) {
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
             if (null !== $annot->getName()) {
                 $globals['name'] = $annot->getName();
             }
@@ -384,7 +350,6 @@ abstract class AnnotationClassLoader implements LoaderInterface
         return new Route($path, $defaults, $requirements, $options, $host, $schemes, $methods, $condition);
     }
 
-<<<<<<< HEAD
     abstract protected function configureRoute(Route $route, \ReflectionClass $class, \ReflectionMethod $method, object $annot);
 
     /**
@@ -414,7 +379,4 @@ abstract class AnnotationClassLoader implements LoaderInterface
             }
         }
     }
-=======
-    abstract protected function configureRoute(Route $route, \ReflectionClass $class, \ReflectionMethod $method, $annot);
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
 }

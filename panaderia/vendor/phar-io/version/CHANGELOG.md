@@ -2,15 +2,12 @@
 
 All notable changes to phar-io/version are documented in this file using the [Keep a CHANGELOG](http://keepachangelog.com/) principles.
 
-<<<<<<< HEAD
 ## [3.0.3] - 30.11.2020
 
 ### Added
 
 - Comparator method `Version::equals()` added
 
-=======
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
 ## [3.0.2] - 27.06.2020
 
 This release now supports PHP 7.2+ and PHP ^8.0. No other changes included.

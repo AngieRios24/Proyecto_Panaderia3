@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Category;
-
+use App\Models\Order;
 class Product extends Model
 {
     use HasFactory;
@@ -14,6 +14,7 @@ class Product extends Model
         return $this->belongsTo(Category::class);
     }
     public function order() {
-        return $this->belongsToMany('App\Oder');
+        return $this->belongsToMany('App\Order','order_products')->withPivote('order_id');
     }
+
 }

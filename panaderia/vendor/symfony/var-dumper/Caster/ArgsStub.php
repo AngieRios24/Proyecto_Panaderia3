@@ -24,11 +24,7 @@ class ArgsStub extends EnumStub
 
     public function __construct(array $args, string $function, ?string $class)
     {
-<<<<<<< HEAD
         [$variadic, $params] = self::getParameters($function, $class);
-=======
-        list($variadic, $params) = self::getParameters($function, $class);
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
 
         $values = [];
         foreach ($args as $k => $v) {

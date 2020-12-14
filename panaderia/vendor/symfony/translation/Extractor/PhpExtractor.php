@@ -54,7 +54,6 @@ class PhpExtractor extends AbstractFileExtractor implements ExtractorInterface
             '(',
             self::MESSAGE_TOKEN,
         ],
-<<<<<<< HEAD
         [
             'new',
             'TranslatableMessage',
@@ -131,8 +130,6 @@ class PhpExtractor extends AbstractFileExtractor implements ExtractorInterface
             '(',
             self::MESSAGE_TOKEN,
         ],
-=======
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
     ];
 
     /**

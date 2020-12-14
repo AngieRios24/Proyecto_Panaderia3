@@ -193,7 +193,6 @@ class HeaderUtils
         return $disposition.'; '.self::toString($params, ';');
     }
 
-<<<<<<< HEAD
     /**
      * Like parse_str(), but preserves dots in variable names.
      */
@@ -252,8 +251,6 @@ class HeaderUtils
         return $query;
     }
 
-=======
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
     private static function groupParts(array $matches, string $separators): array
     {
         $separator = $separators[0];

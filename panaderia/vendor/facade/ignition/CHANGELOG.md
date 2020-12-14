@@ -2,13 +2,10 @@
 
 All notable changes to `ignition` will be documented in this file
 
-<<<<<<< HEAD
 ## 2.5.3 - 2020-12-08
 
 - Use Livewire compatible compiler engine when using Livewire (#340)
 
-=======
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
 ## 2.5.2 - 2020-11-14
 
 - fix `MakeViewVariableOptionalSolution` to disallow stream wrappers and files that do not end in ".blade.php" (#334)

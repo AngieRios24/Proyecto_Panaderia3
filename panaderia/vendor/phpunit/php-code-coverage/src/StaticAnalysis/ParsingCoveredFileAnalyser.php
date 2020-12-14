@@ -120,13 +120,10 @@ final class ParsingCoveredFileAnalyser implements CoveredFileAnalyser
         $source      = file_get_contents($filename);
         $linesOfCode = substr_count($source, "\n");
 
-<<<<<<< HEAD
         if ($linesOfCode === 0 && !empty($source)) {
             $linesOfCode = 1;
         }
 
-=======
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
         $parser = (new ParserFactory)->create(
             ParserFactory::PREFER_PHP7,
             new Lexer

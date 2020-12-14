@@ -47,11 +47,7 @@ abstract class Command extends BaseCommand
     {
         $messages = [
             '<comment>Usage:</comment>',
-<<<<<<< HEAD
             ' '.$this->getSynopsis(),
-=======
-            ' ' . $this->getSynopsis(),
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
             '',
         ];
 
@@ -69,11 +65,7 @@ abstract class Command extends BaseCommand
 
         if ($help = $this->getProcessedHelp()) {
             $messages[] = '<comment>Help:</comment>';
-<<<<<<< HEAD
             $messages[] = ' '.\str_replace("\n", "\n ", $help)."\n";
-=======
-            $messages[] = ' ' . \str_replace("\n", "\n ", $help) . "\n";
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
         }
 
         return \implode("\n", $messages);
@@ -130,11 +122,7 @@ abstract class Command extends BaseCommand
      */
     private function aliasesAsText()
     {
-<<<<<<< HEAD
         return '<comment>Aliases:</comment> <info>'.\implode(', ', $this->getAliases()).'</info>'.\PHP_EOL;
-=======
-        return '<comment>Aliases:</comment> <info>' . \implode(', ', $this->getAliases()) . '</info>' . PHP_EOL;
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
     }
 
     /**
@@ -157,11 +145,7 @@ abstract class Command extends BaseCommand
                     $default = '';
                 }
 
-<<<<<<< HEAD
                 $description = \str_replace("\n", "\n".\str_pad('', $max + 2, ' '), $argument->getDescription());
-=======
-                $description = \str_replace("\n", "\n" . \str_pad('', $max + 2, ' '), $argument->getDescription());
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
 
                 $messages[] = \sprintf(" <info>%-${max}s</info> %s%s", $argument->getName(), $description, $default);
             }
@@ -169,11 +153,7 @@ abstract class Command extends BaseCommand
             $messages[] = '';
         }
 
-<<<<<<< HEAD
         return \implode(\PHP_EOL, $messages);
-=======
-        return \implode(PHP_EOL, $messages);
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
     }
 
     /**
@@ -198,20 +178,12 @@ abstract class Command extends BaseCommand
                 }
 
                 $multiple = $option->isArray() ? '<comment> (multiple values allowed)</comment>' : '';
-<<<<<<< HEAD
                 $description = \str_replace("\n", "\n".\str_pad('', $max + 2, ' '), $option->getDescription());
-=======
-                $description = \str_replace("\n", "\n" . \str_pad('', $max + 2, ' '), $option->getDescription());
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
 
                 $optionMax = $max - \strlen($option->getName()) - 2;
                 $messages[] = \sprintf(
                     " <info>%s</info> %-${optionMax}s%s%s%s",
-<<<<<<< HEAD
                     '--'.$option->getName(),
-=======
-                    '--' . $option->getName(),
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
                     $option->getShortcut() ? \sprintf('(-%s) ', $option->getShortcut()) : '',
                     $description,
                     $default,
@@ -222,11 +194,7 @@ abstract class Command extends BaseCommand
             $messages[] = '';
         }
 
-<<<<<<< HEAD
         return \implode(\PHP_EOL, $messages);
-=======
-        return \implode(PHP_EOL, $messages);
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
     }
 
     /**

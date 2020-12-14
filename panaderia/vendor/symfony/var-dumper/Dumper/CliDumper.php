@@ -522,20 +522,14 @@ class CliDumper extends AbstractDumper
                         case '--color=yes':
                         case '--color=force':
                         case '--color=always':
-<<<<<<< HEAD
                         case '--colors=always':
-=======
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
                             return static::$defaultColors = true;
 
                         case '--no-ansi':
                         case '--color=no':
                         case '--color=none':
                         case '--color=never':
-<<<<<<< HEAD
                         case '--colors=never':
-=======
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
                             return static::$defaultColors = false;
                     }
                 }

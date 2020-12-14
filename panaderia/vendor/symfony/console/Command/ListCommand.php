@@ -13,10 +13,6 @@ namespace Symfony\Component\Console\Command;
 
 use Symfony\Component\Console\Helper\DescriptorHelper;
 use Symfony\Component\Console\Input\InputArgument;
-<<<<<<< HEAD
-=======
-use Symfony\Component\Console\Input\InputDefinition;
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -35,20 +31,15 @@ class ListCommand extends Command
     {
         $this
             ->setName('list')
-<<<<<<< HEAD
             ->setDefinition([
                 new InputArgument('namespace', InputArgument::OPTIONAL, 'The namespace name'),
                 new InputOption('raw', null, InputOption::VALUE_NONE, 'To output raw command list'),
                 new InputOption('format', null, InputOption::VALUE_REQUIRED, 'The output format (txt, xml, json, or md)', 'txt'),
             ])
-=======
-            ->setDefinition($this->createDefinition())
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
             ->setDescription('Lists commands')
             ->setHelp(<<<'EOF'
 The <info>%command.name%</info> command lists all commands:
 
-<<<<<<< HEAD
   <info>%command.full_name%</info>
 
 You can also display the commands for a specific namespace:
@@ -62,21 +53,6 @@ You can also output the information in other formats by using the <comment>--for
 It's also possible to get raw list of commands (useful for embedding command runner):
 
   <info>%command.full_name% --raw</info>
-=======
-  <info>php %command.full_name%</info>
-
-You can also display the commands for a specific namespace:
-
-  <info>php %command.full_name% test</info>
-
-You can also output the information in other formats by using the <comment>--format</comment> option:
-
-  <info>php %command.full_name% --format=xml</info>
-
-It's also possible to get raw list of commands (useful for embedding command runner):
-
-  <info>php %command.full_name% --raw</info>
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
 EOF
             )
         ;
@@ -85,17 +61,6 @@ EOF
     /**
      * {@inheritdoc}
      */
-<<<<<<< HEAD
-=======
-    public function getNativeDefinition()
-    {
-        return $this->createDefinition();
-    }
-
-    /**
-     * {@inheritdoc}
-     */
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $helper = new DescriptorHelper();
@@ -107,16 +72,4 @@ EOF
 
         return 0;
     }
-<<<<<<< HEAD
-=======
-
-    private function createDefinition(): InputDefinition
-    {
-        return new InputDefinition([
-            new InputArgument('namespace', InputArgument::OPTIONAL, 'The namespace name'),
-            new InputOption('raw', null, InputOption::VALUE_NONE, 'To output raw command list'),
-            new InputOption('format', null, InputOption::VALUE_REQUIRED, 'The output format (txt, xml, json, or md)', 'txt'),
-        ]);
-    }
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
 }

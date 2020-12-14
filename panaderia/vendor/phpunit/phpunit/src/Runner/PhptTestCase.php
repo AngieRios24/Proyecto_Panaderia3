@@ -851,17 +851,10 @@ final class PhptTestCase implements Reorderable, SelfDescribing, Test
                     $settings[] = 'xdebug.mode=off';
                 }
             } else {
-<<<<<<< HEAD
                 $settings[] = 'xdebug.default_enable=0';
 
                 if ($collectCoverage) {
                     $settings[] = 'xdebug.coverage_enable=1';
-=======
-                if ($collectCoverage) {
-                    $settings[] = 'xdebug.coverage_enable=1';
-                } else {
-                    $settings[] = 'xdebug.default_enable=0';
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
                 }
             }
         }

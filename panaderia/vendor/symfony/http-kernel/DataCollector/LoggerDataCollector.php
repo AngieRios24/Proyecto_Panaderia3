@@ -122,11 +122,7 @@ class LoggerDataCollector extends DataCollector implements LateDataCollectorInte
 
     private function getContainerDeprecationLogs(): array
     {
-<<<<<<< HEAD
         if (null === $this->containerPathPrefix || !is_file($file = $this->containerPathPrefix.'Deprecations.log')) {
-=======
-        if (null === $this->containerPathPrefix || !file_exists($file = $this->containerPathPrefix.'Deprecations.log')) {
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
             return [];
         }
 
@@ -152,11 +148,7 @@ class LoggerDataCollector extends DataCollector implements LateDataCollectorInte
 
     private function getContainerCompilerLogs(string $compilerLogsFilepath = null): array
     {
-<<<<<<< HEAD
         if (!is_file($compilerLogsFilepath)) {
-=======
-        if (!file_exists($compilerLogsFilepath)) {
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
             return [];
         }
 

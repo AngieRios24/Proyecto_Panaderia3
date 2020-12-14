@@ -114,11 +114,7 @@ class ControllerResolver implements ControllerResolverInterface
             return $controller;
         }
 
-<<<<<<< HEAD
         [$class, $method] = explode('::', $controller, 2);
-=======
-        list($class, $method) = explode('::', $controller, 2);
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
 
         try {
             $controller = [$this->instantiateController($class), $method];
@@ -176,11 +172,7 @@ class ControllerResolver implements ControllerResolverInterface
             return 'Invalid array callable, expected [controller, method].';
         }
 
-<<<<<<< HEAD
         [$controller, $method] = $callable;
-=======
-        list($controller, $method) = $callable;
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
 
         if (\is_string($controller) && !class_exists($controller)) {
             return sprintf('Class "%s" does not exist.', $controller);

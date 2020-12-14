@@ -15,10 +15,7 @@ use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\StreamedResponse;
 use Symfony\Component\HttpKernel\Controller\ControllerReference;
-<<<<<<< HEAD
 use Symfony\Component\HttpKernel\Exception\HttpException;
-=======
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
 
 /**
  * Renders a URI that represents a resource fragment.
@@ -101,12 +98,8 @@ class FragmentHandler
     protected function deliver(Response $response)
     {
         if (!$response->isSuccessful()) {
-<<<<<<< HEAD
             $responseStatusCode = $response->getStatusCode();
             throw new \RuntimeException(sprintf('Error when rendering "%s" (Status code is %d).', $this->requestStack->getCurrentRequest()->getUri(), $responseStatusCode), 0, new HttpException($responseStatusCode));
-=======
-            throw new \RuntimeException(sprintf('Error when rendering "%s" (Status code is %d).', $this->requestStack->getCurrentRequest()->getUri(), $response->getStatusCode()));
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
         }
 
         if (!$response instanceof StreamedResponse) {

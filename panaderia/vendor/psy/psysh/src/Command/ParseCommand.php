@@ -46,11 +46,7 @@ class ParseCommand extends Command implements ContextAware, PresenterAware
     public function __construct($name = null)
     {
         $this->parserFactory = new ParserFactory();
-<<<<<<< HEAD
         $this->parsers = [];
-=======
-        $this->parsers       = [];
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
 
         parent::__construct($name);
     }
@@ -76,21 +72,12 @@ class ParseCommand extends Command implements ContextAware, PresenterAware
         $this->presenter->addCasters([
             Node::class => function (Node $node, array $a) {
                 $a = [
-<<<<<<< HEAD
                     Caster::PREFIX_VIRTUAL.'type'       => $node->getType(),
                     Caster::PREFIX_VIRTUAL.'attributes' => $node->getAttributes(),
                 ];
 
                 foreach ($node->getSubNodeNames() as $name) {
                     $a[Caster::PREFIX_VIRTUAL.$name] = $node->$name;
-=======
-                    Caster::PREFIX_VIRTUAL . 'type'       => $node->getType(),
-                    Caster::PREFIX_VIRTUAL . 'attributes' => $node->getAttributes(),
-                ];
-
-                foreach ($node->getSubNodeNames() as $name) {
-                    $a[Caster::PREFIX_VIRTUAL . $name] = $node->$name;
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
                 }
 
                 return $a;
@@ -110,13 +97,8 @@ class ParseCommand extends Command implements ContextAware, PresenterAware
 
         if ($this->parserFactory->hasKindsSupport()) {
             $msg = 'One of PhpParser\\ParserFactory constants: '
-<<<<<<< HEAD
                 .\implode(', ', ParserFactory::getPossibleKinds())
                 ." (default is based on current interpreter's version).";
-=======
-                . \implode(', ', ParserFactory::getPossibleKinds())
-                . " (default is based on current interpreter's version).";
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
             $defaultKind = $this->parserFactory->getDefaultKind();
 
             $definition[] = new InputOption('kind', '', InputOption::VALUE_REQUIRED, $msg, $defaultKind);
@@ -147,21 +129,12 @@ HELP
     {
         $code = $input->getArgument('code');
         if (\strpos($code, '<?') === false) {
-<<<<<<< HEAD
             $code = '<?php '.$code;
         }
 
         $parserKind = $this->parserFactory->hasKindsSupport() ? $input->getOption('kind') : null;
         $depth = $input->getOption('depth');
         $nodes = $this->parse($this->getParser($parserKind), $code);
-=======
-            $code = '<?php ' . $code;
-        }
-
-        $parserKind = $this->parserFactory->hasKindsSupport() ? $input->getOption('kind') : null;
-        $depth      = $input->getOption('depth');
-        $nodes      = $this->parse($this->getParser($parserKind), $code);
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
         $output->page($this->presenter->present($nodes, $depth));
 
         $this->context->setReturnValue($nodes);
@@ -187,11 +160,7 @@ HELP
             }
 
             // If we got an unexpected EOF, let's try it again with a semicolon.
-<<<<<<< HEAD
             return $parser->parse($code.';');
-=======
-            return $parser->parse($code . ';');
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
         }
     }
 

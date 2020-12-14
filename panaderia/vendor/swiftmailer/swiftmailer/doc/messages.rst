@@ -100,11 +100,7 @@ with a strict format, you only need to pass a DateTimeInterface instance to
 +-------------------------------+------------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------+
 | ``Date``                      | Specifies the date at which the message was sent                                                                                   | ``getDate()`` / ``setDate()``               |
 +-------------------------------+------------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------+
-<<<<<<< HEAD
 | ``Content-Type``              | Specifies the format of the message (usually ``text/plain`` or ``text/html``)                                                              | ``getContentType()`` / ``setContentType()`` |
-=======
-| ``Content-Type``              | Specifies the format of the message (usually text/plain or text/html)                                                              | ``getContentType()`` / ``setContentType()`` |
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
 +-------------------------------+------------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------+
 | ``Content-Transfer-Encoding`` | Specifies the encoding scheme in the message                                                                                       | ``getEncoder()`` / ``setEncoder()``         |
 +-------------------------------+------------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------+
@@ -824,11 +820,7 @@ Requesting a Read Receipt
 
 It is possible to request a read-receipt to be sent to an address when the
 email is opened. To request a read receipt set the address with
-<<<<<<< HEAD
 ``setReadReceiptTo()``::
-=======
-``setReadReceiptTo()``:
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
 
     $message->setReadReceiptTo('your@address.tld');
 

@@ -110,11 +110,7 @@ HELP
         }
 
         if (\strpos($code, '<?') === false) {
-<<<<<<< HEAD
             $code = '<?php '.$code;
-=======
-            $code = '<?php ' . $code;
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
         }
 
         $nodes = $this->traverser->traverse($this->parse($code));
@@ -143,11 +139,7 @@ HELP
             }
 
             // If we got an unexpected EOF, let's try it again with a semicolon.
-<<<<<<< HEAD
             return $this->parser->parse($code.';');
-=======
-            return $this->parser->parse($code . ';');
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
         }
     }
 }

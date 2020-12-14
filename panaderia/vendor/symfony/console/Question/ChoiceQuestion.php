@@ -169,12 +169,8 @@ class ChoiceQuestion extends Question
                     throw new InvalidArgumentException(sprintf($errorMessage, $value));
                 }
 
-<<<<<<< HEAD
                 // For associative choices, consistently return the key as string:
                 $multiselectChoices[] = $isAssoc ? (string) $result : $result;
-=======
-                $multiselectChoices[] = (string) $result;
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
             }
 
             if ($multiselect) {

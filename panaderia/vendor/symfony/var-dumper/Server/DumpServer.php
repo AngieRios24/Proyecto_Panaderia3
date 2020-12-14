@@ -75,11 +75,7 @@ class DumpServer
                 continue;
             }
 
-<<<<<<< HEAD
             [$data, $context] = $payload;
-=======
-            list($data, $context) = $payload;
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
 
             $callback($data, $context, $clientId);
         }

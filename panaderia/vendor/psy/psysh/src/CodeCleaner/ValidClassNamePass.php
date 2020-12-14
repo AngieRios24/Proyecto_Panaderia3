@@ -16,10 +16,7 @@ use PhpParser\Node\Expr;
 use PhpParser\Node\Expr\ClassConstFetch;
 use PhpParser\Node\Expr\New_;
 use PhpParser\Node\Expr\StaticCall;
-<<<<<<< HEAD
 use PhpParser\Node\Expr\Ternary;
-=======
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
 use PhpParser\Node\Stmt;
 use PhpParser\Node\Stmt\Class_;
 use PhpParser\Node\Stmt\Do_;
@@ -38,7 +35,6 @@ use Psy\Exception\FatalErrorException;
  */
 class ValidClassNamePass extends NamespaceAwarePass
 {
-<<<<<<< HEAD
     const CLASS_TYPE = 'class';
     const INTERFACE_TYPE = 'interface';
     const TRAIT_TYPE = 'trait';
@@ -50,13 +46,6 @@ class ValidClassNamePass extends NamespaceAwarePass
     {
         $this->atLeastPhp7 = \version_compare(\PHP_VERSION, '7.0', '>=');
     }
-=======
-    const CLASS_TYPE     = 'class';
-    const INTERFACE_TYPE = 'interface';
-    const TRAIT_TYPE     = 'trait';
-
-    private $conditionalScopes = 0;
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
 
     /**
      * Validate class, interface and trait definitions.
@@ -73,7 +62,6 @@ class ValidClassNamePass extends NamespaceAwarePass
 
         if (self::isConditional($node)) {
             $this->conditionalScopes++;
-<<<<<<< HEAD
 
             return;
         }
@@ -85,19 +73,6 @@ class ValidClassNamePass extends NamespaceAwarePass
                 $this->validateInterfaceStatement($node);
             } elseif ($node instanceof Trait_) {
                 $this->validateTraitStatement($node);
-=======
-        } else {
-            // @todo add an "else" here which adds a runtime check for instances where we can't tell
-            // whether a class is being redefined by static analysis alone.
-            if ($this->conditionalScopes === 0) {
-                if ($node instanceof Class_) {
-                    $this->validateClassStatement($node);
-                } elseif ($node instanceof Interface_) {
-                    $this->validateInterfaceStatement($node);
-                } elseif ($node instanceof Trait_) {
-                    $this->validateTraitStatement($node);
-                }
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
             }
         }
     }
@@ -117,7 +92,6 @@ class ValidClassNamePass extends NamespaceAwarePass
     {
         if (self::isConditional($node)) {
             $this->conditionalScopes--;
-<<<<<<< HEAD
 
             return;
         }
@@ -130,14 +104,6 @@ class ValidClassNamePass extends NamespaceAwarePass
             } elseif ($node instanceof StaticCall) {
                 $this->validateStaticCallExpression($node);
             }
-=======
-        } elseif ($node instanceof New_) {
-            $this->validateNewExpression($node);
-        } elseif ($node instanceof ClassConstFetch) {
-            $this->validateClassConstFetchExpression($node);
-        } elseif ($node instanceof StaticCall) {
-            $this->validateStaticCallExpression($node);
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
         }
     }
 
@@ -146,12 +112,8 @@ class ValidClassNamePass extends NamespaceAwarePass
         return $node instanceof If_ ||
             $node instanceof While_ ||
             $node instanceof Do_ ||
-<<<<<<< HEAD
             $node instanceof Switch_ ||
             $node instanceof Ternary;
-=======
-            $node instanceof Switch_;
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
     }
 
     /**
@@ -452,10 +414,6 @@ class ValidClassNamePass extends NamespaceAwarePass
      */
     protected function createError($msg, $stmt)
     {
-<<<<<<< HEAD
         return new FatalErrorException($msg, 0, \E_ERROR, null, $stmt->getLine());
-=======
-        return new FatalErrorException($msg, 0, E_ERROR, null, $stmt->getLine());
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
     }
 }

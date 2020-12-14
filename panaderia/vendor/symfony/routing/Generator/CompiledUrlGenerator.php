@@ -50,11 +50,7 @@ class CompiledUrlGenerator extends UrlGenerator
             throw new RouteNotFoundException(sprintf('Unable to generate a URL for the named route "%s" as such route does not exist.', $name));
         }
 
-<<<<<<< HEAD
         [$variables, $defaults, $requirements, $tokens, $hostTokens, $requiredSchemes] = $this->compiledRoutes[$name];
-=======
-        list($variables, $defaults, $requirements, $tokens, $hostTokens, $requiredSchemes) = $this->compiledRoutes[$name];
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
 
         if (isset($defaults['_canonical_route']) && isset($defaults['_locale'])) {
             if (!\in_array('_locale', $variables, true)) {

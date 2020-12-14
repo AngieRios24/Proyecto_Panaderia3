@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Auth;
-
+use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
@@ -44,12 +44,12 @@ class LoginController extends Controller
            return redirect()->route('productos') ;
         }else if($user->role=='vendor'){
             return redirect()->route('vendedor') ;
-        }else if($user->role=='dueño'){
-            return redirect()->route('dueño.index');
+        }else if($user->role=='dueno'){
+            return redirect()->route('dueno');
 
         }else {
-            return redirect()->route('admin.principal');
-
+            return redirect()->route('home');
         }
+        return $next($request);
     }
 }

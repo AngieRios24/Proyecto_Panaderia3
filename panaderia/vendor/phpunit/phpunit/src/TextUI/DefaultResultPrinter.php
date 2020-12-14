@@ -370,10 +370,7 @@ class DefaultResultPrinter extends Printer implements ResultPrinter
     protected function printDefectTrace(TestFailure $defect): void
     {
         $e = $defect->thrownException();
-<<<<<<< HEAD
 
-=======
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
         $this->write((string) $e);
 
         while ($e = $e->getPrevious()) {

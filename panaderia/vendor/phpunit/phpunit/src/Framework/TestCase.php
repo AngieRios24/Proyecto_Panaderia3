@@ -736,20 +736,12 @@ abstract class TestCase extends Assert implements Reorderable, SelfDescribing, T
             $result = $this->createResult();
         }
 
-<<<<<<< HEAD
         if (!$this instanceof ErrorTestCase && !$this instanceof WarningTestCase) {
             $this->setTestResultObject($result);
         }
 
         if (!$this instanceof ErrorTestCase &&
             !$this instanceof WarningTestCase &&
-=======
-        if (!$this instanceof WarningTestCase) {
-            $this->setTestResultObject($result);
-        }
-
-        if (!$this instanceof WarningTestCase &&
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
             !$this instanceof SkippedTestCase &&
             !$this->handleDependencies()) {
             return $result;
@@ -945,20 +937,6 @@ abstract class TestCase extends Assert implements Reorderable, SelfDescribing, T
     }
 
     /**
-<<<<<<< HEAD
-=======
-     * @internal This method is not covered by the backward compatibility promise for PHPUnit
-     */
-    public function getAnnotations(): array
-    {
-        return TestUtil::parseTestMethodAnnotations(
-            static::class,
-            $this->name
-        );
-    }
-
-    /**
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
      * @throws \SebastianBergmann\RecursionContext\InvalidArgumentException
      *
      * @internal This method is not covered by the backward compatibility promise for PHPUnit
@@ -2460,14 +2438,10 @@ abstract class TestCase extends Assert implements Reorderable, SelfDescribing, T
 
     private function setDoesNotPerformAssertionsFromAnnotation(): void
     {
-<<<<<<< HEAD
         $annotations = TestUtil::parseTestMethodAnnotations(
             static::class,
             $this->name
         );
-=======
-        $annotations = $this->getAnnotations();
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
 
         if (isset($annotations['method']['doesNotPerformAssertions'])) {
             $this->doesNotPerformAssertions = true;

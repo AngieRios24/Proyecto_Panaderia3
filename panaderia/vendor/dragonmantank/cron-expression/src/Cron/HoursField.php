@@ -33,11 +33,7 @@ class HoursField extends AbstractField
     /**
      * {@inheritdoc}
      *
-<<<<<<< HEAD
      * @param \DateTime|\DateTimeImmutable $date
-=======
-     * @param \DateTime|\DateTimeImmutable &$date
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
      * @param string|null                  $parts
      */
     public function increment(DateTimeInterface &$date, $invert = false, $parts = null): FieldInterface

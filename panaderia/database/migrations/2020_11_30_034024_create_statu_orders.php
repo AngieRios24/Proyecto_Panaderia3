@@ -14,11 +14,12 @@ class CreateStatuOrders extends Migration
     public function up()
     {
         Schema::create('statu_orders', function (Blueprint $table) {
+            $table->id();
             $table->integer('order_id')->unsigned();
             $table->integer('status_id')->unsigned();
             $table->foreign('order_id')->references('id')->on('orders');
             $table->foreign('status_id')->references('id')->on('status');
-
+            $table->timestamps();
 
         });
     }

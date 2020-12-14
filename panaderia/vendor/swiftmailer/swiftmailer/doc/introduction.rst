@@ -1,11 +1,7 @@
 Introduction
 ============
 
-<<<<<<< HEAD
 Swift Mailer is a component based library for sending e-mails from PHP applications.
-=======
-Swift Mailer is a for sending e-mails from PHP applications.
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
 
 System Requirements
 -------------------

@@ -39,11 +39,8 @@ class HtmlErrorRenderer implements ErrorRendererInterface
     private $outputBuffer;
     private $logger;
 
-<<<<<<< HEAD
     private static $template = 'views/error.html.php';
 
-=======
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
     /**
      * @param bool|callable $debug        The debugging mode as a boolean or a callable that should return it
      * @param bool|callable $outputBuffer The output buffer as a string or a callable that should return it
@@ -139,11 +136,7 @@ class HtmlErrorRenderer implements ErrorRendererInterface
         $statusCode = $this->escape($exception->getStatusCode());
 
         if (!$debug) {
-<<<<<<< HEAD
             return $this->include(self::$template, [
-=======
-            return $this->include('views/error.html.php', [
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
                 'statusText' => $statusText,
                 'statusCode' => $statusCode,
             ]);
@@ -356,7 +349,6 @@ class HtmlErrorRenderer implements ErrorRendererInterface
     {
         extract($context, \EXTR_SKIP);
         ob_start();
-<<<<<<< HEAD
 
         include file_exists($name) ? $name : __DIR__.'/../Resources/'.$name;
 
@@ -372,10 +364,4 @@ class HtmlErrorRenderer implements ErrorRendererInterface
     {
         self::$template = $template;
     }
-=======
-        include __DIR__.'/../Resources/'.$name;
-
-        return trim(ob_get_clean());
-    }
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
 }

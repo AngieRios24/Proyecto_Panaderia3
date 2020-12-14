@@ -64,11 +64,7 @@ class Sudo
      */
     public static function callMethod($object, $method, $args = null)
     {
-<<<<<<< HEAD
         $args = \func_get_args();
-=======
-        $args   = \func_get_args();
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
         $object = \array_shift($args);
         $method = \array_shift($args);
 
@@ -126,13 +122,8 @@ class Sudo
      */
     public static function callStatic($class, $method, $args = null)
     {
-<<<<<<< HEAD
         $args = \func_get_args();
         $class = \array_shift($args);
-=======
-        $args   = \func_get_args();
-        $class  = \array_shift($args);
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
         $method = \array_shift($args);
 
         $refl = new \ReflectionClass($class);

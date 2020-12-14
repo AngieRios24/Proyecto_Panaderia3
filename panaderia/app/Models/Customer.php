@@ -13,4 +13,8 @@ class Customer extends Model
     public function type_document (){
         return $this->belongsToMany('App\TypeDocument');
     }
+    protected $fillable =[
+        'customer_document','customer_name','customer_lastname','customer_phone',
+        'customer_mail','typedocument_id'
+    ];
 }

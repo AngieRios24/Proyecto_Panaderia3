@@ -21,10 +21,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 class SingleCommandApplication extends Command
 {
     private $version = 'UNKNOWN';
-<<<<<<< HEAD
     private $autoExit = true;
-=======
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
     private $running = false;
 
     public function setVersion(string $version): self
@@ -34,7 +31,6 @@ class SingleCommandApplication extends Command
         return $this;
     }
 
-<<<<<<< HEAD
     /**
      * @final
      */
@@ -45,8 +41,6 @@ class SingleCommandApplication extends Command
         return $this;
     }
 
-=======
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
     public function run(InputInterface $input = null, OutputInterface $output = null): int
     {
         if ($this->running) {
@@ -55,10 +49,7 @@ class SingleCommandApplication extends Command
 
         // We use the command name as the application name
         $application = new Application($this->getName() ?: 'UNKNOWN', $this->version);
-<<<<<<< HEAD
         $application->setAutoExit($this->autoExit);
-=======
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
         // Fix the usage of the command displayed with "--help"
         $this->setName($_SERVER['argv'][0]);
         $application->add($this);

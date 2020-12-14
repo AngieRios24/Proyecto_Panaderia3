@@ -46,11 +46,7 @@ class ShowCommand extends ReflectingCommand
             ->setName('show')
             ->setDefinition([
                 new CodeArgument('target', CodeArgument::OPTIONAL, 'Function, class, instance, constant, method or property to show.'),
-<<<<<<< HEAD
                 new InputOption('ex', null, InputOption::VALUE_OPTIONAL, 'Show last exception context. Optionally specify a stack index.', 1),
-=======
-                new InputOption('ex', null,  InputOption::VALUE_OPTIONAL, 'Show last exception context. Optionally specify a stack index.', 1),
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
             ])
             ->setDescription('Show the code for an object, class, constant, method or property.')
             ->setHelp(
@@ -152,11 +148,7 @@ HELP
                 $index = 0;
             }
         } else {
-<<<<<<< HEAD
             $index = \max(0, (int) $input->getOption('ex') - 1);
-=======
-            $index = \max(0, \intval($input->getOption('ex')) - 1);
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
         }
 
         $trace = $exception->getTrace();
@@ -197,21 +189,13 @@ HELP
     private function replaceCwd($file)
     {
         if ($cwd = \getcwd()) {
-<<<<<<< HEAD
             $cwd = \rtrim($cwd, \DIRECTORY_SEPARATOR).\DIRECTORY_SEPARATOR;
-=======
-            $cwd = \rtrim($cwd, DIRECTORY_SEPARATOR) . DIRECTORY_SEPARATOR;
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
         }
 
         if ($cwd === false) {
             return $file;
         } else {
-<<<<<<< HEAD
             return \preg_replace('/^'.\preg_quote($cwd, '/').'/', '', $file);
-=======
-            return \preg_replace('/^' . \preg_quote($cwd, '/') . '/', '', $file);
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
         }
     }
 

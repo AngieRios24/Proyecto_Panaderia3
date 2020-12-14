@@ -493,11 +493,7 @@ class DebugClassLoader
                     $hasCall = $refl->hasMethod('__call');
                     $hasStaticCall = $refl->hasMethod('__callStatic');
                     foreach (self::$method[$use] as $method) {
-<<<<<<< HEAD
                         [$interface, $name, $static, $description] = $method;
-=======
-                        list($interface, $name, $static, $description) = $method;
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
                         if ($static ? $hasStaticCall : $hasCall) {
                             continue;
                         }
@@ -559,20 +555,12 @@ class DebugClassLoader
             }
 
             if ($parent && isset(self::$finalMethods[$parent][$method->name])) {
-<<<<<<< HEAD
                 [$declaringClass, $message] = self::$finalMethods[$parent][$method->name];
-=======
-                list($declaringClass, $message) = self::$finalMethods[$parent][$method->name];
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
                 $deprecations[] = sprintf('The "%s::%s()" method is considered final%s. It may change without further notice as of its next major version. You should not extend it from "%s".', $declaringClass, $method->name, $message, $className);
             }
 
             if (isset(self::$internalMethods[$class][$method->name])) {
-<<<<<<< HEAD
                 [$declaringClass, $message] = self::$internalMethods[$class][$method->name];
-=======
-                list($declaringClass, $message) = self::$internalMethods[$class][$method->name];
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
                 if (strncmp($ns, $declaringClass, $len)) {
                     $deprecations[] = sprintf('The "%s::%s()" method is considered internal%s. It may change without further notice. You should not extend it from "%s".', $declaringClass, $method->name, $message, $className);
                 }
@@ -612,11 +600,7 @@ class DebugClassLoader
             }
 
             if (null !== ($returnType = self::$returnTypes[$class][$method->name] ?? self::MAGIC_METHODS[$method->name] ?? null) && !$method->hasReturnType() && !($doc && preg_match('/\n\s+\* @return +(\S+)/', $doc))) {
-<<<<<<< HEAD
                 [$normalizedType, $returnType, $declaringClass, $declaringFile] = \is_string($returnType) ? [$returnType, $returnType, '', ''] : $returnType;
-=======
-                list($normalizedType, $returnType, $declaringClass, $declaringFile) = \is_string($returnType) ? [$returnType, $returnType, '', ''] : $returnType;
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
 
                 if ('void' === $normalizedType) {
                     $canAddReturnType = false;
@@ -684,11 +668,7 @@ class DebugClassLoader
                     $definedParameters[$parameter->name] = true;
                 }
             }
-<<<<<<< HEAD
             foreach ($matches as [, $parameterType, $parameterName]) {
-=======
-            foreach ($matches as list(, $parameterType, $parameterName)) {
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
                 if (!isset($definedParameters[$parameterName])) {
                     $parameterType = trim($parameterType);
                     self::$annotatedParameters[$class][$method->name][$parameterName] = sprintf('The "%%s::%s()" method will require a new "%s$%s" argument in the next major version of its %s "%s", not defining it is deprecated.', $method->name, $parameterType ? $parameterType.' ' : '', $parameterName, interface_exists($className) ? 'interface' : 'parent class', $className);
@@ -959,17 +939,10 @@ class DebugClassLoader
                 continue;
             }
 
-<<<<<<< HEAD
             [$namespace, $useOffset, $useMap] = $useStatements[$file] ?? $useStatements[$file] = self::getUseStatements($file);
 
             if ('\\' !== $type[0]) {
                 [$declaringNamespace, , $declaringUseMap] = $useStatements[$declaringFile] ?? $useStatements[$declaringFile] = self::getUseStatements($declaringFile);
-=======
-            list($namespace, $useOffset, $useMap) = $useStatements[$file] ?? $useStatements[$file] = self::getUseStatements($file);
-
-            if ('\\' !== $type[0]) {
-                list($declaringNamespace, , $declaringUseMap) = $useStatements[$declaringFile] ?? $useStatements[$declaringFile] = self::getUseStatements($declaringFile);
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
 
                 $p = strpos($type, '\\', 1);
                 $alias = $p ? substr($type, 0, $p) : $type;

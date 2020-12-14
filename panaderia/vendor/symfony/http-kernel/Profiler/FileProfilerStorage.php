@@ -61,11 +61,7 @@ class FileProfilerStorage implements ProfilerStorageInterface
         $result = [];
         while (\count($result) < $limit && $line = $this->readLineFromFile($file)) {
             $values = str_getcsv($line);
-<<<<<<< HEAD
             [$csvToken, $csvIp, $csvMethod, $csvUrl, $csvTime, $csvParent, $csvStatusCode] = $values;
-=======
-            list($csvToken, $csvIp, $csvMethod, $csvUrl, $csvTime, $csvParent, $csvStatusCode) = $values;
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
             $csvTime = (int) $csvTime;
 
             if ($ip && false === strpos($csvIp, $ip) || $url && false === strpos($csvUrl, $url) || $method && false === strpos($csvMethod, $method) || $statusCode && false === strpos($csvStatusCode, $statusCode)) {

@@ -36,11 +36,7 @@ class ReturnTypePass extends CodeCleanerPass
 
     public function __construct()
     {
-<<<<<<< HEAD
         $this->atLeastPhp71 = \version_compare(\PHP_VERSION, '7.1', '>=');
-=======
-        $this->atLeastPhp71 = \version_compare(PHP_VERSION, '7.1', '>=');
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
     }
 
     /**
@@ -83,11 +79,7 @@ class ReturnTypePass extends CodeCleanerPass
             }
 
             if ($msg !== null) {
-<<<<<<< HEAD
                 throw new FatalErrorException($msg, 0, \E_ERROR, null, $node->getLine());
-=======
-                throw new FatalErrorException($msg, 0, E_ERROR, null, $node->getLine());
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
             }
         }
     }

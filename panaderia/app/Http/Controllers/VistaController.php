@@ -14,17 +14,19 @@ class VistaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function __construct(){
+        $this->middleware('cliente');
+        }
+
+
+
+
     public function index()
     {
-        return view('productos.index',[
-            'categories' =>DB::select("SELECT * FROM  ListarCategories()")
-        ]);
-    }
-    public function show($id)
-    {
-        $category = Category:: findOrFail($id);
         return view('productos.productos',[
-            'category'=> $category,
+            'products' =>DB::select("SELECT * FROM  ListarProducts()")
         ]);
     }
+
 }

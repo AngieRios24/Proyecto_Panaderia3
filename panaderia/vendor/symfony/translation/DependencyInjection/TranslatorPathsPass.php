@@ -48,11 +48,7 @@ class TranslatorPathsPass extends AbstractRecursivePass
         foreach ($this->findControllerArguments($container) as $controller => $argument) {
             $id = substr($controller, 0, strpos($controller, ':') ?: \strlen($controller));
             if ($container->hasDefinition($id)) {
-<<<<<<< HEAD
                 [$locatorRef] = $argument->getValues();
-=======
-                list($locatorRef) = $argument->getValues();
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
                 $this->controllers[(string) $locatorRef][$container->getDefinition($id)->getClass()] = true;
             }
         }

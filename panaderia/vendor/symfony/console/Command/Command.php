@@ -45,14 +45,8 @@ class Command
     private $hidden = false;
     private $help = '';
     private $description = '';
-<<<<<<< HEAD
     private $fullDefinition;
     private $ignoreValidationErrors = false;
-=======
-    private $ignoreValidationErrors = false;
-    private $applicationDefinitionMerged = false;
-    private $applicationDefinitionMergedWithArgs = false;
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
     private $code;
     private $synopsis = [];
     private $usages = [];
@@ -103,11 +97,8 @@ class Command
         } else {
             $this->helperSet = null;
         }
-<<<<<<< HEAD
 
         $this->fullDefinition = null;
-=======
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
     }
 
     public function setHelperSet(HelperSet $helperSet)
@@ -215,23 +206,12 @@ class Command
      */
     public function run(InputInterface $input, OutputInterface $output)
     {
-<<<<<<< HEAD
-=======
-        // force the creation of the synopsis before the merge with the app definition
-        $this->getSynopsis(true);
-        $this->getSynopsis(false);
-
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
         // add the application arguments and options
         $this->mergeApplicationDefinition();
 
         // bind the input against the command specific arguments/options
         try {
-<<<<<<< HEAD
             $input->bind($this->getDefinition());
-=======
-            $input->bind($this->definition);
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
         } catch (ExceptionInterface $e) {
             if (!$this->ignoreValidationErrors) {
                 throw $e;
@@ -319,7 +299,6 @@ class Command
      */
     public function mergeApplicationDefinition(bool $mergeArgs = true)
     {
-<<<<<<< HEAD
         if (null === $this->application) {
             return;
         }
@@ -333,22 +312,6 @@ class Command
             $this->fullDefinition->addArguments($this->definition->getArguments());
         } else {
             $this->fullDefinition->setArguments($this->definition->getArguments());
-=======
-        if (null === $this->application || (true === $this->applicationDefinitionMerged && ($this->applicationDefinitionMergedWithArgs || !$mergeArgs))) {
-            return;
-        }
-
-        $this->definition->addOptions($this->application->getDefinition()->getOptions());
-
-        $this->applicationDefinitionMerged = true;
-
-        if ($mergeArgs) {
-            $currentArguments = $this->definition->getArguments();
-            $this->definition->setArguments($this->application->getDefinition()->getArguments());
-            $this->definition->addArguments($currentArguments);
-
-            $this->applicationDefinitionMergedWithArgs = true;
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
         }
     }
 
@@ -367,11 +330,7 @@ class Command
             $this->definition->setDefinition($definition);
         }
 
-<<<<<<< HEAD
         $this->fullDefinition = null;
-=======
-        $this->applicationDefinitionMerged = false;
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
 
         return $this;
     }
@@ -383,15 +342,7 @@ class Command
      */
     public function getDefinition()
     {
-<<<<<<< HEAD
         return $this->fullDefinition ?? $this->getNativeDefinition();
-=======
-        if (null === $this->definition) {
-            throw new LogicException(sprintf('Command class "%s" is not correctly initialized. You probably forgot to call the parent constructor.', static::class));
-        }
-
-        return $this->definition;
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
     }
 
     /**
@@ -406,15 +357,11 @@ class Command
      */
     public function getNativeDefinition()
     {
-<<<<<<< HEAD
         if (null === $this->definition) {
             throw new LogicException(sprintf('Command class "%s" is not correctly initialized. You probably forgot to call the parent constructor.', static::class));
         }
 
         return $this->definition;
-=======
-        return $this->getDefinition();
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
     }
 
     /**
@@ -430,12 +377,9 @@ class Command
     public function addArgument(string $name, int $mode = null, string $description = '', $default = null)
     {
         $this->definition->addArgument(new InputArgument($name, $mode, $description, $default));
-<<<<<<< HEAD
         if (null !== $this->fullDefinition) {
             $this->fullDefinition->addArgument(new InputArgument($name, $mode, $description, $default));
         }
-=======
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
 
         return $this;
     }
@@ -454,12 +398,9 @@ class Command
     public function addOption(string $name, $shortcut = null, int $mode = null, string $description = '', $default = null)
     {
         $this->definition->addOption(new InputOption($name, $shortcut, $mode, $description, $default));
-<<<<<<< HEAD
         if (null !== $this->fullDefinition) {
             $this->fullDefinition->addOption(new InputOption($name, $shortcut, $mode, $description, $default));
         }
-=======
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
 
         return $this;
     }

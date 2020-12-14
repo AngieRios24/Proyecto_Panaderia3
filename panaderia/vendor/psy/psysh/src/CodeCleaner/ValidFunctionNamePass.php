@@ -52,11 +52,7 @@ class ValidFunctionNamePass extends NamespaceAwarePass
                 if (\function_exists($name) ||
                     isset($this->currentScope[\strtolower($name)])) {
                     $msg = \sprintf('Cannot redeclare %s()', $name);
-<<<<<<< HEAD
                     throw new FatalErrorException($msg, 0, \E_ERROR, null, $node->getLine());
-=======
-                    throw new FatalErrorException($msg, 0, E_ERROR, null, $node->getLine());
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
                 }
             }
 
@@ -81,19 +77,11 @@ class ValidFunctionNamePass extends NamespaceAwarePass
             $name = $node->name;
             if (!$name instanceof Expr && !$name instanceof Variable) {
                 $shortName = \implode('\\', $name->parts);
-<<<<<<< HEAD
                 $fullName = $this->getFullyQualifiedName($name);
                 $inScope = isset($this->currentScope[\strtolower($fullName)]);
                 if (!$inScope && !\function_exists($shortName) && !\function_exists($fullName)) {
                     $message = \sprintf('Call to undefined function %s()', $name);
                     throw new FatalErrorException($message, 0, \E_ERROR, null, $node->getLine());
-=======
-                $fullName  = $this->getFullyQualifiedName($name);
-                $inScope   = isset($this->currentScope[\strtolower($fullName)]);
-                if (!$inScope && !\function_exists($shortName) && !\function_exists($fullName)) {
-                    $message = \sprintf('Call to undefined function %s()', $name);
-                    throw new FatalErrorException($message, 0, E_ERROR, null, $node->getLine());
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
                 }
             }
         }

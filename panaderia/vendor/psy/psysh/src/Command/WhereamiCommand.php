@@ -30,11 +30,7 @@ class WhereamiCommand extends Command
      */
     public function __construct($colorMode = null)
     {
-<<<<<<< HEAD
         $this->backtrace = \debug_backtrace(\DEBUG_BACKTRACE_IGNORE_ARGS);
-=======
-        $this->backtrace = \debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS);
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
 
         parent::__construct();
     }
@@ -47,13 +43,8 @@ class WhereamiCommand extends Command
         $this
             ->setName('whereami')
             ->setDefinition([
-<<<<<<< HEAD
                 new InputOption('num', 'n', InputOption::VALUE_OPTIONAL, 'Number of lines before and after.', '5'),
                 new InputOption('file', 'f|a', InputOption::VALUE_NONE, 'Show the full source for the current file.'),
-=======
-                new InputOption('num',  'n',   InputOption::VALUE_OPTIONAL, 'Number of lines before and after.', '5'),
-                new InputOption('file', 'f|a', InputOption::VALUE_NONE,     'Show the full source for the current file.'),
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
             ])
             ->setDescription('Show where you are in the code.')
             ->setHelp(
@@ -89,11 +80,7 @@ HELP
 
     private static function isDebugCall(array $stackFrame)
     {
-<<<<<<< HEAD
         $class = isset($stackFrame['class']) ? $stackFrame['class'] : null;
-=======
-        $class    = isset($stackFrame['class']) ? $stackFrame['class'] : null;
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
         $function = isset($stackFrame['function']) ? $stackFrame['function'] : null;
 
         return ($class === null && $function === 'Psy\\debug') ||
@@ -125,7 +112,6 @@ HELP
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-<<<<<<< HEAD
         $info = $this->fileInfo();
         $num = $input->getOption('num');
         $lineNum = $info['line'];
@@ -136,18 +122,6 @@ HELP
         if ($input->getOption('file')) {
             $startLine = 1;
             $endLine = null;
-=======
-        $info      = $this->fileInfo();
-        $num       = $input->getOption('num');
-        $lineNum   = $info['line'];
-        $startLine = \max($lineNum - $num, 1);
-        $endLine   = $lineNum + $num;
-        $code      = \file_get_contents($info['file']);
-
-        if ($input->getOption('file')) {
-            $startLine = 1;
-            $endLine   = null;
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
         }
 
         if ($output instanceof ShellOutput) {
@@ -178,14 +152,8 @@ HELP
             return $file;
         }
 
-<<<<<<< HEAD
         $cwd = \rtrim($cwd, \DIRECTORY_SEPARATOR).\DIRECTORY_SEPARATOR;
 
         return \preg_replace('/^'.\preg_quote($cwd, '/').'/', '', $file);
-=======
-        $cwd = \rtrim($cwd, DIRECTORY_SEPARATOR) . DIRECTORY_SEPARATOR;
-
-        return \preg_replace('/^' . \preg_quote($cwd, '/') . '/', '', $file);
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
     }
 }

@@ -34,11 +34,7 @@ class DocblockFormatter implements ReflectorFormatter
     public static function format(\Reflector $reflector)
     {
         $docblock = new Docblock($reflector);
-<<<<<<< HEAD
         $chunks = [];
-=======
-        $chunks   = [];
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
 
         if (!empty($docblock->desc)) {
             $chunks[] = '<comment>Description:</comment>';
@@ -159,11 +155,7 @@ class DocblockFormatter implements ReflectorFormatter
      */
     private static function indent($text, $indent = '  ')
     {
-<<<<<<< HEAD
         return $indent.\str_replace("\n", "\n".$indent, $text);
-=======
-        return $indent . \str_replace("\n", "\n" . $indent, $text);
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
     }
 
     /**

@@ -29,7 +29,7 @@
     </div>
     <div class="col-lg-7 col-md-4 col-sm-6 col-xs-12 text-right">
         <a href="/vendors/create" class="btn btn-success">Agregar vendedor</a>
-        <a href="/" class="btn btn-secondary">Regresar</a>
+        <a href="/home" class="btn btn-secondary">Regresar</a>
     </div>
 </div>
 <div class="flex justify-center">

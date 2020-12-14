@@ -21,13 +21,8 @@ use Symfony\Component\Console\Helper\Table;
 use Symfony\Component\Console\Helper\TableCell;
 use Symfony\Component\Console\Helper\TableSeparator;
 use Symfony\Component\Console\Input\InputInterface;
-<<<<<<< HEAD
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Output\TrimmedBufferOutput;
-=======
-use Symfony\Component\Console\Output\BufferedOutput;
-use Symfony\Component\Console\Output\OutputInterface;
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
 use Symfony\Component\Console\Question\ChoiceQuestion;
 use Symfony\Component\Console\Question\ConfirmationQuestion;
 use Symfony\Component\Console\Question\Question;
@@ -51,11 +46,7 @@ class SymfonyStyle extends OutputStyle
     public function __construct(InputInterface $input, OutputInterface $output)
     {
         $this->input = $input;
-<<<<<<< HEAD
         $this->bufferedOutput = new TrimmedBufferOutput(\DIRECTORY_SEPARATOR === '\\' ? 4 : 2, $output->getVerbosity(), false, clone $output->getFormatter());
-=======
-        $this->bufferedOutput = new BufferedOutput($output->getVerbosity(), false, clone $output->getFormatter());
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
         // Windows cmd wraps lines as soon as the terminal width is reached, whether there are following chars or not.
         $width = (new Terminal())->getWidth() ?: self::MAX_LINE_LENGTH;
         $this->lineLength = min($width - (int) (\DIRECTORY_SEPARATOR === '\\'), self::MAX_LINE_LENGTH);
@@ -173,7 +164,6 @@ class SymfonyStyle extends OutputStyle
     }
 
     /**
-<<<<<<< HEAD
      * Formats an info message.
      *
      * @param string|array $message
@@ -184,8 +174,6 @@ class SymfonyStyle extends OutputStyle
     }
 
     /**
-=======
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
      * {@inheritdoc}
      */
     public function caution($message)
@@ -466,14 +454,8 @@ class SymfonyStyle extends OutputStyle
 
     private function writeBuffer(string $message, bool $newLine, int $type): void
     {
-<<<<<<< HEAD
         // We need to know if the last chars are PHP_EOL
         $this->bufferedOutput->write($message, $newLine, $type);
-=======
-        // We need to know if the two last chars are PHP_EOL
-        // Preserve the last 4 chars inserted (PHP_EOL on windows is two chars) in the history buffer
-        $this->bufferedOutput->write(substr($message, -4), $newLine, $type);
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
     }
 
     private function createBlock(iterable $messages, string $type = null, string $style = null, string $prefix = ' ', bool $padding = false, bool $escape = false): array

@@ -9,6 +9,7 @@ class Statu extends Model
 {
     use HasFactory;
     public function order() {
-        return $this->belongsToMany('App\Order');
+        return $this->belongsToMany('App\Order','statu_orders')->withPivote('order_id');
     }
+
 }

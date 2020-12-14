@@ -17,13 +17,7 @@
     </div>
 </div>
 
-<div class="row">
-@if($buscar)
-    <div class="col-lg-12 col-md-4 col-sm-6 col-xs-12 text-center alert alert-primary" role="alert">
-        <h4>Los resultados de la busqueda</h4>
-    </div>
-</div>
-@endif
+
 <div class="row">
     <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 text-right">
         <form>
@@ -37,7 +31,7 @@
     </div>
     <div class="col-lg-7 col-md-4 col-sm-6 col-xs-12 text-right">
         <a href="/products/create" class="btn btn-success">Agregar Producto</a>
-        <a href="/" class="btn btn-secondary">Regresar</a>
+        <a href="/home" class="btn btn-secondary">Regresar</a>
     </div>
 </div>
 <div class="flex justify-center">

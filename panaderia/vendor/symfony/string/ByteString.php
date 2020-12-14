@@ -25,11 +25,7 @@ use Symfony\Component\String\Exception\RuntimeException;
  */
 class ByteString extends AbstractString
 {
-<<<<<<< HEAD
     private const ALPHABET_ALPHANUMERIC = '123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz';
-=======
-    private const ALPHABET_ALPHANUMERIC = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
 
     public function __construct(string $string = '')
     {

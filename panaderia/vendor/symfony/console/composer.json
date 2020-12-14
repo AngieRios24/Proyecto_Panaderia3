@@ -2,11 +2,7 @@
     "name": "symfony/console",
     "type": "library",
     "description": "Symfony Console Component",
-<<<<<<< HEAD
     "keywords": ["console", "cli", "command line", "terminal"],
-=======
-    "keywords": [],
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
     "homepage": "https://symfony.com",
     "license": "MIT",
     "authors": [

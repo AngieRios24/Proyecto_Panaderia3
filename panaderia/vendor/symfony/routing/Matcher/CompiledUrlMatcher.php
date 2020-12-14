@@ -26,10 +26,6 @@ class CompiledUrlMatcher extends UrlMatcher
     public function __construct(array $compiledRoutes, RequestContext $context)
     {
         $this->context = $context;
-<<<<<<< HEAD
         [$this->matchHost, $this->staticRoutes, $this->regexpList, $this->dynamicRoutes, $this->checkCondition] = $compiledRoutes;
-=======
-        list($this->matchHost, $this->staticRoutes, $this->regexpList, $this->dynamicRoutes, $this->checkCondition) = $compiledRoutes;
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
     }
 }

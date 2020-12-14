@@ -29,11 +29,8 @@ trait TesterTrait
     /**
      * Gets the display returned by the last execution of the command or application.
      *
-<<<<<<< HEAD
      * @throws \RuntimeException If it's called before the execute method
      *
-=======
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
      * @return string The display
      */
     public function getDisplay(bool $normalize = false)
@@ -100,22 +97,16 @@ trait TesterTrait
     /**
      * Gets the status code returned by the last execution of the command or application.
      *
-<<<<<<< HEAD
      * @throws \RuntimeException If it's called before the execute method
      *
-=======
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
      * @return int The status code
      */
     public function getStatusCode()
     {
-<<<<<<< HEAD
         if (null === $this->statusCode) {
             throw new \RuntimeException('Status code not initialized, did you execute the command before requesting the status code?');
         }
 
-=======
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
         return $this->statusCode;
     }
 

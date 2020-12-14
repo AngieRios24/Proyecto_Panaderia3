@@ -1,7 +1,6 @@
 CHANGELOG
 =========
 
-<<<<<<< HEAD
 5.2.0
 -----
 
@@ -9,8 +8,6 @@ CHANGELOG
  * added `VAR_DUMPER_FORMAT=server` env var value support
  * prevent replacing the handler when the `VAR_DUMPER_FORMAT` env var is set
 
-=======
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
 5.1.0
 -----
 

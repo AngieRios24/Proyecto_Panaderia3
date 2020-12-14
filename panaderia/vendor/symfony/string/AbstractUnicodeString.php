@@ -77,11 +77,7 @@ abstract class AbstractUnicodeString extends AbstractString
      *
      * Install the intl extension for best results.
      *
-<<<<<<< HEAD
      * @param string[]|\Transliterator[]|\Closure[] $rules See "*-Latin" rules from Transliterator::listIDs()
-=======
-     * @param string[]|\Transliterator[] $rules See "*-Latin" rules from Transliterator::listIDs()
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
      */
     public function ascii(array $rules = []): self
     {
@@ -111,11 +107,8 @@ abstract class AbstractUnicodeString extends AbstractString
 
             if ($rule instanceof \Transliterator) {
                 $s = $rule->transliterate($s);
-<<<<<<< HEAD
             } elseif ($rule instanceof \Closure) {
                 $s = $rule($s);
-=======
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
             } elseif ($rule) {
                 if ('nfd' === $rule = strtolower($rule)) {
                     normalizer_is_normalized($s, self::NFD) ?: $s = normalizer_normalize($s, self::NFD);

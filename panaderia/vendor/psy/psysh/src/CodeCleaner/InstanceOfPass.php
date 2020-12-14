@@ -30,7 +30,6 @@ class InstanceOfPass extends CodeCleanerPass
 {
     const EXCEPTION_MSG = 'instanceof expects an object instance, constant given';
 
-<<<<<<< HEAD
     private $atLeastPhp73;
 
     public function __construct()
@@ -38,8 +37,6 @@ class InstanceOfPass extends CodeCleanerPass
         $this->atLeastPhp73 = \version_compare(\PHP_VERSION, '7.3', '>=');
     }
 
-=======
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
     /**
      * Validate that the instanceof statement does not receive a scalar value or a non-class constant.
      *
@@ -49,14 +46,11 @@ class InstanceOfPass extends CodeCleanerPass
      */
     public function enterNode(Node $node)
     {
-<<<<<<< HEAD
         // Basically everything is allowed in PHP 7.3 :)
         if ($this->atLeastPhp73) {
             return;
         }
 
-=======
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
         if (!$node instanceof Instanceof_) {
             return;
         }
@@ -67,11 +61,7 @@ class InstanceOfPass extends CodeCleanerPass
             $node->expr instanceof ConstFetch ||
             $node->expr instanceof ClassConstFetch
         ) {
-<<<<<<< HEAD
             throw new FatalErrorException(self::EXCEPTION_MSG, 0, \E_ERROR, null, $node->getLine());
-=======
-            throw new FatalErrorException(self::EXCEPTION_MSG, 0, E_ERROR, null, $node->getLine());
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
         }
     }
 }

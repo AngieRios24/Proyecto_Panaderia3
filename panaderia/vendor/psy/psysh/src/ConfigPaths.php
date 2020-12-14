@@ -152,37 +152,24 @@ class ConfigPaths
 
         \restore_error_handler();
 
-<<<<<<< HEAD
         return \strtr($runtimeDir, '\\', '/').'/psysh';
-=======
-        return \strtr($runtimeDir, '\\', '/') . '/psysh';
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
     }
 
     private static function getDirNames(array $baseDirs)
     {
         $dirs = \array_map(function ($dir) {
-<<<<<<< HEAD
             return \strtr($dir, '\\', '/').'/psysh';
-=======
-            return \strtr($dir, '\\', '/') . '/psysh';
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
         }, $baseDirs);
 
         // Add ~/.psysh
         if (isset($_SERVER['HOME']) && $_SERVER['HOME']) {
-<<<<<<< HEAD
             $dirs[] = \strtr($_SERVER['HOME'], '\\', '/').'/.psysh';
-=======
-            $dirs[] = \strtr($_SERVER['HOME'], '\\', '/') . '/.psysh';
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
         }
 
         // Add some Windows specific ones :)
         if (\defined('PHP_WINDOWS_VERSION_MAJOR')) {
             if (isset($_SERVER['APPDATA']) && $_SERVER['APPDATA']) {
                 // AppData gets preference
-<<<<<<< HEAD
                 \array_unshift($dirs, \strtr($_SERVER['APPDATA'], '\\', '/').'/PsySH');
             }
 
@@ -191,14 +178,6 @@ class ConfigPaths
                 if (!\in_array($dir, $dirs)) {
                     $dirs[] = $dir;
                 }
-=======
-                \array_unshift($dirs, \strtr($_SERVER['APPDATA'], '\\', '/') . '/PsySH');
-            }
-
-            $dir = \strtr($_SERVER['HOMEDRIVE'] . '/' . $_SERVER['HOMEPATH'], '\\', '/') . '/.psysh';
-            if (!\in_array($dir, $dirs)) {
-                $dirs[] = $dir;
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
             }
         }
 
@@ -210,11 +189,7 @@ class ConfigPaths
         $files = [];
         foreach ($dirNames as $dir) {
             foreach ($fileNames as $name) {
-<<<<<<< HEAD
                 $file = $dir.'/'.$name;
-=======
-                $file = $dir . '/' . $name;
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
                 if (@\is_file($file)) {
                     $files[] = $file;
                 }
@@ -241,11 +216,7 @@ class ConfigPaths
         }
 
         if (!\is_dir($dir) || !\is_writable($dir)) {
-<<<<<<< HEAD
             \trigger_error(\sprintf('Writing to directory %s is not allowed.', $dir), \E_USER_NOTICE);
-=======
-            \trigger_error(\sprintf('Writing to %s is not allowed.', $dir), E_USER_NOTICE);
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
 
             return false;
         }
@@ -269,11 +240,7 @@ class ConfigPaths
                 return $file;
             }
 
-<<<<<<< HEAD
             \trigger_error(\sprintf('Writing to %s is not allowed.', $file), \E_USER_NOTICE);
-=======
-            \trigger_error(\sprintf('Writing to %s is not allowed.', $file), E_USER_NOTICE);
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
 
             return false;
         }

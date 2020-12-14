@@ -80,10 +80,7 @@ return array(
     'DeepCopy\\' => array($vendorDir . '/myclabs/deep-copy/src/DeepCopy'),
     'Database\\Seeders\\' => array($baseDir . '/database/seeders'),
     'Database\\Factories\\' => array($baseDir . '/database/factories'),
-<<<<<<< HEAD
     'Darryldecode\\' => array($vendorDir . '/darryldecode/cart/src/Darryldecode'),
-=======
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
     'Cron\\' => array($vendorDir . '/dragonmantank/cron-expression/src/Cron'),
     'CodemanCompany\\LaravelMercadoPago\\' => array($vendorDir . '/codemancompany/laravel-mercadopago/src'),
     'Carbon\\' => array($vendorDir . '/nesbot/carbon/src/Carbon'),

@@ -49,11 +49,7 @@ class EventDispatcher implements EventDispatcherInterface
     {
         $eventName = $eventName ?? \get_class($event);
 
-<<<<<<< HEAD
         if (null !== $this->optimized) {
-=======
-        if (null !== $this->optimized && null !== $eventName) {
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
             $listeners = $this->optimized[$eventName] ?? (empty($this->listeners[$eventName]) ? [] : $this->optimizeListeners($eventName));
         } else {
             $listeners = $this->getListeners($eventName);

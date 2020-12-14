@@ -10,7 +10,19 @@
                 <div class="card-body">
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
+                        <div class="form-group row">
+                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Tipo Documento') }}</label>
+                                 <div class="col-md-6">
+                                    <input type="text" name="tipodocumento">
+                                </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Número de documento') }}</label>
 
+                            <div class="col-md-6">
+                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="documento" autofocus>
+                            </div>
+                        </div>
                         <div class="form-group row">
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
 
@@ -22,6 +34,20 @@
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Apellido') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="apellido"  autofocus>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Celular') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="celular" required autocomplete="name" autofocus>
                             </div>
                         </div>
 
@@ -68,11 +94,10 @@
                             <select class="form-control form-control-sm" name="role">
                             <option value="vendor">Vendedor</option>
                             <option value="cliente">Cliente</option>
-
-
+                            <option value="admin">Administrador</option>
                             </select>
 
-                                
+
                             </div>
                         </div>
 

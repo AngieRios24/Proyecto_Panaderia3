@@ -30,11 +30,7 @@ final class TestBuilder
         $className = $theClass->getName();
 
         if (!$theClass->isInstantiable()) {
-<<<<<<< HEAD
             return new ErrorTestCase(
-=======
-            return new WarningTestCase(
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
                 sprintf('Cannot instantiate class "%s".', $className)
             );
         }
@@ -103,11 +99,7 @@ final class TestBuilder
                     $this->throwableToString($t)
                 );
 
-<<<<<<< HEAD
                 $data = new ErrorTestCase($message);
-=======
-                $data = new WarningTestCase($message);
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
             }
 
             // Test method with @dataProvider.
@@ -162,11 +154,7 @@ final class TestBuilder
 
         $groups = TestUtil::getGroups($className, $methodName);
 
-<<<<<<< HEAD
         if ($data instanceof ErrorTestCase ||
-=======
-        if ($data instanceof WarningTestCase ||
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
             $data instanceof SkippedTestCase ||
             $data instanceof IncompleteTestCase) {
             $dataProviderTestSuite->addTest($data, $groups);

@@ -1,6 +1,5 @@
 # Change Log
 
-<<<<<<< HEAD
 ## [3.1.0] - 2020-11-24
 
 ### Added
@@ -18,8 +17,6 @@
 - Deprecated `CronExpression::factory` in favor of the constructor (#56)
 - Deprecated `CronExpression::YEAR` as a formality, the functionality is already removed (#87)
 
-=======
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
 ## [3.0.1] - 2020-10-12
 ### Added
 - Added support for PHP 8 (#92)

@@ -33,11 +33,7 @@ class AssignThisVariablePass extends CodeCleanerPass
     public function enterNode(Node $node)
     {
         if ($node instanceof Assign && $node->var instanceof Variable && $node->var->name === 'this') {
-<<<<<<< HEAD
             throw new FatalErrorException('Cannot re-assign $this', 0, \E_ERROR, null, $node->getLine());
-=======
-            throw new FatalErrorException('Cannot re-assign $this', 0, E_ERROR, null, $node->getLine());
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
         }
     }
 }

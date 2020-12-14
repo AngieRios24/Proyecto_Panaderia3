@@ -1,6 +1,5 @@
 # CHANGELOG
 
-<<<<<<< HEAD
 ## 2020-11-23, v1.12.0
 
 - Fix ro_RO first and last day of year calculation offset (#65)
@@ -9,8 +8,6 @@
 - Added provider for Lithuanian municipalities (#58)
 - Added blood types provider (#61)
 
-=======
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
 ## 2020-11-15, v1.11.0
 
 - Added Provider for Swedish Municipalities

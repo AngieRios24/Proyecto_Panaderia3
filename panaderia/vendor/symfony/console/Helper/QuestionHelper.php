@@ -129,11 +129,7 @@ class QuestionHelper extends Helper
             }
 
             if (false === $ret) {
-<<<<<<< HEAD
                 $ret = $this->readInput($inputStream, $question);
-=======
-                $ret = fgets($inputStream, 4096);
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
                 if (false === $ret) {
                     throw new MissingInputException('Aborted.');
                 }
@@ -506,7 +502,6 @@ class QuestionHelper extends Helper
 
         return self::$stdinIsInteractive = 1 !== $status;
     }
-<<<<<<< HEAD
 
     /**
      * Reads one or more lines of input and returns what is read.
@@ -571,6 +566,4 @@ class QuestionHelper extends Helper
 
         return $cloneStream;
     }
-=======
->>>>>>> be94746b1f59100ae2b323d591c9213416c268d3
 }
