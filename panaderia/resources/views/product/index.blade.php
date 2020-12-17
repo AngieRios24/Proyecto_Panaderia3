@@ -16,20 +16,7 @@
         <h4>Gestionar Productos</h4>
     </div>
 </div>
-
-
-<div class="row">
-    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 text-right">
-        <form>
-            <div class="form-group">
-                 <input type="text"  id="buscar" name="buscar"
-                 placeholder="Buscar">
-                 <button class="bt btn-primary">Buscar </button>
-             </div>
-
-        </form>
-    </div>
-    <div class="col-lg-7 col-md-4 col-sm-6 col-xs-12 text-right">
+    <div class="col-lg-11 col-md-4 col-sm-6 col-xs-12 text-right">
         <a href="/products/create" class="btn btn-success">Agregar Producto</a>
         <a href="/home" class="btn btn-secondary">Regresar</a>
     </div>

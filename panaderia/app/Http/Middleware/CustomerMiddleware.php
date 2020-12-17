@@ -14,11 +14,23 @@ class CustomerMiddleware
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle(Request $request, Closure $next)
+   public function handle(Request $request, Closure $next)
     {
         if(Auth::user()->role=='cliente'){
             return $next($request);
+            return redirect('/productos');
+
         }
-        return redirect('/home');
+        //return $next($request);
     }
+     /*
+    public function handle(Request $request, Closure $next, $role)
+    {
+    if(! $request->user()->hasRole($role)){
+
+        return redirect('/home');
+        return $next($request);
+
+        }
+    }*/
 }

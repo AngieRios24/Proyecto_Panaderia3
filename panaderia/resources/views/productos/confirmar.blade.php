@@ -1,51 +1,134 @@
 @extends("layouts.app")
 
 @section("content")
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Stripe Payment</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
 <div  class=" row p-4  bg-info">
     <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12">
         <img src="/images/logo.png" width="120" height="120">
     </div>
-    <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-        <form>
-            <div class="form-group has-feedback">
-                 <input type="text"  id="buscar" name="buscar"
-                 placeholder="Buscar"/>
-                 <button class="bt btn-primary">Buscar </button>
-             </div>
-        </form>
-    </div>
-    <div class="col-lg-7 col-md-4 col-sm-6 col-xs-12 text-left" style="margin-top:40px">
+
+    <div class="col-lg-8 col-md-4 col-sm-6 col-xs-12 text-center" style="margin-top:40px">
 
         <h2> Panaderia la Macarena
-        <div class="mt-auto bd-highlight text-right" style="margin-top:40px">
-        @if(count(Cart::getContent()))
-            <a href="{{route('cart-checkout')}}" class="text-dark btn btn-light">Carrito<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-cart-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd" d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm7 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/>
-                            </svg>{{count(Cart::getContent())}}
-            </a>
-        @endif
-        </div>
+
     </div>
 
 </div>
-<p>
-<div class="row">
-    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-10">
-    <p class="card-title text-center">Siempre ofreciendole los mejores productos a nuestros clientes.</p>
-     </div>
-    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-2">
-        <p class="card-title text-left"> <a href="/productos" class="btn btn-primary"> Regresar</a></p>
-     </div>
- </div>
- </p>
- <div class="row justify-content-center">
-    <div class="col-lg-12">
-        <h1>Confirmaciòn</h1>
-        <p>Tu pedido tiene el còdigo {{$order}}</p>
+<body>
+    @php
+        $stripe_key = 'pk_test_51HyoEgDgfPrOKCH7SuM3OlLrfrVkTEGD9Vhy4J3Kg95Q92jRtNTBBqSJMgLNWmVwNqZxC6a7qrSGxtT5TKxjSuVO00ONQEPary';
+    @endphp
+    <div class="container" style="margin-top:10%;margin-bottom:10%">
+        <div class="row justify-content-center">
+            <div class="col-md-12">
+                <div class="">
+                    <p class="text-center">Realice su pago</p>
+                </div>
+                <div class="card">
+                    <form action="{{route('productos.confirmar')}}"  method="post" id="payment-form">
+                        @csrf
+                        <div class="form-group">
+                            <div class="card-header">
+                                <label for="card-element">
+                                   Brindanos la información de su tarjeta
+                                </label>
+                            </div>
+                            <div class="card-body">
+                                <div id="card-element">
+                                <!-- A Stripe Element will be inserted here. -->
+                                </div>
+                                <!-- Used to display form errors. -->
+                                <div id="card-errors" role="alert"></div>
+                                <input type="hidden" name="plan" value="" />
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                          <button
+                          id="card-button"
+                          class="btn btn-dark"
+                          type="submit"
+                          data-secret="{{$intent}}"
+                        > Pay </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
- </div>
+    <script src="https://js.stripe.com/v3/"></script>
+    <script>
+        // Custom styling can be passed to options when creating an Element.
+        // (Note that this demo uses a wider set of styles than the guide below.)
 
+        var style = {
+            base: {
+                color: '#32325d',
+                lineHeight: '18px',
+                fontFamily: '"Helvetica Neue", Helvetica, sans-serif',
+                fontSmoothing: 'antialiased',
+                fontSize: '16px',
+                '::placeholder': {
+                    color: '#aab7c4'
+                }
+            },
+            invalid: {
+                color: '#fa755a',
+                iconColor: '#fa755a'
+            }
+        };
 
+        const stripe = Stripe('{{ $stripe_key }}', { locale: 'en' }); // Create a Stripe client.
+        const elements = stripe.elements(); // Create an instance of Elements.
+        const cardElement = elements.create('card', { style: style }); // Create an instance of the card Element.
+        const cardButton = document.getElementById('card-button');
+        const clientSecret = cardButton.dataset.secret;
 
+        cardElement.mount('#card-element'); // Add an instance of the card Element into the `card-element` <div>.
+
+        // Handle real-time validation errors from the card Element.
+        cardElement.addEventListener('change', function(event) {
+            var displayError = document.getElementById('card-errors');
+            if (event.error) {
+                displayError.textContent = event.error.message;
+            } else {
+                displayError.textContent = '';
+            }
+        });
+
+        // Handle form submission.
+        var form = document.getElementById('payment-form');
+
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+
+        stripe.handleCardPayment(clientSecret, cardElement, {
+                payment_method_data: {
+                    //billing_details: { name: cardHolderName.value }
+                }
+            })
+            .then(function(result) {
+                console.log(result);
+                if (result.error) {
+                    // Inform the user if there was an error.
+                    var errorElement = document.getElementById('card-errors');
+                    errorElement.textContent = result.error.message;
+                } else {
+                    console.log(result);
+                    form.submit();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
 @endsection

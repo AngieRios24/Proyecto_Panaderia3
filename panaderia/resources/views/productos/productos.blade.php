@@ -6,16 +6,8 @@
     <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12">
         <img src="/images/logo.png" width="120" height="120">
     </div>
-    <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-        <form>
-            <div class="form-group has-feedback">
-                 <input type="text"  id="buscar" name="buscar"
-                 placeholder="Buscar"/>
-                 <button class="bt btn-primary">Buscar </button>
-             </div>
-        </form>
-    </div>
-    <div class="col-lg-7 col-md-4 col-sm-6 col-xs-12 text-left" style="margin-top:40px">
+
+    <div class="col-lg-8 col-md-4 col-sm-6 col-xs-12 text-center" style="margin-top:40px">
 
         <h2> Panaderia la Macarena
         <div class="mt-auto bd-highlight text-right" style="margin-top:40px">
@@ -31,14 +23,23 @@
 </div>
 <p>
 <div class="row">
-    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-10">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
     <p class="card-title text-center">Siempre ofreciendole los mejores productos a nuestros clientes.</p>
-     </div>
-    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-2">
-        <p class="card-title text-left"> <a href="/productos" class="btn btn-primary"> Regresar</a></p>
      </div>
  </div>
  </p>
+ <div class="row justify-content-center">
+    <div class="col-lg-10">
+        <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="/images/pan5.jpg" class="d-block w-100" alt="imag-responsive" width="100" height="300">
+                </div>
+            </div>
+        </div>
+     </div>
+ </div>
+ <br>
 <div class="container">
      <div class="row">
         @foreach ($products as $product)
@@ -46,10 +47,10 @@
                 <div class="card border-primary">
 
                     <div class="card-body">
-                    <img class="card-img-top" src="/images/{{$product->product_photo}}" alt="{{$product->product_photo}}" width="20" height="150">
+                    <img class="card-img-top" src="/images/{{$product->product_photo}}" alt="{{$product->product_photo}}" width="50px" height="250px">
                          <h3 class="card-title text-center">{{$product->product_name}}</h3>
                         <p class="card-title  ">{{$product->product_description}}</p>
-                        <p class="card-title ">Precio:  {{$product->product_price}}</p>
+                        <p class="card-title ">Precio:  $ {{$product->product_price}}</p>
                         <div class="text-center">
                            <form action="{{route('add-cart')}}" method="post">
                            @csrf

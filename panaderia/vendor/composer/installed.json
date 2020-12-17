@@ -799,17 +799,17 @@
     },
     {
         "name": "fakerphp/faker",
-        "version": "v1.12.0",
-        "version_normalized": "1.12.0.0",
+        "version": "v1.12.1",
+        "version_normalized": "1.12.1.0",
         "source": {
             "type": "git",
             "url": "https://github.com/FakerPHP/Faker.git",
-            "reference": "9aa6c9e289860951e6b4d010c7a841802d015cd8"
+            "reference": "841e8bdde345cc1ea9f98e776959e7531cadea0e"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/FakerPHP/Faker/zipball/9aa6c9e289860951e6b4d010c7a841802d015cd8",
-            "reference": "9aa6c9e289860951e6b4d010c7a841802d015cd8",
+            "url": "https://api.github.com/repos/FakerPHP/Faker/zipball/841e8bdde345cc1ea9f98e776959e7531cadea0e",
+            "reference": "841e8bdde345cc1ea9f98e776959e7531cadea0e",
             "shasum": ""
         },
         "require": {
@@ -823,7 +823,7 @@
             "ext-intl": "*",
             "phpunit/phpunit": "^7.5.20 || ^8.5.8 || ^9.4.2"
         },
-        "time": "2020-11-23T09:33:08+00:00",
+        "time": "2020-12-11T10:39:41+00:00",
         "type": "library",
         "installation-source": "dist",
         "autoload": {
@@ -1382,17 +1382,17 @@
     },
     {
         "name": "laravel/framework",
-        "version": "v8.18.1",
-        "version_normalized": "8.18.1.0",
+        "version": "v8.19.0",
+        "version_normalized": "8.19.0.0",
         "source": {
             "type": "git",
             "url": "https://github.com/laravel/framework.git",
-            "reference": "31747193c26ba0a9cb7929a912895d3cdefd10cf"
+            "reference": "f5f331cee60f1bbe672503b7eb9ba5b22b2ceacb"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/laravel/framework/zipball/31747193c26ba0a9cb7929a912895d3cdefd10cf",
-            "reference": "31747193c26ba0a9cb7929a912895d3cdefd10cf",
+            "url": "https://api.github.com/repos/laravel/framework/zipball/f5f331cee60f1bbe672503b7eb9ba5b22b2ceacb",
+            "reference": "f5f331cee60f1bbe672503b7eb9ba5b22b2ceacb",
             "shasum": ""
         },
         "require": {
@@ -1505,7 +1505,7 @@
             "symfony/psr-http-message-bridge": "Required to use PSR-7 bridging features (^2.0).",
             "wildbit/swiftmailer-postmark": "Required to use Postmark mail driver (^3.0)."
         },
-        "time": "2020-12-08T22:05:12+00:00",
+        "time": "2020-12-15T16:16:31+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -1982,17 +1982,17 @@
     },
     {
         "name": "monolog/monolog",
-        "version": "2.1.1",
-        "version_normalized": "2.1.1.0",
+        "version": "2.2.0",
+        "version_normalized": "2.2.0.0",
         "source": {
             "type": "git",
             "url": "https://github.com/Seldaek/monolog.git",
-            "reference": "f9eee5cec93dfb313a38b6b288741e84e53f02d5"
+            "reference": "1cb1cde8e8dd0f70cc0fe51354a59acad9302084"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/Seldaek/monolog/zipball/f9eee5cec93dfb313a38b6b288741e84e53f02d5",
-            "reference": "f9eee5cec93dfb313a38b6b288741e84e53f02d5",
+            "url": "https://api.github.com/repos/Seldaek/monolog/zipball/1cb1cde8e8dd0f70cc0fe51354a59acad9302084",
+            "reference": "1cb1cde8e8dd0f70cc0fe51354a59acad9302084",
             "shasum": ""
         },
         "require": {
@@ -2005,16 +2005,17 @@
         "require-dev": {
             "aws/aws-sdk-php": "^2.4.9 || ^3.0",
             "doctrine/couchdb": "~1.0@dev",
-            "elasticsearch/elasticsearch": "^6.0",
+            "elasticsearch/elasticsearch": "^7",
             "graylog2/gelf-php": "^1.4.2",
+            "mongodb/mongodb": "^1.8",
             "php-amqplib/php-amqplib": "~2.4",
             "php-console/php-console": "^3.1.3",
-            "php-parallel-lint/php-parallel-lint": "^1.0",
             "phpspec/prophecy": "^1.6.1",
+            "phpstan/phpstan": "^0.12.59",
             "phpunit/phpunit": "^8.5",
             "predis/predis": "^1.1",
             "rollbar/rollbar": "^1.3",
-            "ruflin/elastica": ">=0.90 <3.0",
+            "ruflin/elastica": ">=0.90 <7.0.1",
             "swiftmailer/swiftmailer": "^5.3|^6.0"
         },
         "suggest": {
@@ -2031,11 +2032,11 @@
             "rollbar/rollbar": "Allow sending log messages to Rollbar",
             "ruflin/elastica": "Allow sending log messages to an Elastic Search server"
         },
-        "time": "2020-07-23T08:41:23+00:00",
+        "time": "2020-12-14T13:15:25+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
-                "dev-master": "2.x-dev"
+                "dev-main": "2.x-dev"
             }
         },
         "installation-source": "dist",
@@ -2052,11 +2053,11 @@
             {
                 "name": "Jordi Boggiano",
                 "email": "j.boggiano@seld.be",
-                "homepage": "http://seld.be"
+                "homepage": "https://seld.be"
             }
         ],
         "description": "Sends your logs to files, sockets, inboxes, databases and various web services",
-        "homepage": "http://github.com/Seldaek/monolog",
+        "homepage": "https://github.com/Seldaek/monolog",
         "keywords": [
             "log",
             "logging",
@@ -2483,23 +2484,23 @@
     },
     {
         "name": "phar-io/version",
-        "version": "3.0.3",
-        "version_normalized": "3.0.3.0",
+        "version": "3.0.4",
+        "version_normalized": "3.0.4.0",
         "source": {
             "type": "git",
             "url": "https://github.com/phar-io/version.git",
-            "reference": "726c026815142e4f8677b7cb7f2249c9ffb7ecae"
+            "reference": "e4782611070e50613683d2b9a57730e9a3ba5451"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/phar-io/version/zipball/726c026815142e4f8677b7cb7f2249c9ffb7ecae",
-            "reference": "726c026815142e4f8677b7cb7f2249c9ffb7ecae",
+            "url": "https://api.github.com/repos/phar-io/version/zipball/e4782611070e50613683d2b9a57730e9a3ba5451",
+            "reference": "e4782611070e50613683d2b9a57730e9a3ba5451",
             "shasum": ""
         },
         "require": {
             "php": "^7.2 || ^8.0"
         },
-        "time": "2020-11-30T09:21:21+00:00",
+        "time": "2020-12-13T23:18:30+00:00",
         "type": "library",
         "installation-source": "dist",
         "autoload": {
@@ -4730,6 +4731,65 @@
                 "url": "https://github.com/sebastianbergmann",
                 "type": "github"
             }
+        ]
+    },
+    {
+        "name": "stripe/stripe-php",
+        "version": "v7.67.0",
+        "version_normalized": "7.67.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/stripe/stripe-php.git",
+            "reference": "935d2c67912007f6d17b6c08a62050252c509129"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/stripe/stripe-php/zipball/935d2c67912007f6d17b6c08a62050252c509129",
+            "reference": "935d2c67912007f6d17b6c08a62050252c509129",
+            "shasum": ""
+        },
+        "require": {
+            "ext-curl": "*",
+            "ext-json": "*",
+            "ext-mbstring": "*",
+            "php": ">=5.6.0"
+        },
+        "require-dev": {
+            "friendsofphp/php-cs-fixer": "2.17.1",
+            "php-coveralls/php-coveralls": "^2.1",
+            "phpunit/phpunit": "^5.7",
+            "squizlabs/php_codesniffer": "^3.3",
+            "symfony/process": "~3.4"
+        },
+        "time": "2020-12-09T19:00:34+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "2.0-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Stripe\\": "lib/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Stripe and contributors",
+                "homepage": "https://github.com/stripe/stripe-php/contributors"
+            }
+        ],
+        "description": "Stripe PHP Library",
+        "homepage": "https://stripe.com/",
+        "keywords": [
+            "api",
+            "payment processing",
+            "stripe"
         ]
     },
     {

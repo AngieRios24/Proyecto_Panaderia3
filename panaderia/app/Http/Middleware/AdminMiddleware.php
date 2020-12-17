@@ -18,12 +18,9 @@ class AdminMiddleware
     {
     if(! $request->user()->hasRole($role)){
 
-        return redirect('productos');
+        return redirect('/productos');
         return $next($request);
 
         }
     }
-
-
-
 }

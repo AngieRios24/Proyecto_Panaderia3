@@ -26,6 +26,7 @@ class VistaController extends Controller
     {
         return view('productos.productos',[
             'products' =>DB::select("SELECT * FROM  ListarProducts()")
+
         ]);
     }
 

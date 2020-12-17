@@ -23,7 +23,7 @@ class Order extends Model
         return $this->belongsToMany('App\Product','order_products')->withPivote('product_id');
     }
     public function statu() {
-        return $this->belongsToMany('App\Statu','statu_orders')->withPivote('statu_id');
+        return $this->belongsToMany('App\Statu','statu_orders')->withPivote('status_id');
     }
     public function domiciliary() {
         return $this->belongsToMany('App\Domiciliary');

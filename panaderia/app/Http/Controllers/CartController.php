@@ -3,12 +3,13 @@
 namespace App\Http\Controllers;
 use App\Models\Product;
 use App\Models\Order;
+use App\Models\Statu;
 use App\Models\WayToPay;
 use App\Models\Domiciliary;
 use App\Models\OrderProduct;
 use Illuminate\Http\Request;
 use App\Models\StatuOrder;
-
+use DB;
 use Cart;
 Use Auth;
 class CartController extends Controller
@@ -46,40 +47,43 @@ class CartController extends Controller
 
         if(Cart::getContent()->count()>0):
             $order= new Order();
-            $domiciliary = new Domiciliary();
+            echo (Cart::getSubTotal());
             $order->id= time();
             $order->order_price=(Cart::getSubTotal());
             $order->order_date=date('d-m-Y');
             $order->order_delivery=date('d-m-Y');
             $order->order_quantity=(count(Cart::getContent()));
             $order->order_address=$request->get('direccion');
-            //$order->order_latitud=pos.coords.latitude;
-            //$order->order_longitud=pos.coords.longitude;
+            $order->domiciliary_document=Domiciliary::first()->domiciliary_document;
             $order->customer_document= Auth::user()->documento;
             $order->way_id=$request->get('medio');
 
-            $order->save();
-            foreach(Cart::getContent() as $product):
+            DB::select("SELECT AddOrders('$order->id',' $order->order_date',
+            '$order->order_delivery','$order->order_quantity',
+            '$order->order_address','$order->order_price',
+            '$order->customer_document',
+            '$order->domiciliary_document',
+            '$order->way_id')");
+
+           foreach(Cart::getContent() as $product):
                 $orderproduct = new  OrderProduct();
-                $orderproduct->product_id   = $product->id;
+                $orderproduct->id= time();
+                $orderproduct->product_id  = $product->id;
                 $orderproduct->order_id = $order->id;
-                $orderproduct->save();
+                DB::select("SELECT AddProductOrders('$orderproduct->id',
+                '$orderproduct->order_id','$orderproduct->product_id ')");
             endforeach;
-           foreach(Cart::getContent() as $statu):
+          foreach(Cart::getContent() as $statu):
                 $statuorder = new  StatuOrder();
-                $statuorder->status_id   = $statu->id;
+                $statuorder->id= time();
+                $statuorder->status_id =1;
                 $statuorder->order_id = $order->id;
-                $statuorder->save();
+                DB::select("SELECT AddStatusOrder('$statuorder->id','$statuorder->order_id','$statuorder->status_id')");
             endforeach;
-            Cart::clear();
-            return redirect("productos.confirmar")->with(['codigo'=>$order->codigo]);
+           //Cart::clear();
+            return redirect("/pago");
         else:
             return redirect ('/cart-checkout');
         endif;
-
-
     }
-    public function verificar(){
-        return view('productos.verificar');
     }
-}

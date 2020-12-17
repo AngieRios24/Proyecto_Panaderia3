@@ -43,7 +43,9 @@ Route::get('/verificar',[\App\Http\Controllers\CartController::class,'verificar'
 Route::post('/proceso',[\App\Http\Controllers\CartController::class,'procesopedido'])->name('proceso')->middleware('auth');;
 Auth::routes();
 
-
+/* PASARELAS DE PAGO */
+Route::get('pago',[\App\Http\Controllers\StripeController::class,'stripe'])->name('stripe')->middleware('auth');;
+Route::post('checkout',[App\Http\Controllers\StripeController::class,'pay'])->name('productos.confirmar')->middleware('auth');;
 Auth::routes();
 
 

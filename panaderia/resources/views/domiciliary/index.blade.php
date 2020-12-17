@@ -16,22 +16,13 @@
         <h4>Gestionar Domiciliarios</h4>
     </div>
 </div>
-<div class="row">
-    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 text-right">
-        <form>
-            <div class="form-group">
-                 <input type="text"  id="buscar" name="buscar"
-                 placeholder="Buscar">
-                 <button class="bt btn-primary">Buscar </button>
-             </div>
-
-        </form>
-    </div>
-    <div class="col-lg-7 col-md-4 col-sm-6 col-xs-12 text-right">
+<div class=row>
+    <div class="col-lg-11 col-md-4 col-sm-6 col-xs-12 text-right">
         <a href="/domiciliary/create" class="btn btn-success">Agregar Domiciliario</a>
         <a href="/home" class="btn btn-secondary">Regresar</a>
     </div>
 </div>
+<br>
 <div class="flex justify-center">
 <div class="row justify-content-center">
         <div class="col-lg-10 text-center">
@@ -52,7 +43,7 @@
                 @foreach ($domiciliary as $domiciliary)
                 @foreach ($type_document as $typedocument)
 
-                <tr>
+                    <tr>
                             <td class="border px-4 py-2">{{$typedocument->name}}</td>
                             <td class="border px-4 py-2">{{$domiciliary->domiciliary_document}}</td>
                             <td class="border px-4 py-2">{{$domiciliary->domiciliary_name}}</td>
@@ -76,13 +67,13 @@
                                 </form>
                              </td>
 
-                        </tr>
+                  </tr>
                     @endforeach
                     @endforeach
                 </tbody>
             </table>
         </div>
-
+</div>
 
 </div>
 

@@ -27,7 +27,7 @@
                     <th class="border px-4 py-">Dirección Pedido</th>
                     <th class="border px-4 py-">Cantidad Pedido</th>
                     <th class="border px-4 py-">Estado Pedido</th>
-                    <th class="border px-4 py-">Despachar</th>
+
                 </thead>
                 <tbody>
 
@@ -40,10 +40,7 @@
                             <td class="border px-4 py-2">{{$order->order_quantity}}</td>
                             <td class="border px-4 py-2">{{$order->status_name}}</td>
 
-                            <td class="border px-4 py-2">
-                                <a class=" btn btn-info border-green-500"
-                                 href="">Despachar</a>
-                            </td>
+
                  </tr>
                     @endforeach
                 </tbody>

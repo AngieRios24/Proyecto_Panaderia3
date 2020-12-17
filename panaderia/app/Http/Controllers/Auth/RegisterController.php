@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
+
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -32,7 +33,6 @@ class RegisterController extends Controller
      * @var string
      */
     protected $redirectTo = RouteServiceProvider::HOME;
-
     /**
      * Create a new controller instance.
      *
@@ -69,7 +69,7 @@ class RegisterController extends Controller
     {
 
 
-        return User::create([
+        $user = User::create([
             'tipo'=>$data['tipodocumento'],
             'documento'=>$data['documento'],
             'name' => $data['name'],
@@ -79,7 +79,20 @@ class RegisterController extends Controller
             'role' => $data['role'],
             'password' => Hash::make($data['password']),
 
+
+
         ]);
+
+        $customer_document=$data['documento'];
+        $customer_name=$data['name'];
+        $customer_lastname=$data['apellido'];
+        $customer_phone=$data['celular'];
+        $customer_mail=$data['email'];
+        $typedocument_id=$data['tipodocumento'];
+
+        DB::select("SELECT AddCustomers('$customer_document','$customer_name',
+        '$customer_lastname','$customer_phone', '$customer_mail',
+        '$typedocument_id')");
     }
-   
+
 }
